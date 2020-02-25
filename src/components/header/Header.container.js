@@ -69,7 +69,8 @@ const Header = () => {
 const StyledContainer = styled.div`
     z-index: 2;
     margin: 0 auto;
-    max-width: 1200px;
+    padding: 0 15px;
+    max-width: 1600px;
     position: ${props => props.isHeaderFixed ? `fixed` : `absolute`};
     top: 0;
     left: 0;

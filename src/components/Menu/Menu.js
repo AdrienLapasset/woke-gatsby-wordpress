@@ -32,9 +32,11 @@ export class Menu extends Component {
     return (
       <>
         <StyledContainer>
-          <StyledUl>
-            {pageList}
-          </StyledUl>
+          <StyledUlContainer>
+            <StyledUl>
+              {pageList}
+            </StyledUl>
+          </StyledUlContainer>
         </StyledContainer>
       </>
     );
@@ -52,13 +54,17 @@ const StyledContainer = styled.div`
   right: 0;
   bottom: 0;  
 `
-
+const StyledUlContainer = styled.div`
+  max-width: 1600px;
+  padding: 0 15px;
+  margin: 0 auto;
+`
 const StyledUl = styled.ul`
   flex: 0 0 auto;
   margin-left: auto;
   border-left: 1px solid rgba(255, 255, 255, .3);
-  padding: 400px 100px 0 40px;
-  width: 200px;
+  padding: 400px 0 0 40px;
+  width: 240px;
 `
 const StyledLi = styled.li`
   list-style: none;
