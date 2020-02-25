@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import { useStaticQuery, graphql } from "gatsby"
 
-import menuBg from 'src/assets/imgs/menuBg.png';
+import menuBg from 'src/assets/imgs/menuBg.jpg';
 import moreIcon from 'src/assets/icons/more.svg';
 
 export class Menu extends Component {
