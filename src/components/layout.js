@@ -1,5 +1,5 @@
 import React from "react"
-import PropTypes from "prop-types"
+import styled from 'styled-components'
 import { useStaticQuery, graphql } from "gatsby"
 import { ThemeProvider } from 'styled-components'
 import theme from 'src/styles/theme'
@@ -24,27 +24,22 @@ const Layout = ({ children }) => {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header siteTitle={data.site.siteMetadata.title} />
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `0 1.0875rem 1.45rem`,
-          }}
-        >
-          <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
+        <StyledLayout>
+          {children}
+        </StyledLayout>
+        <footer>
+          © {new Date().getFullYear()}, Built with
           {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
-        </div>
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        </footer>
       </ThemeProvider>
     </>
   )
 }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+const StyledLayout = styled.section`
+  margin: 150px auto;
+  max-width: 1200px;
+`
 
 export default Layout

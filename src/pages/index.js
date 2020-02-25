@@ -2,14 +2,13 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Home from "./Home/Home.container"
 
 const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Home" />
-      <Link to="/projects/">Projects</Link>
+      <Home></Home>
     </Layout>
   )
 }
