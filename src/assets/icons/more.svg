@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="37px" height="37px" viewBox="0 0 37 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 58 (101010) - https://sketch.com -->
+    <title>3AEC9409-5D35-4204-8996-48992760C83B</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <polygon id="path-1" points="199.453801 189.046199 199.453801 176.777778 186.990643 176.777778 186.990643 189.046199 174.722222 189.046199 174.722222 201.509357 186.990643 201.509357 186.990643 213.777778 199.453801 213.777778 199.453801 201.509357 211.722222 201.509357 211.722222 189.046199"></polygon>
+    </defs>
+    <g id="Asset-Artboard-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/Menu/More">
+            <g transform="translate(-174.722222, -176.777778)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Path" fill="#A3944A" xlink:href="#path-1"></use>
+                <g id="Colors/Black-Colors/BrownDark" mask="url(#mask-2)" fill="#A3944A">
+                    <rect id="Colors/BrownDark" x="0" y="0" width="505.666656" height="435.777771"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

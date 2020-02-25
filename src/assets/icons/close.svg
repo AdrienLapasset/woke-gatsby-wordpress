@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="65px" height="65px" viewBox="0 0 65 65" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 58 (101010) - https://sketch.com -->
+    <title>1CB3E327-ACA8-4DBF-892B-925D377C32FD</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <polygon id="path-1" points="366.563743 347.436257 366.563743 324.888889 343.65848 324.888889 343.65848 347.436257 321.111111 347.436257 321.111111 370.34152 343.65848 370.34152 343.65848 392.888889 366.563743 392.888889 366.563743 370.34152 389.111111 370.34152 389.111111 347.436257"></polygon>
+    </defs>
+    <g id="Hi-Fidelity-Prototype" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home-Map" transform="translate(-482.000000, -2346.000000)">
+            <g id="hover" transform="translate(9.000000, 1718.000000)">
+                <g id="Icons/Menu/More" transform="translate(612.500000, 612.500000) rotate(-45.000000) translate(-612.500000, -612.500000) translate(147.000000, 212.000000)">
+                    <g transform="translate(0.888889, 0.111111)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="Path" fill="#A3944A" xlink:href="#path-1"></use>
+                        <g id="Colors/Black-Colors/White" mask="url(#mask-2)" fill="#FFFFFF">
+                            <rect id="Colors/White" x="0" y="0" width="929.333313" height="800.888916"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
