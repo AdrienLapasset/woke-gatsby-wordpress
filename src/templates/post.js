@@ -1,17 +1,20 @@
-import React, { Component } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
+import Img from "gatsby-image"
 
-class Post extends Component {
-  render() {
-    const post = this.props.data.wordpressPost
-    return (
-      <>
-        <h1>{post.title}</h1>
-        <div>{post.content}</div>
-      </>
-    )
-  }
+const Post = ({ data }) => {
+
+  const post = data.wordpressPost
+  const imgFluid = post.featured_media.localFile?.childImageSharp.fluid
+
+  return (
+    <>
+      <h1>{post.title}</h1>
+      <Img fluid={imgFluid} />
+      <div className="text" dangerouslySetInnerHTML={{ __html: post.content }} />
+    </>
+  )
 }
 
 Post.propTypes = {
@@ -26,6 +29,15 @@ export const postQuery = graphql`
     wordpressPost(id: { eq: $id }) {
       title
       content
+      featured_media {
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              ...GatsbyImageSharpFluid_noBase64
+            }
+          }
+        }
+      }
     }
     site {
       siteMetadata {
