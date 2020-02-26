@@ -27,7 +27,8 @@ button,
 div,
 span {
 	font-size: 20px;
-	font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 300;
   margin: 0;
   padding: 0;
   display: block;
