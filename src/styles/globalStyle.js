@@ -1,5 +1,6 @@
-import { createGlobalStyle } from 'styled-components/macro';
-import CambriaRegular from 'src/assets/fonts/Cambria.ttf';
+import { createGlobalStyle } from 'styled-components/macro'
+import 'typeface-nunito-sans'
+import CambriaRegular from 'src/assets/fonts/Cambria.ttf'
 
 export default createGlobalStyle`
 

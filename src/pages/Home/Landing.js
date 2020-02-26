@@ -107,7 +107,7 @@ border-bottom: 10px solid transparent;
 border-left: 15px solid ${props => props.theme.colors.black}; 
 `
 const StyledVideoContainer = styled.div`
-position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;

@@ -6,7 +6,6 @@ import theme from 'src/styles/theme'
 import GlobalStyle from 'src/styles/globalStyle'
 
 import Header from "./header/Header.container"
-import "./layout.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -39,7 +38,8 @@ const Layout = ({ children }) => {
 
 const StyledLayout = styled.section`
   margin: 150px auto;
-  max-width: 1200px;
+  max-width: 1600px;
+  padding: 15px;
 `
 
 export default Layout
