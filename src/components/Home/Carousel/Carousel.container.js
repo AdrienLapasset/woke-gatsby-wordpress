@@ -9,8 +9,8 @@ import CarouselItem from './CarouselItem'
 
 const Carousel = ({ data }) => {
   const imgWidth = 200
-  const [activeProject, setActiveProject] = useState(0);
-  const [translateItemsX, setTranslateItemsX] = useState(imgWidth);
+  const [activeProject, setActiveProject] = useState(1);
+  const [translateItemsX, setTranslateItemsX] = useState(0);
 
   const projects = data.allWordpressPost.edges
 
@@ -75,7 +75,7 @@ const StyledDotContainer = styled.div`
   display: flex;
   width: 100px;
   justify-content: space-between;
-  margin: 50px auto;
+  margin: 50px auto 20px;
 `
 const StyledDot = styled.span`
   cursor: pointer;

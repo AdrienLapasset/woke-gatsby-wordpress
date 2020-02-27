@@ -29,7 +29,7 @@ const Markers = () => {
       <>
         <StyledContainer x={marker.positionX} y={marker.positionY} key={index}>
           <StyledMarker
-            to={marker.path}
+            to={`projects/${marker.path}`}
             onMouseEnter={() => setProjectActive(imgSrc)}
             onMouseLeave={() => setProjectActive(null)}
           />

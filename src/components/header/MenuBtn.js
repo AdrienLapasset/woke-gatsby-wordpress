@@ -25,7 +25,6 @@ const StyledButton = styled.button`
 const FirstBar = styled.div`
   width: 25px;
   height: 5px;
-  /* background-color: ${props => props.isHeaderWhite ? `white` : props.theme.colors.black}; */
   margin-bottom: 5px;
 `
 const SecondBar = styled(FirstBar)`
