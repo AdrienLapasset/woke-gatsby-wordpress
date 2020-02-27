@@ -18,13 +18,13 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  const postTemplate = path.resolve(`./src/templates/post.js`)
+  const projectTemplate = path.resolve(`./src/templates/project.js`)
   result.data.allWordpressPost.edges.forEach(edge => {
     createPage({
       // will be the url for the page
       path: edge.node.slug,
       // specify the component template of your choice
-      component: slash(postTemplate),
+      component: slash(projectTemplate),
       // In the ^template's GraphQL query, 'id' will be available
       // as a GraphQL variable to query for this posts's data.
       context: {

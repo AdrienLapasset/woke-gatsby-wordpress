@@ -8,39 +8,22 @@ import HeaderBtn from './HeaderBtn';
 import Menu from 'src/components/Menu/Menu';
 
 
-const Header = () => {
+const Header = ({ isFluid }) => {
 
   const [isMenuOpen, setMenuOpen] = useState(false)
-  const [isHeaderWhite, setHeaderWhite] = useState(false)
-  const [isHeaderFixed, setHeaderFixed] = useState(false)
+  const [isHeaderWhite, setHeaderWhite] = useState(isFluid)
+  const [isHeaderFixed, setHeaderFixed] = useState(!isFluid)
 
-  // useEffect((isLocationBlog, isMenuOpen) => {
-  //   const handleMenu = () => {
-  //     if (!isLocationBlog && isMenuOpen) {
-  //       setMenuOpen(false)
-  //       setHeaderWhite(false)
-  //       setHeaderFixed(true)
-  //     } else if (!isLocationBlog && !isMenuOpen) {
-  //       setMenuOpen(false)
-  //       setHeaderWhite(false)
-  //       setHeaderFixed(true)
-  //     } else {
-  //       setHeaderWhite(true)
-  //       setHeaderFixed(false)
-  //     }
-  //   }
-
-  //   handleMenu()
-  // }, [location])
+  useEffect(() => {
+    if (isMenuOpen || isFluid) {
+      setHeaderWhite(true)
+    } else {
+      setHeaderWhite(false)
+    }
+  }, [isMenuOpen]);
 
   const toggleMenu = () => {
-    // if (isLocationBlog) {
     setMenuOpen(!isMenuOpen)
-    setHeaderWhite(!isHeaderWhite)
-    // } else {
-    //   setMenuOpen(!isMenuOpen)
-    //   setHeaderWhite(!isHeaderWhite)
-    // }
   }
 
   return (

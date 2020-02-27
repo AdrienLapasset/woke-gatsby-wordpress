@@ -6,7 +6,7 @@ import GlobalStyle from 'src/styles/globalStyle'
 
 import Header from "./header/Header.container"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, isFluid }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -21,8 +21,8 @@ const Layout = ({ children }) => {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <StyledLayout>
+        <Header siteTitle={data.site.siteMetadata.title} isFluid={isFluid} />
+        <StyledLayout isFluid={isFluid} >
           {children}
         </StyledLayout>
         <footer>
@@ -36,9 +36,9 @@ const Layout = ({ children }) => {
 }
 
 const StyledLayout = styled.section`
-  margin: 150px auto;
-  max-width: 1600px;
-  padding: 15px;
+  margin: ${props => props.isFluid ? '' : '150px auto'};
+  max-width: ${props => props.isFluid ? '' : '1600px'};
+  padding:${props => props.isFluid ? '' : '15px'};
 `
 
 export default Layout
