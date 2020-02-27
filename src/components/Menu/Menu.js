@@ -19,7 +19,7 @@ const Menu = () => {
   const pageList = pages.map((page, index) => {
     return (
       <StyledLi key={index}>
-        <StyledNavLink to={page.path} activeClassName="active">{page.name}</StyledNavLink>
+        <StyledNavLink to={page.path} activeClassName="active" partiallyActive={page.path !== '/'}>{page.name}</StyledNavLink>
       </StyledLi>
     )
   })
@@ -67,7 +67,7 @@ const StyledLi = styled.li`
   margin-bottom: 15px;
 `
 const StyledNavLink = styled(Link)`
-  font-weight: 700;
+  font-weight: 400;
   font-size: 23px;
   color: white;
   text-decoration: none;

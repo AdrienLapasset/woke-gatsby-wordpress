@@ -48,11 +48,11 @@ const ProjectNav = ({ data, currentProjectSlug }) => {
 
   return (
     <StyledContainer>
-      <Link to={previousSlug}>
+      <Link to={`projects/${previousSlug}`}>
         {previousNumber}
         {previousTitle}
       </Link>
-      <Link to={nextSlug}>
+      <Link to={`projects/${nextSlug}`}>
         {nextNumber}
         {nextTitle}
       </Link>
