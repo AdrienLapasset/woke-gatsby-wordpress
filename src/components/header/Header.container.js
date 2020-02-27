@@ -36,7 +36,7 @@ const Header = () => {
   const toggleMenu = () => {
     // if (isLocationBlog) {
     setMenuOpen(!isMenuOpen)
-    setHeaderWhite(true)
+    setHeaderWhite(!isHeaderWhite)
     // } else {
     //   setMenuOpen(!isMenuOpen)
     //   setHeaderWhite(!isHeaderWhite)

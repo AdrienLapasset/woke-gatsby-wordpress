@@ -1,46 +1,40 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-// import { useStaticQuery, graphql } from "gatsby"
+import { fadeIn } from 'src/styles/keyframes';
 
 import menuBg from 'src/assets/imgs/menuBg.jpg';
 import moreIcon from 'src/assets/icons/more.svg';
 
-export class Menu extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      pages: [
-        { name: 'Intro', path: '/' },
-        { name: 'Qui est Woke ?', path: '/about' },
-        { name: 'Projets', path: '/projects' },
-        { name: 'Blog', path: '/blog' },
-        { name: 'Agir avec nous', path: '/Volunteer' },
-      ]
-    }
-  }
-  render() {
-    const { pages } = this.state
-    const pageList = pages.map((page, index) => {
-      return (
-        <StyledLi key={index}>
-          <StyledNavLink to={page.path} activeClassName="active">{page.name}</StyledNavLink>
-        </StyledLi>
-      )
-    })
+const Menu = () => {
 
+  const pages = [
+    { name: 'Intro', path: '/' },
+    { name: 'Qui est Woke ?', path: '/about' },
+    { name: 'Projets', path: '/projects' },
+    { name: 'Blog', path: '/blog' },
+    { name: 'Agir avec nous', path: '/Volunteer' },
+  ]
+
+  const pageList = pages.map((page, index) => {
     return (
-      <>
-        <StyledContainer>
-          <StyledUlContainer>
-            <StyledUl>
-              {pageList}
-            </StyledUl>
-          </StyledUlContainer>
-        </StyledContainer>
-      </>
-    );
-  }
+      <StyledLi key={index}>
+        <StyledNavLink to={page.path} activeClassName="active">{page.name}</StyledNavLink>
+      </StyledLi>
+    )
+  })
+
+  return (
+    <>
+      <StyledContainer>
+        <StyledUlContainer>
+          <StyledUl>
+            {pageList}
+          </StyledUl>
+        </StyledUlContainer>
+      </StyledContainer>
+    </>
+  );
 }
 
 const StyledContainer = styled.div`
@@ -52,7 +46,9 @@ const StyledContainer = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;  
+  bottom: 0;
+  opacity: 0;
+  animation: ${fadeIn} .2s forwards;
 `
 const StyledUlContainer = styled.div`
   max-width: 1600px;
