@@ -25,7 +25,9 @@ p,
 a,
 button,
 div,
-span {
+span,
+ul,
+li {
 	font-size: 20px;
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 300;
@@ -45,5 +47,9 @@ button {
   outline: none;
   border: none;
   cursor: pointer;
+}
+
+li {
+  list-style: none;
 }
 `
