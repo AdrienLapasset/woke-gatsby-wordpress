@@ -1,39 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "gatsby"
+import { Link, graphql, StaticQuery } from "gatsby"
 import styled from 'styled-components'
+import Img from "gatsby-image"
 
-// import BgImage from 'src/components/global/BgImage'
 import Heading from 'src/components/global/Heading'
 import Button from 'src/components/global/Button'
 
-const News = () => {
+const News = ({ data }) => {
 
-  const [article, setArticle] = useState({
-    content: { rendered: null },
-    title: { rendered: null },
-    excerpt: { rendered: null }
+  const projects = data.allWordpressPost.edges
+
+  const projectsByLang = projects.filter(project => {
+    const lang = project.node.categories[0].slug
+    return lang === 'fr'
   })
 
-  const fetchPost = async () => {
-    const response = await fetch(`https://woke.fr/wp-json/wp/v2/posts?per_page=1&categories=21`)
-    const data = await response.json()
-    setArticle(data[0])
-  }
+  const imgFixed = projectsByLang[0].node.featured_media.localFile.childImageSharp.fixed
 
-  useEffect(() => {
-    fetchPost()
-  }, [])
+  const truncate = (string) => {
+    return string.substring(3, 300) + "..."
+  }
 
   return (
     <StyledContainer>
       <Heading h2>Les actualités</Heading>
-      <StyledLink to={`/blog/${article.slug}`}>
+      <StyledLink to={`/blog/${projectsByLang[0].node.slug}`}>
         <FlexContainer>
-          <Heading>{article.title.rendered}</Heading>
-          <div className="text" dangerouslySetInnerHTML={{ __html: article.excerpt.rendered }} />
+          <Heading>{projectsByLang[0].node.title}</Heading>
+          {truncate(projectsByLang[0].node.excerpt)}
         </FlexContainer>
         <FlexContainer>
-          {/* <BgImage url={article.fimg_url} /> TODO */}
+          <Img fixed={imgFixed} />
         </FlexContainer>
       </StyledLink>
       <Link to={'/blog'} >
@@ -57,4 +54,33 @@ const StyledLink = styled(Link)`
   display: flex;
 `
 
-export default News;
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query {
+        allWordpressPost(limit: 2) {
+          edges {
+            node {
+              title
+              excerpt
+              slug
+              categories {
+                slug
+              }
+              featured_media {
+                localFile {
+                  childImageSharp {
+                    fixed(width: 600, height: 300) {
+                      ...GatsbyImageSharpFixed
+                  }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={data => <News data={data} {...props} />}
+  />
+)
