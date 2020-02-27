@@ -81,7 +81,7 @@ export const postQuery = graphql`
         localFile {
           childImageSharp {
             fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid_noBase64
+              ...GatsbyImageSharpFluid
             }
           }
         }
