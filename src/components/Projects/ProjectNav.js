@@ -11,44 +11,51 @@ const ProjectNav = ({ data, currentProjectSlug }) => {
     return lang === 'fr'
   })
 
-  const projectsSlug = projectsByLang.map((project) => {
+  const reversedProjects = projectsByLang.reverse()
+
+  const projectsSlug = reversedProjects.map((project) => {
     return project.node.slug
   })
 
-  const projectsTitle = projectsByLang.map((project) => {
+  const projectsTitle = reversedProjects.map((project) => {
     return project.node.title
   })
 
   const currentProjectIndex = projectsSlug.indexOf(currentProjectSlug)
 
-  let previousSlugId = currentProjectIndex - 1
-  let nextSlugId = currentProjectIndex + 1
-  let previousSlug = null
-  let nextSlug = null
-  let previousTitle = null
-  let nextTitle = null
+  let previousSlugIndex = currentProjectIndex - 1
+  let nextSlugIndex = currentProjectIndex + 1
 
-  if (previousSlugId <= -1) {
+  let previousSlug = projectsSlug[previousSlugIndex]
+  let previousTitle = projectsTitle[previousSlugIndex]
+  let previousNumber = previousSlugIndex + 1
+
+  let nextSlug = projectsSlug[nextSlugIndex]
+  let nextTitle = projectsTitle[nextSlugIndex]
+  let nextNumber = nextSlugIndex + 1
+
+  if (previousSlugIndex <= -1) {
     previousSlug = projectsSlug[projectsSlug.length - 1]
     previousTitle = projectsTitle[projectsSlug.length - 1]
-    // previousSlugId = projectsSlug.length - 1
-  } else {
-    previousSlug = projectsSlug[previousSlugId]
-    previousTitle = projectsTitle[previousSlugId]
+    previousNumber = projectsSlug.length
   }
-  if (nextSlugId >= projectsSlug.length - 1) {
+
+  if (nextSlugIndex >= projectsSlug.length - 1) {
     nextSlug = projectsSlug[0]
     nextTitle = projectsTitle[0]
-    // nextSlugId = projectsSlug.length - 1
-  } else {
-    nextSlug = projectsSlug[nextSlugId]
-    nextTitle = projectsTitle[nextSlugId]
+    nextNumber = 1
   }
 
   return (
     <StyledContainer>
-      <Link to={previousSlug}>{previousSlugId + 2}{previousTitle}</Link>
-      <Link to={nextSlug}>{nextSlugId + 2}{nextTitle}</Link>
+      <Link to={previousSlug}>
+        {previousNumber}
+        {previousTitle}
+      </Link>
+      <Link to={nextSlug}>
+        {nextNumber}
+        {nextTitle}
+      </Link>
     </StyledContainer>
   )
 }
