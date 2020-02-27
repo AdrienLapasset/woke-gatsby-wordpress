@@ -1,7 +1,6 @@
 import React from "react"
-import styled from 'styled-components'
 import { useStaticQuery, graphql } from "gatsby"
-import { ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import theme from 'src/styles/theme'
 import GlobalStyle from 'src/styles/globalStyle'
 

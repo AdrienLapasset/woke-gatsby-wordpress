@@ -7,15 +7,12 @@ import Path from './Path'
 import Markers from './Markers'
 
 const Map = () => {
-  const [bodyOffset, setBodyOffset] = useState(
-    document.body.getBoundingClientRect()
-  );
-  const [scrollY, setScrollY] = useState(bodyOffset.top);
+  const [bodyOffset, setBodyOffset] = useState(0)
+  const [scrollY, setScrollY] = useState(0)
 
   const listener = e => {
     setBodyOffset(document.body.getBoundingClientRect());
     setScrollY(-bodyOffset.top - 1300);
-    // setScrollDirection(lastScrollTop > -bodyOffset.top ? "down" : "up");
   };
 
   useEffect(() => {

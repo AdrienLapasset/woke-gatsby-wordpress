@@ -14,7 +14,8 @@ const HeadingOne = styled.h1`
 `
 const HeadingTwo = styled.h2`
   font-size: 24px;
-  color: ${props => props.theme.colors.grey};
+  /* color: ${props => props.theme.colors.grey}; */
+  color: #B1B3B4;
   font-weight: 400;
 `
 

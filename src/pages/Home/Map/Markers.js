@@ -1,11 +1,24 @@
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components'
-import MarkersList from './MarkersList'
 import { Link } from 'gatsby'
 
 const Markers = () => {
-
-  const markers = MarkersList.markers
+  const markers = [
+    {
+      positionX: 200,
+      positionY: 300,
+      project: 'Sri Lanka',
+      path: 'sri-lanka',
+      img: 'menuBg'
+    },
+    {
+      positionX: 400,
+      positionY: 100,
+      project: 'Trash Hero Day',
+      path: 'classroom',
+      img: 'premices'
+    }
+  ]
   const [projectActive, setProjectActive] = useState(null);
 
   const projectsImgs = require.context('src/assets/imgs/interactiveMap', true);

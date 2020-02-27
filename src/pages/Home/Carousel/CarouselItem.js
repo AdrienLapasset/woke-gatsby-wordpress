@@ -6,11 +6,13 @@ import 'moment/locale/fr';
 import { Link } from "gatsby"
 
 const CarouselItem = ({ project, isActive, onClickItem }) => {
-  const imgFluid = project.featured_media.localFile.childImageSharp.fluid
-
+  let imgFluid = null
+  if (project !== undefined) { imgFluid = project.featured_media.localFile.childImageSharp.fluid }
   return (
     <StyledItem isActive={isActive} onClick={onClickItem}>
-      <StyledImg fluid={imgFluid} />
+      {imgFluid ?
+        <StyledImg fluid={imgFluid} />
+        : null}
       {isActive ?
         <StyledInfoContainer to={project.slug}>
           <StyledTitle>{project.title}</StyledTitle>
