@@ -55,36 +55,6 @@ const Carousel = ({ data }) => {
     </StyledSection>
   )
 }
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query {
-        allWordpressPost(limit: 8) {
-          edges {
-            node {
-              title
-              date
-              slug
-              categories {
-                slug
-              }
-              featured_media {
-                localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 500) {
-                      ...GatsbyImageSharpFluid_noBase64
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    `}
-    render={data => <Carousel data={data} {...props} />}
-  />
-)
 
 const StyledSection = styled.section`
   margin-top: 300px;
@@ -125,4 +95,34 @@ const StyledDot = styled.span`
     background-color: ${props => props.theme.colors.black};
     transform: scale(2);
   }
-  ` 
+  `
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query {
+        allWordpressPost(limit: 8) {
+          edges {
+            node {
+              title
+              date
+              slug
+              categories {
+                slug
+              }
+              featured_media {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 500) {
+                      ...GatsbyImageSharpFluid_noBase64
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={data => <Carousel data={data} {...props} />}
+  />
+)

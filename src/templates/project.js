@@ -4,11 +4,12 @@ import Img from "gatsby-image"
 import styled from 'styled-components'
 import Moment from 'react-moment';
 import Layout from "src/components/layout"
+import ProjectNav from "src/components/Projects/ProjectNav"
 
 const ProjectTemplate = ({ data }) => {
 
-  const post = data.wordpressPost
-  const imgFluid = post.featured_media.localFile?.childImageSharp.fluid
+  const project = data.wordpressPost
+  const imgFluid = project.featured_media.localFile?.childImageSharp.fluid
 
   return (
     <>
@@ -16,13 +17,13 @@ const ProjectTemplate = ({ data }) => {
         <StyledHeaderImg fluid={imgFluid} />
         <StyledInfoContainer>
           <StyledDate>
-            <Moment interval={0} format="DD MMMM YYYY" >{post.date}</Moment>
+            <Moment interval={0} format="DD MMMM YYYY" >{project.date}</Moment>
           </StyledDate>
-          {post.title}
+          {project.title}
         </StyledInfoContainer>
         <StyledContainer>
-          <StyledContent dangerouslySetInnerHTML={{ __html: post.content }} />
-          {/* <ProjectNav postSlugs={postSlugs} currentSlug={slug} /> */}
+          <StyledContent dangerouslySetInnerHTML={{ __html: project.content }} />
+          <ProjectNav currentProjectSlug={project.slug} />
         </StyledContainer>
       </Layout>
     </>
@@ -33,6 +34,7 @@ const StyledHeaderImg = styled(Img)`
   width: 100%;
   height: 100vh;
   object-fit: cover;
+  object-position: center;
 `
 const StyledInfoContainer = styled.div`
   display: flex;
@@ -74,6 +76,7 @@ export const postQuery = graphql`
       title
       content
       date
+      slug
       featured_media {
         localFile {
           childImageSharp {
