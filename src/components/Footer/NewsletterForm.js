@@ -7,31 +7,37 @@ const NewsletterForm = () => {
   return (
     <>
       <StyledContainer>
-        <p>Pour recevoir nos actualités et nos projets, laissez votre email : </p>
-        <Flex column>
-          <StyledForm method="post" action="#">
-            <StyledInput type="email" name="email" id="email" />
-            <StyledButton type="submit">Je m’abonne</StyledButton>
-          </StyledForm>
-          <StyledText>
-            En renseignant votre adresse mail, vous acceptez de recevoir chaque semaine
-            nos derniers articles de blog par courrier électronique et vous prenez connaissance
+        <StyledLayout>
+          <p>Pour recevoir nos actualités et nos projets, laissez votre email : </p>
+          <Flex column>
+            <StyledForm method="post" action="#">
+              <StyledInput type="email" name="email" id="email" />
+              <StyledButton type="submit">Je m’abonne</StyledButton>
+            </StyledForm>
+            <StyledText>
+              En renseignant votre adresse mail, vous acceptez de recevoir chaque semaine
+              nos derniers articles de blog par courrier électronique et vous prenez connaissance
             de notre <StyledLink to="/terms">Politique de confidentialité</StyledLink>.  Vous pouvez vous désinscrire à tout moment à l’aide
             des liens de désinscription ou en nous contactant à l’adresse mail :  <StyledA href="mailto:contact@woke.fr"
-              target="_blank"
-              rel="noopener noreferrer">
-              contact@woke.fr
+                target="_blank"
+                rel="noopener noreferrer">
+                contact@woke.fr
             </StyledA>.
           </StyledText>
-        </Flex>
+          </Flex>
+        </StyledLayout>
       </StyledContainer>
     </>
   );
 }
 
 const StyledContainer = styled.section`
-  background-color: #eeede2;
-  padding: 60px 0;
+  background-color: #eeede2;  
+`
+const StyledLayout = styled.section`
+  margin: 0 auto;
+  max-width: 1600px;
+  padding: 60px 15px;
   display: flex;
   & > * {
     flex: 1 1 0;

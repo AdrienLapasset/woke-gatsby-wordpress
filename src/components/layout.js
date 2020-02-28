@@ -25,8 +25,8 @@ const Layout = ({ children, isFluid }) => {
         <Header siteTitle={data.site.siteMetadata.title} isFluid={isFluid} />
         <StyledLayout isFluid={isFluid} >
           {children}
-          <Footer />
         </StyledLayout>
+        <Footer />
       </ThemeProvider>
     </>
   )

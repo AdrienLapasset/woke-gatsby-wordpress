@@ -19,7 +19,7 @@ const Footer = () => {
 
   return (
     <>
-      <Flex noFlex mb={60}>
+      <StyledContainer>
         <Flex justifyBetween >
           <Flex column>
             <StyledA href=""
@@ -78,13 +78,19 @@ const Footer = () => {
           </Flex>
           <StyledButton isNewsletterFormOpen={isNewsletterFormOpen} onClick={() => showNewsletterForm()}>S’abonner à la newsletter</StyledButton>
         </Flex>
-      </Flex>
+      </StyledContainer>
       {isNewsletterFormOpen ?
         <NewsletterForm />
         : null}
     </>
   );
 }
+
+const StyledContainer = styled.section`
+  margin: 150px auto 80px;
+  max-width: 1600px;
+  padding: 0 15px;
+`
 const LinkStyle = css`
   &:hover{
     text-decoration: underline;
