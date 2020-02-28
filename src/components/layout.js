@@ -5,7 +5,7 @@ import theme from 'src/styles/theme'
 import GlobalStyle from 'src/styles/globalStyle'
 
 import Header from "./header/Header.container"
-import Footer from "./Footer"
+import Footer from "./Footer/Footer.container"
 
 const Layout = ({ children, isFluid }) => {
   const data = useStaticQuery(graphql`
@@ -33,9 +33,9 @@ const Layout = ({ children, isFluid }) => {
 }
 
 const StyledLayout = styled.section`
-  margin: ${props => props.isFluid ? '' : '150px auto'};
+  margin: ${props => props.isFluid ? '' : '150px auto 0'};
   max-width: ${props => props.isFluid ? '' : '1600px'};
-  padding:${props => props.isFluid ? '' : '15px'};
+  padding:${props => props.isFluid ? '' : '0 15px'};
 `
 
 export default Layout

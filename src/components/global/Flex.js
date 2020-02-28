@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Flex = styled.div`
-  display: flex;
+  display: ${props => (props.noFlex ? 'block' : 'flex')};
   flex-wrap: ${props => {
     if (props.wrapReverse) return 'wrap-reverse'
     else if (props.noWrap) return 'nowrap'

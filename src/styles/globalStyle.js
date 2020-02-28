@@ -47,6 +47,7 @@ button {
   outline: none;
   border: none;
   cursor: pointer;
+  background-color: transparent;
 }
 
 li {
