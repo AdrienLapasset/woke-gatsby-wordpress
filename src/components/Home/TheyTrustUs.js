@@ -57,7 +57,7 @@ const TheyTrustUs = () => {
 }
 
 const StyledContainer = styled.div`
-  margin-top: 200px;
+  margin: 200px 0;
 `
 const StyledLogosContainer = styled.div`
   display: flex;

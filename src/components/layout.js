@@ -5,6 +5,7 @@ import theme from 'src/styles/theme'
 import GlobalStyle from 'src/styles/globalStyle'
 
 import Header from "./header/Header.container"
+import Footer from "./Footer"
 
 const Layout = ({ children, isFluid }) => {
   const data = useStaticQuery(graphql`
@@ -24,12 +25,8 @@ const Layout = ({ children, isFluid }) => {
         <Header siteTitle={data.site.siteMetadata.title} isFluid={isFluid} />
         <StyledLayout isFluid={isFluid} >
           {children}
+          <Footer />
         </StyledLayout>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
       </ThemeProvider>
     </>
   )

@@ -17,7 +17,7 @@ const StyledButton = styled.button`
   &:after {
     content: '';
     display: block;
-    width: 40px;
+    width: 80px;
     height: 3px;
     background-color: ${props => props.theme.colors.black};
     margin-top: 15px;
