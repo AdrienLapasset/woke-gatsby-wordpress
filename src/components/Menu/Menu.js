@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import BackgroundImage from 'gatsby-background-image'
 
 import { fadeIn } from 'src/styles/keyframes';
 
@@ -40,12 +41,13 @@ const Menu = () => {
   return (
     <>
       <StyledContainer>
-        <StyledImg fluid={data.menuBgImg.childImageSharp.fluid} />
-        <StyledUlContainer>
-          <StyledUl>
-            {pageList}
-          </StyledUl>
-        </StyledUlContainer>
+        <StyledBackgroundImage fluid={data.menuBgImg.childImageSharp.fluid}>
+          <StyledUlContainer>
+            <StyledUl>
+              {pageList}
+            </StyledUl>
+          </StyledUlContainer>
+        </StyledBackgroundImage>
       </StyledContainer>
     </>
   );
@@ -61,7 +63,7 @@ const StyledContainer = styled.div`
   opacity: 0;
   animation: ${fadeIn} .2s forwards;
 `
-const StyledImg = styled(Img)`
+const StyledBackgroundImage = styled(BackgroundImage)`
   width: 100%;
   height: 100%;
 `
@@ -69,9 +71,8 @@ const StyledUlContainer = styled.div`
   max-width: 1600px;
   padding: 0 15px;
   margin: 0 auto;
-  position: absolute;
   top: 0;
-    right: 0;
+  right: 0;
 `
 const StyledUl = styled.ul`
   flex: 0 0 auto;
