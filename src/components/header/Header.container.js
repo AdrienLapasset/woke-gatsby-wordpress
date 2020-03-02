@@ -7,7 +7,6 @@ import MenuBtn from './MenuBtn';
 import HeaderBtn from './HeaderBtn';
 import Menu from 'src/components/Menu/Menu';
 
-
 const Header = ({ isFluid }) => {
 
   const [isMenuOpen, setMenuOpen] = useState(false)
@@ -40,7 +39,7 @@ const Header = ({ isFluid }) => {
             <HeaderBtn isHeaderWhite={isHeaderWhite}>Faire un don</HeaderBtn>
           </Link>
           <Link to={'/Volunteer'} >
-            <HeaderBtn isHeaderWhite={isHeaderWhite}>Devenir volontaire</HeaderBtn>
+            <HeaderBtn second isHeaderWhite={isHeaderWhite}>Devenir volontaire</HeaderBtn>
           </Link>
         </StyledGroup>
       </StyledContainer>
