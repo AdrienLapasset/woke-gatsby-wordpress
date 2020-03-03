@@ -87,6 +87,7 @@ const Team = () => {
           <ul>
             {teamRender}
           </ul>
+          <p>Test</p>
         </StyledTextContainer>
       </StyledContainer>
     </>
