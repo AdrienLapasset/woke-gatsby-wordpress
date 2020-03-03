@@ -34,15 +34,19 @@ button,
 div,
 span,
 ul,
-li {
+li,
+q {
 	font-size: 20px;
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 300;
-  line-height: 1.7;
   margin: 0;
   padding: 0;
   display: block;
   box-sizing: border-box;
+}
+
+p {
+  line-height: 1.7;
 }
 
 a {
@@ -60,5 +64,23 @@ button {
 
 li {
   list-style: none;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 5s ease-in;
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0;
+  transition: opacity 3s ease-in;
 }
 `

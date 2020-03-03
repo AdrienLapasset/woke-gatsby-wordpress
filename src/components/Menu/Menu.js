@@ -14,7 +14,7 @@ const Menu = () => {
     { name: 'Qui est Woke ?', path: '/about' },
     { name: 'Projets', path: '/projects' },
     { name: 'Blog', path: '/blog' },
-    { name: 'Agir avec nous', path: '/Volunteer' },
+    { name: 'Agir avec nous', path: '/volunteer' },
   ]
 
   const data = useStaticQuery(graphql`
