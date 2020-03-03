@@ -51,7 +51,7 @@ const StyledContainer = styled.div`
 const StyledContent = styled.div`
   & p {
     &:first-of-type{
-      font-family: 'CambriaRegular', serif;
+      font-family: 'Cambria', serif;
       font-size: 35px;
       margin-bottom: 120px;
     }
