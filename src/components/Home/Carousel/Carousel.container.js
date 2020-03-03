@@ -39,7 +39,7 @@ const Carousel = ({ data }) => {
   }
 
   return (
-    <StyledSection>
+    <>
       <Heading h2>Nos dernières interventions</Heading>
       <StyledItemCropContainer>
         <StyledItemContainer translateX={translateItemsX}>
@@ -52,13 +52,10 @@ const Carousel = ({ data }) => {
       <Link to='/projects' >
         <Button>Voir tous nos projets</Button>
       </Link>
-    </StyledSection>
+    </>
   )
 }
 
-const StyledSection = styled.section`
-  margin-top: 300px;
-`
 const StyledItemCropContainer = styled.div`
   margin: 100px auto 0;
   overflow-x: hidden;

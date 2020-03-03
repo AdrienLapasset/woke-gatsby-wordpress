@@ -10,7 +10,7 @@ const Footer = () => {
   const [isNewsletterFormOpen, setIsNewsletterFormOpen] = useState(false)
 
   useEffect(() => {
-    window.scrollTo(0, document.body.scrollHeight)
+    if (isNewsletterFormOpen) window.scrollTo(0, document.body.scrollHeight)
   }, [isNewsletterFormOpen])
 
   const showNewsletterForm = () => {

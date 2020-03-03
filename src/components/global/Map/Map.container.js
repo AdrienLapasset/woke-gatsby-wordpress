@@ -35,7 +35,7 @@ const Map = () => {
 const StyledSection = styled.section`
   margin-top: 300px;
   position: relative;
-  height: 800px;
+  height: 1200px;
 `
 const StyledPath = styled(Path)`
   stroke-dasharray: 1000;

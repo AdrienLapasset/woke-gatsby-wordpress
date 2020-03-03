@@ -4,6 +4,7 @@ import Img from "gatsby-image"
 import styled from 'styled-components'
 import Flex from 'src/components/global/Flex'
 import Text from 'src/components/global/Text'
+import { fadeIn } from 'src/styles/keyframes';
 
 const Team = () => {
 
@@ -14,7 +15,7 @@ const Team = () => {
           node {
             name
             childImageSharp {
-              fixed(width: 600, quality: 90) {
+              fixed(width: 600, height: 700, quality: 90) {
                 ...GatsbyImageSharpFixed
               }
             }
@@ -71,7 +72,7 @@ const Team = () => {
     return (
       <>
         <SyledLi key={index} onMouseEnter={() => handleMouseEnter(member.imgName, member.name)} isActive={isActive}>
-          <StyledName big>{member.name}</StyledName>
+          <StyledName lg>{member.name}</StyledName>
           <p>{member.position}</p>
         </SyledLi>
       </>
@@ -81,13 +82,12 @@ const Team = () => {
   return (
     <>
       <StyledContainer>
-        <Img fixed={currentImage.node.childImageSharp.fixed} imgStyle={{ objectPosition: 'center top' }} />
+        <StyledImg fixed={currentImage.node.childImageSharp.fixed} imgStyle={{ objectPosition: 'center top' }} />
         <StyledTextContainer column>
           <StyledTitle>Derrière Woke …</StyledTitle>
           <ul>
             {teamRender}
           </ul>
-          <p>Test</p>
         </StyledTextContainer>
       </StyledContainer>
     </>
@@ -96,6 +96,7 @@ const Team = () => {
 
 
 const StyledContainer = styled(Flex)`
+  margin-bottom: 200px;
   & > * {
     flex: 1 1 0;
   }
@@ -111,8 +112,14 @@ const StyledName = styled(Text)`
 `
 const SyledLi = styled.li`
   & > * {
+    transition: color .4s;
     color: ${props => props.isActive ? props.theme.colors.black : props.theme.colors.grey};
   }
+
+`
+const StyledImg = styled(Img)`
+  opacity: 0;
+  animation: ${fadeIn} .4s forwards; 
 `
 
 
