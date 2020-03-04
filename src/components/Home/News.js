@@ -15,7 +15,7 @@ const News = ({ data }) => {
     return lang === 'fr'
   })
 
-  const imgFixed = projectsByLang[0].node.featured_media.localFile.childImageSharp.fixed
+  const imgFixed = projects[0].node.featured_media.localFile.childImageSharp.fixed
 
   const truncate = (string) => {
     return string.substring(3, 300) + "..."
@@ -24,10 +24,10 @@ const News = ({ data }) => {
   return (
     <StyledContainer>
       <Heading h2>Les actualités</Heading>
-      <StyledLink to={`/blog/${projectsByLang[0].node.slug}`}>
+      <StyledLink to={`/blog/${projects[0].node.slug}`}>
         <FlexContainer>
-          <Heading>{projectsByLang[0].node.title}</Heading>
-          {truncate(projectsByLang[0].node.excerpt)}
+          <Heading>{projects[0].node.title}</Heading>
+          {truncate(projects[0].node.excerpt)}
         </FlexContainer>
         <FlexContainer>
           <Img fixed={imgFixed} />
@@ -58,7 +58,7 @@ export default props => (
   <StaticQuery
     query={graphql`
       query {
-        allWordpressPost(limit: 2) {
+        allWordpressPost(limit: 2, filter: {categories: {elemMatch: {slug: {eq: "blog"}}}}) {
           edges {
             node {
               title

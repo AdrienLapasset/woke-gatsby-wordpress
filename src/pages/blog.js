@@ -7,8 +7,6 @@ import ArticleListItem from "src/components/Blog/ArticleListItem"
 
 const Blog = ({ data }) => {
 
-  console.log(data)
-
   const articles = data.allWordpressPost.edges
 
   const articlesList = articles.map((edge, index) => {
@@ -26,8 +24,7 @@ const Blog = ({ data }) => {
 }
 
 const StyledUl = styled.ul`
-  margin: 0 auto;
-  max-width: 600px;
+  margin-top: 200px;
 `
 
 export const query = graphql`
@@ -45,8 +42,8 @@ export const query = graphql`
             featured_media {
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 600) {
-                    ...GatsbyImageSharpFluid
+                  fixed(width: 800, height: 400, quality: 90) {
+                    ...GatsbyImageSharpFixed
                   }
                 }
               }

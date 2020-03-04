@@ -19,6 +19,7 @@ const ProjectsListItem = ({ edge, index }) => {
         <StyledNumber>{index}</StyledNumber>
         <Img fluid={imgFluid} />
         <StyledTitle>{project.title}</StyledTitle>
+        {/* <div dangerouslySetInnerHTML={{ __html: project.excerpt }} /> */}
         <StyledExcerpt>{truncate(project.excerpt)}</StyledExcerpt>
       </Link>
     </StyledLi>
@@ -31,7 +32,7 @@ const StyledNumber = styled.p`
   color: ${props => props.theme.colors.grey};
   opacity: .3;
   position: relative;
-  bottom: -40px;
+  bottom: -63px;
 `
 const StyledLi = styled.li`
   margin-bottom: 150px;

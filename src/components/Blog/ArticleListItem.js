@@ -2,52 +2,48 @@ import React from 'react';
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import styled from 'styled-components'
+import Heading from 'src/components/global/Heading'
+import Flex from 'src/components/global/Flex'
 
-const ArticleListItem = ({ edge, index }) => {
+const ArticleListItem = ({ edge }) => {
 
-  const project = edge.node
+  const article = edge.node
 
-  const imgFluid = project.featured_media.localFile?.childImageSharp.fluid
+  const imgFixed = article.featured_media.localFile?.childImageSharp.fixed
 
   const truncate = (string) => {
-    return string.substring(3, 100) + "..."
+    return string.substring(3, 400) + "..."
   }
 
   return (
-    <StyledLi>
-      <Link to={`projects/${project.slug}`}>
-        <StyledNumber>{index}</StyledNumber>
-        <Img fluid={imgFluid} />
-        <StyledTitle>{project.title}</StyledTitle>
-        <StyledExcerpt>{truncate(project.excerpt)}</StyledExcerpt>
-      </Link>
-    </StyledLi>
+    <StyledLink to={`blog/${article.slug}`} >
+      <StyledFlex column>
+        <Heading>{article.title}</Heading>
+        {/* {truncate(article.excerpt)} */}
+        <div dangerouslySetInnerHTML={{ __html: article.excerpt }} />
+      </StyledFlex>
+      <Img fixed={imgFixed} />
+    </StyledLink>
   )
 }
 
-const StyledNumber = styled.p`
-  font-size: 120px;
-  font-weight: 600;
-  color: ${props => props.theme.colors.grey};
-  opacity: .3;
-  position: relative;
-  bottom: -40px;
+const StyledFlex = styled(Flex)`
+  padding-right: 80px;  
 `
-const StyledLi = styled.li`
-  margin-bottom: 150px;
-  &:nth-child(even) {
-    ${StyledNumber} {
-      text-align: right;
-    }
+const StyledLink = styled(Link)`
+  margin-bottom: 200px;
+  display: flex;
+  & > * {
+    flex: 1 1 0;
   }
-`
-const StyledTitle = styled.h1`
-  margin: 20px 0;
-  font-weight: 400;
-  font-size: 26px;
-`
-const StyledExcerpt = styled.div`
+  &:nth-child(even) {
+   flex-direction: row-reverse;
 
+   ${StyledFlex} {
+    padding-left: 80px;
+    padding-right: 0;   
+   }
+ }
 `
 
 export default ArticleListItem;
