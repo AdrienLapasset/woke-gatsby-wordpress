@@ -80,38 +80,37 @@ const StyledUlContainer = styled.div`
 const heightAnim = keyframes`
   to {
     padding: 400px 0 0 40px;
-    height: 640px;
+    height: 680px;
   }
 `
 const StyledUl = styled.ul`
   flex: 0 0 auto;
   margin-left: auto;
   border-left: 1px solid rgba(255, 255, 255, .3);
-  padding: 0 0 0 40px;
   width: 240px;
-  animation: ${heightAnim} 1s forwards;
+  animation: ${heightAnim} .6s forwards;
   height: 0;
 `
 const StyledText = styled.p`
   font-weight: 400;
   font-size: 23px;
-  opacity: 0;
-  animation: ${fadeIn} 1s 1.2s forwards;
 `
 const StyledLi = styled.li`
   list-style: none;
   margin-bottom: 15px;
-  &:nth-child(2) ${StyledText} {
-    animation-delay: 1.4s;
+  opacity: 0;
+  animation: ${fadeIn} .8s .4s forwards;
+  &:nth-child(2)  {
+    animation-delay: .5s;
   }
-  &:nth-child(3) ${StyledText} {
-    animation-delay: 1.6s;
+  &:nth-child(3) {
+    animation-delay: .6s;
   }
-  &:nth-child(4) ${StyledText} {
-    animation-delay: 1.8s;
+  &:nth-child(4) {
+    animation-delay: .7s;
   }
-  &:nth-child(5) ${StyledText} {
-    animation-delay: 2s;
+  &:nth-child(5) {
+    animation-delay: .8s;
   }
 `
 const StyledNavLink = styled(Link)`
@@ -124,8 +123,6 @@ const StyledNavLink = styled(Link)`
       position: absolute;
       left: -59px;
       top: -3px;
-      opacity: 0;
-      animation: ${fadeIn} 1s 1s forwards;
     }
   }
   &:hover&:before {

@@ -16,7 +16,7 @@ const StyledButton = styled.button`
     font-size: 18px;
     background-color: transparent;
     transition: all .4s;
-    transition-delay: ${props => props.second ? '.4s' : '.2s'};
+    transition-delay: ${props => props.second ? '.2s' : '.1s'};
     
     ${({ isHeaderWhite }) => isHeaderWhite && `
       border-color: white;
