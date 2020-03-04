@@ -5,3 +5,8 @@ export const fadeIn = keyframes`
     opacity: 1;
   }
 `
+export const fadeOut = keyframes`
+  to {
+    opacity: 0;
+  }
+`

@@ -35,7 +35,7 @@ const Volunteer = () => {
 
 const StyledText = styled.p`
   max-width: 550px;
-  margin: auto;
+  margin: 300px auto 0;
 `
 const StyledImg = styled(Img)`
 `

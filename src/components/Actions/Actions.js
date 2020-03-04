@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import Flex from 'src/components/global/Flex'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Text from 'src/components/global/Text'
-import { fadeIn } from 'src/styles/keyframes';
-import { CSSTransitionGroup } from 'react-transition-group'
+import { fadeIn, fadeOut } from 'src/styles/keyframes';
 
 const Actions = () => {
 
@@ -35,60 +34,66 @@ const Actions = () => {
   ]
 
   const [activeAction, setActiveAction] = useState('donation')
+  const [activeTab, setActiveTab] = useState('donation')
+  const [isTransition, setIsTransition] = useState(false)
+  const transitionDuration = 150
+
+  const handleClick = (actionType) => {
+    setActiveTab(actionType)
+    setIsTransition(true)
+    setTimeout(() => {
+      setActiveAction(actionType)
+      setIsTransition(false)
+    }, transitionDuration)
+  }
 
   const actionTypes = actions.map((action, index) => {
-    const isActive = action.type === activeAction
+    const isActive = action.type === activeTab
     return (
-      <button key={index} onClick={() => setActiveAction(action.type)} isActive={isActive}>
+      <button key={index} onClick={() => handleClick(action.type)} isActive={isActive}>
         <StyledText lg isActive={isActive}>{action.type}</StyledText>
       </button>
     )
   })
 
   const currentAction = actions.find(action => action.type === activeAction)
-  const renderedAction = () => {
-    return (
-      <CSSTransitionGroup
-        transitionName="fade"
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={300}>
-        <div key={currentAction.name}>
-          <StyledTestymony quote>
-            {currentAction.testymony}<br />
-            {currentAction.testymonySignature}
-          </StyledTestymony>
-          <p>{currentAction.description}</p>
-
-        </div>
-      </CSSTransitionGroup>
-    )
-  }
 
   return (
     <StyledContainer>
       <Flex justifyBetween>
         {actionTypes}
       </Flex>
-
-      {renderedAction()}
+      <StyledContent isTransition={isTransition} transitionDuration={transitionDuration}>
+        <StyledTestymony quote>
+          {currentAction.testymony}<br />
+          {currentAction.testymonySignature}
+        </StyledTestymony>
+        <p>{currentAction.description}</p>
+      </StyledContent>
     </StyledContainer >
   );
 }
 
 const StyledContainer = styled.section`
-        max-width: 600px;
-        margin: auto;
-      `
+  max-width: 600px;
+  margin: 0 auto;
+  height: 900px;
+`
 const StyledTestymony = styled(Text)`
-        margin: 100px 0;
-      `
+  margin: 100px 0;
+`
 const StyledText = styled(Text)`
-        text-transform: capitalize;
+  text-transform: capitalize;
   color: ${props => props.isActive ? props.theme.colors.black : props.theme.colors.grey};
-      `
+  transition: color .2s;
+  &:hover {
+    color: ${props => props.theme.colors.black}
+  }
+`
 const StyledContent = styled.div`
-        /* opacity: 0;
-  animation: ${fadeIn} .4s forwards;  */
-      `
+  transition: opacity ${props => props.transitionDuration}ms;
+  opacity: ${props => props.isTransition ? 0 : 1}
+  /* animation: ${props => props.isTransition ? css`${fadeOut} .4s forwards` : css`${fadeIn} .4s forwards`};  */
+`
 
 export default Actions;
