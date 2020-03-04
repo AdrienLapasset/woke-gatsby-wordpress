@@ -3,27 +3,23 @@ import { graphql } from "gatsby"
 import styled from 'styled-components'
 
 import Layout from "../components/layout"
-import ProjectsListItem from "src/components/Projects/ProjectsListItem"
+import ArticleListItem from "src/components/Blog/ArticleListItem"
 
-const ProjectsList = ({ data }) => {
+const Blog = ({ data }) => {
 
-  const projects = data.allWordpressPost.edges
+  console.log(data)
 
+  const articles = data.allWordpressPost.edges
 
-  const projectsByLang = projects.filter(project => {
-    const lang = project.node.categories[0].slug
-    return lang === 'fr'
-  })
-
-  const projectsList = projectsByLang.map((edge, index) => {
-    const revertIndex = projectsByLang.length - index
-    return <ProjectsListItem key={index} edge={edge} index={revertIndex} />
+  const articlesList = articles.map((edge, index) => {
+    const revertIndex = articles.length - index
+    return <ArticleListItem key={index} edge={edge} index={revertIndex} />
   })
 
   return (
     <Layout>
       <StyledUl>
-        {projectsList}
+        {articlesList}
       </StyledUl>
     </Layout>
   )
@@ -36,7 +32,8 @@ const StyledUl = styled.ul`
 
 export const query = graphql`
   query {
-      allWordpressPost(filter: {categories: {elemMatch: {slug: {eq: "projets"}}}}) {
+      allWordpressPost(filter: {categories: {elemMatch: {slug: {eq: "blog"}}}}) {
+      # allWordpressPost {
         edges {
           node {
             excerpt
@@ -60,4 +57,4 @@ export const query = graphql`
     }
 `
 
-export default ProjectsList;
+export default Blog;
