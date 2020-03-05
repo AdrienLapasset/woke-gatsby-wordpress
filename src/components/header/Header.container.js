@@ -51,7 +51,7 @@ const Header = ({ isFluid }) => {
 const StyledContainer = styled.div`
     z-index: 2;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 35px;
     max-width: 1600px;
     position: ${props => props.isHeaderFixed ? `fixed` : `absolute`};
     top: 0;

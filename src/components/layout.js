@@ -35,7 +35,7 @@ const Layout = ({ children, isFluid }) => {
 const StyledLayout = styled.section`
   margin: ${props => props.isFluid ? '' : '150px auto 0'};
   max-width: ${props => props.isFluid ? '' : '1600px'};
-  padding:${props => props.isFluid ? '' : '0 15px'};
+  padding:${props => props.isFluid ? '' : '0 35px'};
 `
 
 export default Layout

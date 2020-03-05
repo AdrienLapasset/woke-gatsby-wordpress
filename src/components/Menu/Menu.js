@@ -22,7 +22,7 @@ const Menu = () => {
       menuBgImg: file(relativePath: { eq: "menuBg.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1600, quality: 90) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
@@ -44,7 +44,7 @@ const Menu = () => {
   return (
     <>
       <StyledContainer>
-        <StyledBackgroundImage fluid={data.menuBgImg.childImageSharp.fluid}>
+        <StyledBackgroundImage fluid={data.menuBgImg.childImageSharp.fluid} >
           <StyledUlContainer>
             <StyledUl>
               {pageList}

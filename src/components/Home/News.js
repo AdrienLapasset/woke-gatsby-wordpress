@@ -15,7 +15,7 @@ const News = ({ data }) => {
     return lang === 'fr'
   })
 
-  const imgFixed = projects[0].node.featured_media.localFile.childImageSharp.fixed
+  const imgFluid = projects[0].node.featured_media.localFile.childImageSharp.fluid
 
   const truncate = (string) => {
     return string.substring(3, 300) + "..."
@@ -30,7 +30,7 @@ const News = ({ data }) => {
           {truncate(projects[0].node.excerpt)}
         </FlexContainer>
         <FlexContainer>
-          <Img fixed={imgFixed} />
+          <StyledImg fluid={imgFluid} />
         </FlexContainer>
       </StyledLink>
       <Link to={'/blog'} >
@@ -53,6 +53,10 @@ const StyledLink = styled(Link)`
   margin-top: 80px;
   display: flex;
 `
+const StyledImg = styled(Img)`
+  width: 100%;
+  height: 300px;
+`
 
 export default props => (
   <StaticQuery
@@ -70,8 +74,8 @@ export default props => (
               featured_media {
                 localFile {
                   childImageSharp {
-                    fixed(width: 600, height: 300) {
-                      ...GatsbyImageSharpFixed
+                    fluid(maxWidth: 900) {
+                      ...GatsbyImageSharpFluid_withWebp
                   }
                   }
                 }
