@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import styled, { keyframes } from 'styled-components'
+import React, { useState } from 'react';
+import styled from 'styled-components'
 import 'moment/locale/fr';
 import { Link, graphql, StaticQuery } from "gatsby"
+import breakpoint from 'styled-components-breakpoint';
 
 import Button from 'src/components/global/Button'
 import Heading from 'src/components/global/Heading'
@@ -59,8 +60,12 @@ const Carousel = ({ data }) => {
 const StyledItemCropContainer = styled.div`
   margin: 100px auto 0;
   overflow-x: hidden;
-  width: 900px;
+  max-width: 900px;
   height: 400px;
+  /* ${breakpoint('lg')`
+    width: 1600px;
+    height: 700px;
+  `} */
 `
 const StyledItemContainer = styled.div`
   display: flex;

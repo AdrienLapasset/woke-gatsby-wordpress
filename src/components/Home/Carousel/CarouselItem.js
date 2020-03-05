@@ -4,6 +4,7 @@ import styled, { keyframes } from 'styled-components'
 import Moment from 'react-moment';
 import 'moment/locale/fr';
 import { Link } from "gatsby"
+import breakpoint from 'styled-components-breakpoint';
 
 const CarouselItem = ({ project, isActive, onClickItem }) => {
   let imgFluid = null
@@ -27,6 +28,10 @@ const StyledItem = styled.div`
   position: relative;
   flex: 0 0 200px;
   height: 300px;
+  /* ${breakpoint('lg')`
+   flex: 0 0 400px;
+   height: 600px;
+  `} */
   transition: all .4s;
  ${({ isActive }) => isActive && `
     flex: 0 0 500px;

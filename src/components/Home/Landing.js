@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import breakpoint from 'styled-components-breakpoint';
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
@@ -68,8 +69,12 @@ const Landing = () => {
 
 const StyledContainer = styled.section`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin-bottom: 200px;
+  ${breakpoint('lg')`
+    flex-direction: row;
+  `}
 `
 const StyledColumn = styled.div`
   position: relative;
@@ -77,10 +82,16 @@ const StyledColumn = styled.div`
   flex-direction: column;
   flex: 1 1 0;
   &:first-child{
-    padding: 120px 120px 0 0;
+    padding: 120px 0 120px;
+    ${breakpoint('lg')`
+      padding: 120px 120px 0 0;
+    `}
   }
   &:last-child{
-    padding-left: 120px;
+    padding-left: 0;
+    ${breakpoint('lg')`
+      padding-left: 120px;
+    `}
   }
 `
 const StyledButton = styled(Button)`

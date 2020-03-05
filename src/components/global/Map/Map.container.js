@@ -37,14 +37,15 @@ const Map = () => {
 const StyledSection = styled.section`
   margin-top: 300px;
   height: 1200px;
+  overflow: hidden;
 `
 const StyledMapContainer = styled.div`
   margin-top: 40px;
   position: relative;
+  width: 1600px;
 `
 const StyledImg = styled.img`
   width: 100%;
-  /* position: absolute; */
 `
 
 export default Map
