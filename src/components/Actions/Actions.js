@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import Flex from 'src/components/global/Flex'
 import styled, { css } from 'styled-components'
 import Text from 'src/components/global/Text'
-import { fadeIn, fadeOut } from 'src/styles/keyframes';
 import Button from 'src/components/global/Button';
 
-const Actions = () => {
+const Actions = ({ actionToDisplay }) => {
 
   const actions = [
     {
@@ -34,8 +33,8 @@ const Actions = () => {
     }
   ]
 
-  const [activeAction, setActiveAction] = useState('donation')
-  const [activeTab, setActiveTab] = useState('donation')
+  const [activeAction, setActiveAction] = useState(actionToDisplay)
+  const [activeTab, setActiveTab] = useState(actionToDisplay)
   const [isTransition, setIsTransition] = useState(false)
   const transitionDuration = 150
 
@@ -95,7 +94,6 @@ const StyledTabText = styled(Text)`
 const StyledContent = styled.div`
   transition: opacity ${props => props.transitionDuration}ms;
   opacity: ${props => props.isTransition ? 0 : 1};
-  /* animation: ${props => props.isTransition ? css`${fadeOut} .4s forwards` : css`${fadeIn} .4s forwards`};  */
 `
 const StyledContentText = styled(Text)`
   margin-bottom: 40px;

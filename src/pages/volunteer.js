@@ -6,7 +6,9 @@ import Img from "gatsby-image"
 import Flex from 'src/components/global/Flex'
 import Actions from 'src/components/Actions/Actions'
 
-const Volunteer = () => {
+const Volunteer = ({ location }) => {
+
+  const actionToDisplay = location.state.actionToDisplay
 
   const data = useStaticQuery(graphql`
     query {
@@ -28,7 +30,7 @@ const Volunteer = () => {
       <Flex justifyCenter mt={100} mb={100}>
         <StyledImg fixed={data.volunteerImg.childImageSharp.fixed} />
       </Flex>
-      <Actions />
+      <Actions actionToDisplay={actionToDisplay} />
     </Layout>
   );
 }

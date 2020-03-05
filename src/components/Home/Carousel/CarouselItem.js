@@ -28,6 +28,7 @@ const StyledItem = styled.div`
   position: relative;
   flex: 0 0 200px;
   height: 300px;
+  cursor: pointer;
   /* ${breakpoint('lg')`
    flex: 0 0 400px;
    height: 600px;
@@ -37,6 +38,7 @@ const StyledItem = styled.div`
     flex: 0 0 500px;
     height: 400px;
     padding: 0 25px;
+    cursor: initial;
 `}
 `
 const sizeAnim = keyframes`
