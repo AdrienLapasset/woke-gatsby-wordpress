@@ -62,7 +62,7 @@ const StyledContainer = styled.div`
 const StyledLogosContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 `
 const StyledLogoContainer = styled.div`
   display: flex;

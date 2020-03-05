@@ -44,7 +44,7 @@ const Menu = () => {
   return (
     <>
       <StyledContainer>
-        <StyledBackgroundImage fluid={data.menuBgImg.childImageSharp.fluid} >
+        <StyledBackgroundImage fluid={data.menuBgImg.childImageSharp.fluid} fadeIn={false}>
           <StyledUlContainer>
             <StyledUl>
               {pageList}
