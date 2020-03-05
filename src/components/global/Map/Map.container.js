@@ -25,27 +25,26 @@ const Map = () => {
   return (
     <StyledSection>
       <Heading h2>Nous sommes passés par là</Heading>
-      <StyledImg src={worldMap} alt="" />
-      <StyledPath scrollY={scrollY} />
-      <Markers />
+      <StyledMapContainer>
+        <StyledImg src={worldMap} alt="" />
+        <Path scrollY={scrollY} />
+        <Markers />
+      </StyledMapContainer>
     </StyledSection>
   )
 }
 
 const StyledSection = styled.section`
   margin-top: 300px;
-  position: relative;
   height: 1200px;
 `
-const StyledPath = styled(Path)`
-  stroke-dasharray: 1000;
-  stroke-dashoffset: ${props => props.scrollY};
-  position: absolute;
+const StyledMapContainer = styled.div`
+  margin-top: 40px;
+  position: relative;
 `
 const StyledImg = styled.img`
   width: 100%;
-  margin-top: 40px;
-  position: absolute;
+  /* position: absolute; */
 `
 
 export default Map

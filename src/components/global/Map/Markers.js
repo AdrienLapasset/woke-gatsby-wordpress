@@ -1,8 +1,29 @@
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components'
-import { Link } from 'gatsby'
+import { Link, useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 const Markers = () => {
+
+  const data = useStaticQuery(graphql`
+    query {
+      allFile(filter: {relativePath: {regex: "/interactiveMap/"}}) {  
+        edges {
+          node {
+            name
+            childImageSharp {
+              fluid(maxWidth: 1600) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const projectsImage = data.allFile.edges
+
   const markers = [
     {
       positionX: 200,
@@ -19,18 +40,19 @@ const Markers = () => {
       img: 'premices'
     }
   ]
-  const [projectActive, setProjectActive] = useState(null);
+  const [projectActive, setProjectActive] = useState(null)
 
-  const projectsImgs = require.context('src/assets/imgs/interactiveMap', true);
+  const handleMouseEnter = (img) => {
+    setProjectActive(projectsImage.find(image => image.node.name === img))
+  }
 
   const renderMarkers = markers.map((marker, index) => {
-    let imgSrc = projectsImgs(`./${marker.img}.jpg`);
     return (
       <>
         <StyledContainer x={marker.positionX} y={marker.positionY} key={index}>
           <StyledMarker
             to={`projects/${marker.path}`}
-            onMouseEnter={() => setProjectActive(imgSrc)}
+            onMouseEnter={() => handleMouseEnter(marker.img)}
             onMouseLeave={() => setProjectActive(null)}
           />
           <StyledLabel>{marker.project}</StyledLabel>
@@ -42,9 +64,10 @@ const Markers = () => {
   return (
     <>
       {projectActive ?
-        <SyledBgImage src={projectActive} />
-        : null
-      }
+        <StyledImgWrapper>
+          <SyledBgImage fluid={projectActive.node.childImageSharp.fluid} />
+        </StyledImgWrapper>
+        : null}
       {renderMarkers}
     </>
   );
@@ -87,17 +110,16 @@ const fadeIn = keyframes`
     opacity: .1;
   }
 `
-const SyledBgImage = styled.img`
+const StyledImgWrapper = styled.div`
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+`
+const SyledBgImage = styled(Img)`
   opacity: 0;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  object-fit: cover;
   animation: ${fadeIn} .2s forwards;
+  height: 100%;
 `
 
 export default Markers;
