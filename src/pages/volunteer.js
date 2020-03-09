@@ -7,8 +7,12 @@ import Flex from 'src/components/global/Flex'
 import Actions from 'src/components/Actions/Actions'
 
 const Volunteer = ({ location }) => {
-
-  const actionToDisplay = location.state?.actionToDisplay
+  let actionToDisplay = null
+  if (location.state.actionToDisplay) {
+    actionToDisplay = location.state.actionToDisplay
+  } else {
+    actionToDisplay = 'donation'
+  }
 
   const data = useStaticQuery(graphql`
     query {

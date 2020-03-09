@@ -5,10 +5,6 @@ import Text from 'src/components/global/Text'
 import Button from 'src/components/global/Button';
 
 const Actions = ({ actionToDisplay }) => {
-  let isActionToDisplay
-  if (actionToDisplay) { // Test for Gatsby Build
-    isActionToDisplay = actionToDisplay
-  }
 
   const actions = [
     {
