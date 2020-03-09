@@ -8,7 +8,7 @@ import Actions from 'src/components/Actions/Actions'
 
 const Volunteer = ({ location }) => {
 
-  if (location.state) const actionToDisplay = location.state.actionToDisplay
+  const actionToDisplay = location.state?.actionToDisplay
 
   const data = useStaticQuery(graphql`
     query {
