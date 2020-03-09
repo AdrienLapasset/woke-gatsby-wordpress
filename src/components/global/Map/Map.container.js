@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
+import breakpoint from 'styled-components-breakpoint';
 
 import Heading from 'src/components/global/Heading'
 import worldMap from 'src/assets/imgs/worldMap.svg'
@@ -35,9 +36,13 @@ const Map = () => {
 }
 
 const StyledSection = styled.section`
+  display: none;
   margin-top: 300px;
   height: 1200px;
   overflow: hidden;
+  ${breakpoint('lg')`
+    display: block;
+  `}
 `
 const StyledMapContainer = styled.div`
   margin-top: 40px;

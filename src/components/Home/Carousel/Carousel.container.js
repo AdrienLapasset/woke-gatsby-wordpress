@@ -9,7 +9,11 @@ import Heading from 'src/components/global/Heading'
 import CarouselItem from './CarouselItem'
 
 const Carousel = ({ data }) => {
-  const imgWidth = 200
+  let imgWidth
+  if (window.innerWidth > 1200) imgWidth = 250
+  else if (window.innerWidth > 992) imgWidth = 230
+  else imgWidth = window.innerWidth - 70
+
   const [activeProject, setActiveProject] = useState(1);
   const [translateItemsX, setTranslateItemsX] = useState(0);
 
@@ -60,12 +64,11 @@ const Carousel = ({ data }) => {
 const StyledItemCropContainer = styled.div`
   margin: 100px auto 0;
   overflow-x: hidden;
-  max-width: 900px;
+  width: 100%;
   height: 400px;
-  /* ${breakpoint('lg')`
-    width: 1600px;
-    height: 700px;
-  `} */
+  ${breakpoint('lg')`
+    height: 500px;
+  `}
 `
 const StyledItemContainer = styled.div`
   display: flex;
@@ -114,7 +117,7 @@ export default props => (
               featured_media {
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 500) {
+                    fluid(maxWidth: 600, quality: 90) {
                       ...GatsbyImageSharpFluid
                     }
                   }

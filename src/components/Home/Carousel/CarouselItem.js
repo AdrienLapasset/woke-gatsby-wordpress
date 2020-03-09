@@ -7,8 +7,12 @@ import { Link } from "gatsby"
 import breakpoint from 'styled-components-breakpoint';
 
 const CarouselItem = ({ project, isActive, onClickItem }) => {
+
   let imgFluid = null
-  if (project !== undefined) { imgFluid = project.featured_media.localFile.childImageSharp.fluid }
+  if (project !== undefined) {
+    imgFluid = project.featured_media.localFile.childImageSharp.fluid
+  }
+
   return (
     <StyledItem isActive={isActive} onClick={onClickItem}>
       {imgFluid ?
@@ -26,20 +30,17 @@ const CarouselItem = ({ project, isActive, onClickItem }) => {
 
 const StyledItem = styled.div`
   position: relative;
-  flex: 0 0 200px;
-  height: 300px;
-  cursor: pointer;
-  /* ${breakpoint('lg')`
-   flex: 0 0 400px;
-   height: 600px;
-  `} */
   transition: all .4s;
- ${({ isActive }) => isActive && `
-    flex: 0 0 500px;
-    height: 400px;
-    padding: 0 25px;
-    cursor: initial;
-`}
+  padding: ${props => props.isActive ? '0 25px' : '0'};
+  cursor: ${props => props.isActive ? 'initial' : 'pointer'};
+  flex: 0 0 100%;
+  height: ${props => props.isActive ? '500px' : '400px'};
+  ${breakpoint('lg')`
+    flex: ${props => props.isActive ? '0 0 500px' : '0 0 230px'};
+  `}
+  ${breakpoint('xl')`
+    flex: ${props => props.isActive ? '0 0 640px' : '0 0 250px'};
+  `}
 `
 const sizeAnim = keyframes`
   to {
