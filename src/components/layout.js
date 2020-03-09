@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled, { ThemeProvider } from 'styled-components'
 import theme from 'src/styles/theme'
 import GlobalStyle from 'src/styles/globalStyle'
+import breakpoint from 'styled-components-breakpoint';
 
 import Header from "./header/Header.container"
 import Footer from "./Footer/Footer.container"
@@ -34,8 +35,20 @@ const Layout = ({ children, isFluid }) => {
 
 const StyledLayout = styled.section`
   margin: ${props => props.isFluid ? '' : '150px auto 0'};
-  max-width: ${props => props.isFluid ? '' : '1600px'};
+  max-width: ${props => props.isFluid ? '' : '100%'};
   padding:${props => props.isFluid ? '' : '0 35px'};
+   ${breakpoint('sm')`
+    max-width: ${props => props.isFluid ? '' : '540px'};
+  `}
+   ${breakpoint('md')`
+    max-width: ${props => props.isFluid ? '' : '720px'};
+  `}
+  ${breakpoint('lg')`
+    max-width: ${props => props.isFluid ? '' : '960px'};
+  `}
+  ${breakpoint('xl')`
+    max-width: ${props => props.isFluid ? '' : '1140px'};
+  `}
 `
 
 export default Layout

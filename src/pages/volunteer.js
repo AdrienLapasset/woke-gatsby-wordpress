@@ -8,7 +8,7 @@ import Actions from 'src/components/Actions/Actions'
 
 const Volunteer = ({ location }) => {
   let actionToDisplay = null
-  if (location.state !== undefined) {
+  if (location.state !== undefined) { // Test for Build
     actionToDisplay = location.state.actionToDisplay
   } else {
     actionToDisplay = 'donation'
