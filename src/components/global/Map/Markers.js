@@ -91,8 +91,8 @@ const StyledLabel = styled.div`
   transition: opacity .2s;
 `
 const StyledMarker = styled(Link)`
-  width: 10px;
-  height: 10px;
+  width: 13px;
+  height: 13px;
   border-radius: 100%;
   background-color: ${props => props.theme.colors.black};
   margin-right: 10px;
@@ -107,7 +107,7 @@ const StyledMarker = styled(Link)`
 `
 const fadeIn = keyframes`
   to {
-    opacity: .1;
+    opacity: .15;
   }
 `
 const StyledImgWrapper = styled.div`
@@ -118,6 +118,7 @@ const StyledImgWrapper = styled.div`
 `
 const SyledBgImage = styled(Img)`
   opacity: 0;
+  filter: saturate(0);
   animation: ${fadeIn} .2s forwards;
   height: 100%;
 `
