@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import breakpoint from 'styled-components-breakpoint';
 
 import WokeLogo from './WokeLogo';
 import MenuBtn from './MenuBtn';
@@ -64,15 +65,20 @@ const StyledContainer = styled.div`
     ${({ isHeaderWhite }) => isHeaderWhite && `
       background-color: transparent;
   `}
+ 
 `
 const StyledGroup = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
     &:last-child {
+      display: none;
       & > * {
-      margin-left: 90px
-    }
+        margin-left: 90px
+      }
+     ${breakpoint('lg')`
+      display: flex;
+    `}
   }
 `
 

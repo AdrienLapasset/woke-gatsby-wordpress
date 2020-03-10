@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import 'moment/locale/fr';
 import { Link, graphql, StaticQuery } from "gatsby"
 import breakpoint from 'styled-components-breakpoint';
+import { useSpring, animated } from 'react-spring'
+import { useDrag } from 'react-use-gesture'
 
 import Button from 'src/components/global/Button'
 import Heading from 'src/components/global/Heading'
@@ -10,12 +12,17 @@ import CarouselItem from './CarouselItem'
 
 const Carousel = ({ data }) => {
   let imgWidth
-  if (window.innerWidth > 1200) imgWidth = 250
-  else if (window.innerWidth > 992) imgWidth = 230
-  else imgWidth = window.innerWidth - 70
-
+  let screenWidth
   const [activeProject, setActiveProject] = useState(1);
-  const [translateItemsX, setTranslateItemsX] = useState(0);
+
+  useEffect(() => {
+    screenWidth = window.innerWidth
+    if (screenWidth > 1200) imgWidth = 250
+    else if (screenWidth > 992) imgWidth = 230
+    else if (screenWidth > 768) imgWidth = 720
+    else imgWidth = 540
+  });
+
 
   const projects = data.allWordpressPost.edges
 
@@ -39,15 +46,31 @@ const Carousel = ({ data }) => {
   })
 
   const slide = (id) => {
+    if (screenWidth > 992) {
+      set({ x: (-id * imgWidth) + imgWidth })
+    } else {
+      set({ x: -id * imgWidth })
+    }
     setActiveProject(id)
-    setTranslateItemsX((-id * imgWidth) + imgWidth)
   }
+
+  const [{ x }, set] = useSpring(() => ({ x: 0 }))
+
+  const bind = useDrag(({ down, movement: [mx], cancel }) => {
+    if (down && mx < -200) {
+      cancel(set({ x: activeProject + 1 * -imgWidth }))
+      setActiveProject(activeProject + 1)
+
+    }
+    set({ x: down ? mx : 0, immediate: down })
+  })
+
 
   return (
     <>
       <Heading h2>Nos dernières interventions</Heading>
       <StyledItemCropContainer>
-        <StyledItemContainer translateX={translateItemsX}>
+        <StyledItemContainer {...bind()} style={{ x }} >
           {carouselItem}
         </StyledItemContainer>
       </StyledItemCropContainer>
@@ -65,16 +88,13 @@ const StyledItemCropContainer = styled.div`
   margin: 100px auto 0;
   overflow-x: hidden;
   width: 100%;
-  height: 400px;
   ${breakpoint('lg')`
     height: 500px;
   `}
 `
-const StyledItemContainer = styled.div`
+const StyledItemContainer = styled(animated.div)`
   display: flex;
   align-items: center;
-  transform: translateX(${props => props.translateX}px);
-  transition: transform .4s;
 `
 const StyledDotContainer = styled.div`
   display: flex;

@@ -19,7 +19,7 @@ const CarouselItem = ({ project, isActive, onClickItem }) => {
         <StyledImg fluid={imgFluid} />
         : null}
       {isActive ?
-        <StyledInfoContainer to={project.slug}>
+        <StyledInfoContainer to={'projects/' + project.slug}>
           <StyledTitle>{project.title}</StyledTitle>
           <StyledDate interval={0} format="DD MMMM YYYY" >{project.date}</StyledDate>
         </StyledInfoContainer>
@@ -31,13 +31,13 @@ const CarouselItem = ({ project, isActive, onClickItem }) => {
 const StyledItem = styled.div`
   position: relative;
   transition: all .4s;
-  padding: ${props => props.isActive ? '0 25px' : '0'};
   cursor: ${props => props.isActive ? 'initial' : 'pointer'};
   flex: 0 0 100%;
   height: ${props => props.isActive ? '500px' : '400px'};
+  margin: ${props => props.isActive ? '0 25px' : '0px'};
   ${breakpoint('lg')`
-    flex: ${props => props.isActive ? '0 0 500px' : '0 0 230px'};
-  `}
+    flex: ${props => props.isActive ? '0 0 500px' : '0 0 230px'};    
+    `}
   ${breakpoint('xl')`
     flex: ${props => props.isActive ? '0 0 640px' : '0 0 250px'};
   `}
