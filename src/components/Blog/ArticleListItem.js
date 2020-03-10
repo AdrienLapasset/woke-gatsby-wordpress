@@ -12,15 +12,16 @@ const ArticleListItem = ({ edge }) => {
   const imgFixed = article.featured_media.localFile?.childImageSharp.fixed
 
   const truncate = (string) => {
-    return string.substring(3, 400) + "..."
+    return string.substring(3, 300) + "... <u>Lire la suite</u>"
   }
+
+  const truncateExcerpt = truncate(article.excerpt)
 
   return (
     <StyledLink to={`blog/${article.slug}`} >
       <StyledFlex column>
         <Heading>{article.title}</Heading>
-        {/* {truncate(article.excerpt)} */}
-        <div dangerouslySetInnerHTML={{ __html: article.excerpt }} />
+        <p dangerouslySetInnerHTML={{ __html: truncateExcerpt }} />
       </StyledFlex>
       <Img fixed={imgFixed} />
     </StyledLink>
