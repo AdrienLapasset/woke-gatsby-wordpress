@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, graphql, StaticQuery } from "gatsby"
 import styled from 'styled-components'
+import Flex from 'src/components/global/Flex'
 
 const ProjectNav = ({ data, currentProjectSlug }) => {
 
@@ -46,15 +47,25 @@ const ProjectNav = ({ data, currentProjectSlug }) => {
     nextNumber = 1
   }
 
+  const addZeroToNumber = (n) => {
+    let num = n.toString()
+    let zeroNum = num.padStart(2, '0');
+    return zeroNum
+  }
+
   return (
     <StyledContainer>
       <Link to={`projects/${previousSlug}`}>
-        {previousNumber}
-        {previousTitle}
+        <Flex alignCenter>
+          <StyledNumber>{addZeroToNumber(previousNumber)}</StyledNumber>
+          <StyledTitle>{previousTitle}</StyledTitle>
+        </Flex>
       </Link>
       <Link to={`projects/${nextSlug}`}>
-        {nextNumber}
-        {nextTitle}
+        <Flex alignCenter>
+          <StyledTitle>{nextTitle}</StyledTitle>
+          <StyledNumber>{addZeroToNumber(nextNumber)}</StyledNumber>
+        </Flex>
       </Link>
     </StyledContainer>
   )
@@ -64,10 +75,19 @@ const StyledContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 60px;
-  & > a {
-    font-size: 18px;
-  }
 `
+const StyledNumber = styled.span`
+  color: ${props => props.theme.colors.grey};
+  font-size: 64px;
+  opacity: .3;
+  font-weight: 500;
+  margin: 0 20px;
+`
+const StyledTitle = styled.span`
+  font-size: 18px;
+  font-weight: 500;
+`
+
 export default props => (
   <StaticQuery
     query={graphql`
