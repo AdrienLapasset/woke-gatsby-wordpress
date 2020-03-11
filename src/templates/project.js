@@ -68,7 +68,7 @@ const StyledContent = styled.div`
       }
     }
   }
-  & img {
+  & img, .wp-video {
     max-width: 100%;
     height: auto;
     margin: auto;

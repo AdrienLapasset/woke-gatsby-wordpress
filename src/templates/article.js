@@ -4,12 +4,12 @@ import Img from "gatsby-image"
 import styled from 'styled-components'
 import Moment from 'react-moment';
 import Layout from "src/components/layout"
-import ProjectNav from "src/components/Projects/ProjectNav"
+import ArticleNav from "src/components/Blog/ArticleNav"
 
 const ArticleTemplate = ({ data }) => {
 
-  const project = data.wordpressPost
-  const imgFluid = project.featured_media.localFile?.childImageSharp.fluid
+  const article = data.wordpressPost
+  const imgFluid = article.featured_media.localFile?.childImageSharp.fluid
 
   return (
     <>
@@ -17,13 +17,13 @@ const ArticleTemplate = ({ data }) => {
         <StyledHeaderImg fluid={imgFluid} />
         <StyledInfoContainer>
           <StyledDate>
-            <Moment interval={0} format="DD MMMM YYYY" >{project.date}</Moment>
+            <Moment interval={0} format="DD MMMM YYYY" >{article.date}</Moment>
           </StyledDate>
-          {project.title}
+          {article.title}
         </StyledInfoContainer>
         <StyledContainer>
-          <StyledContent dangerouslySetInnerHTML={{ __html: project.content }} />
-          <ProjectNav currentProjectSlug={project.slug} />
+          <StyledContent dangerouslySetInnerHTML={{ __html: article.content }} />
+          <ArticleNav currentProjectSlug={article.slug} />
         </StyledContainer>
       </Layout>
     </>
@@ -68,7 +68,7 @@ const StyledContent = styled.div`
       }
     }
   }
-  & img {
+  & img, .wp-video {
     max-width: 100%;
     height: auto;
     margin: auto;
