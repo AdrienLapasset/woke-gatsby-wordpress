@@ -4,6 +4,7 @@ import Img from "gatsby-image"
 import styled from 'styled-components'
 import Moment from 'react-moment';
 import Layout from "src/components/layout"
+import PostContent from "src/components/global/PostContent"
 import ArticleNav from "src/components/Blog/ArticleNav"
 
 const ArticleTemplate = ({ data }) => {
@@ -22,7 +23,7 @@ const ArticleTemplate = ({ data }) => {
           {article.title}
         </StyledInfoContainer>
         <StyledContainer>
-          <StyledContent dangerouslySetInnerHTML={{ __html: article.content }} />
+          <PostContent content={article.content} />
           <ArticleNav currentProjectSlug={article.slug} />
         </StyledContainer>
       </Layout>
@@ -48,37 +49,6 @@ const StyledContainer = styled.div`
   max-width: 960px;
   margin: auto; 
 `
-const StyledContent = styled.div`
-  blockquote p {
-    font-family: 'Cambria', serif;
-    font-size: 35px;
-    margin: 0 150px 50px; 
-    text-align: center
-  }
-  & p {
-    &:first-of-type {
-      font-family: 'Cambria', serif;
-      font-size: 35px;
-      margin-bottom: 120px;
-    }
-    &:not(:first-of-type) {
-      margin: 0 100px 50px;
-      & > img {
-        margin: 0 auto 50px; 
-      }
-    }
-  }
-  & img, .wp-video {
-    max-width: 100%;
-    height: auto;
-    margin: auto;
-    display: block;
-  }
-  & iframe {
-    max-width: 100%;
-  }
-`
-
 export default ArticleTemplate
 
 export const postQuery = graphql`
