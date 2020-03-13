@@ -57,14 +57,13 @@ const Actions = ({ actionToDisplay }) => {
   })
 
   const currentAction = actions.find(action => action.type === activeAction)
-
   return (
     <StyledContainer>
       <Flex justifyBetween>
         {actionTypes}
       </Flex>
       <StyledContent isTransition={isTransition} transitionDuration={transitionDuration}>
-        <StyledTestymony quote>
+        <StyledTestymony>
           {currentAction.testymony}<br />
           {currentAction.testymonySignature}
         </StyledTestymony>

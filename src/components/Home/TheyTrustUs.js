@@ -49,7 +49,7 @@ const TheyTrustUs = () => {
           <StyledLogo src={sushishopLogo} alt="" />
         </StyledLogoContainer>
       </StyledLogosContainer>
-      <Link to={'/volunteer'} >
+      <Link to={'/volunteer'} state={{ actionToDisplay: 'mécénat' }}>
         <StyledButton>Entreprises, rejoignez-nous</StyledButton>
       </Link>
     </StyledContainer>

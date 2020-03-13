@@ -36,10 +36,10 @@ const Header = ({ isFluid }) => {
           </Link>
         </StyledGroup>
         <StyledGroup>
-          <Link to={'/Volunteer'} >
+          <Link to={'/'}  >
             <HeaderBtn isHeaderWhite={isHeaderWhite}>Faire un don</HeaderBtn>
           </Link>
-          <Link to={'/Volunteer'} >
+          <Link to={'/volunteer'} state={{ actionToDisplay: 'bénévolat' }} >
             <HeaderBtn second isHeaderWhite={isHeaderWhite}>Devenir volontaire</HeaderBtn>
           </Link>
         </StyledGroup>

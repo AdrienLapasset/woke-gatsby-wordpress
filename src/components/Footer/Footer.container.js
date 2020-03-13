@@ -44,8 +44,8 @@ const Footer = () => {
             <StyledLink to="/blog">Blog</StyledLink>
           </Flex>
           <Flex column>
-            <StyledLink to="/Volunteer">Agir</StyledLink>
-            <StyledLink to="/Volunteer">Faire un don</StyledLink>
+            <StyledLink to="/volunteer" state={{ actionToDisplay: 'bénévolat' }}>Agir</StyledLink>
+            <StyledLink to="/">Faire un don</StyledLink>
           </Flex>
           <Flex column>
             <p>Woke</p>
