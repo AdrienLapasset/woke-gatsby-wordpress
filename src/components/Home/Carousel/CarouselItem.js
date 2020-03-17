@@ -34,7 +34,7 @@ const StyledItem = styled.div`
   cursor: ${props => props.isActive ? 'initial' : 'pointer'};
   flex: 0 0 100%;
   height: ${props => props.isActive ? '500px' : '400px'};
-  margin: ${props => props.isActive ? '0 25px' : '0px'};
+  padding: ${props => props.isActive ? '0 25px' : '0px'};
   ${breakpoint('lg')`
     flex: ${props => props.isActive ? '0 0 500px' : '0 0 230px'};    
     `}

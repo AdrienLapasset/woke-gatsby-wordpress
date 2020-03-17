@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import 'moment/locale/fr';
+import 'moment/locale/fr'
 import { Link, graphql, StaticQuery } from "gatsby"
-import breakpoint from 'styled-components-breakpoint';
+import breakpoint from 'styled-components-breakpoint'
 import { useSpring, animated } from 'react-spring'
 import { useDrag } from 'react-use-gesture'
 
@@ -22,7 +22,6 @@ const Carousel = ({ data }) => {
     else if (screenWidth > 768) imgWidth = 720
     else imgWidth = 540
   });
-
 
   const projects = data.allWordpressPost.edges
 
@@ -57,12 +56,13 @@ const Carousel = ({ data }) => {
   const [{ x }, set] = useSpring(() => ({ x: 0 }))
 
   const bind = useDrag(({ down, movement: [mx], cancel }) => {
-    if (down && mx < -200) {
-      cancel(set({ x: activeProject + 1 * -imgWidth }))
-      setActiveProject(activeProject + 1)
-
+    if (screenWidth < 992) {
+      if (down && mx < -200) {
+        cancel(set({ x: activeProject + 1 * -imgWidth }))
+        setActiveProject(activeProject + 1)
+      }
+      set({ x: down ? mx : 0, immediate: down })
     }
-    set({ x: down ? mx : 0, immediate: down })
   })
 
 
