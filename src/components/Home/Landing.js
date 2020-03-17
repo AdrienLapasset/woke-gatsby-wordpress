@@ -81,6 +81,7 @@ const StyledColumn = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1 1 0;
+  align-items: flex-start;
   &:first-child{
     padding: 120px 0 120px;
     ${breakpoint('lg')`
