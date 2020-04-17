@@ -4,6 +4,7 @@ import Button from 'src/components/global/Button';
 import Heading from 'src/components/global/Heading'
 import Flex from 'src/components/global/Flex'
 import { Link } from "gatsby"
+import breakpoint from 'styled-components-breakpoint';
 
 import donationIcon from 'src/assets/icons/donation.svg'
 import sponsoringIcon from 'src/assets/icons/sponsoring.svg'
@@ -65,8 +66,11 @@ const StyledSection = styled.section`
   margin-top: 300px;
 `
 const StyledContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
+  
+  ${breakpoint('lg')`
+    display: flex;
+    justify-content: space-between;
+  `}
 `
 const StyledColumn = styled.div`
   flex: 0 1 340px;
