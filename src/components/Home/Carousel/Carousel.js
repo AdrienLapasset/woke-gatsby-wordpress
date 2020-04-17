@@ -4,7 +4,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styled, { keyframes } from 'styled-components'
 import breakpoint from 'styled-components-breakpoint';
 import { useStaticQuery, graphql } from "gatsby"
-import NewCarouselItem from './NewCarouselItem'
+import NewCarouselItem from './CarouselItem'
 import Button from 'src/components/global/Button'
 import Heading from 'src/components/global/Heading'
 
@@ -98,9 +98,11 @@ const StyledCarousel = styled(Carousel)`
       .slide {
         background-color: transparent;
         transition: height .4s;
+        height: 616px;
         &.selected {
-          padding: 0 32px;
-          height: 616px;
+          ${breakpoint('md')`
+            padding: 0 32px;
+          `}
           .carousel-link {
             animation: ${ToFullSize} .4s forwards;
             &__title {
@@ -112,7 +114,9 @@ const StyledCarousel = styled(Carousel)`
           }
         }
         &:not(.selected) {
-          height: 500px;
+          ${breakpoint('md')`
+            height: 500px;
+          `}
         }
       }
     }
