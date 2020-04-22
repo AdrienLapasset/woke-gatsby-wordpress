@@ -9,11 +9,12 @@ import Button from 'src/components/global/Button'
 import Heading from 'src/components/global/Heading'
 
 const NewCarousel = () => {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [isCenterMode, setIsCenterMode] = useState(true);
+  const [screenWidth, setScreenWidth] = useState(0)
+  const [isCenterMode, setIsCenterMode] = useState(true)
 
   useEffect(() => {
-    window.addEventListener("resize", () => setScreenWidth(window.innerWidth));
+    setScreenWidth(window.innerWidth)
+    window.addEventListener("resize", () => setScreenWidth(window.innerWidth))
     if (screenWidth < 768) {
       setIsCenterMode(false)
     } else {
