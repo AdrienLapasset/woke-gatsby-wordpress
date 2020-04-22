@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components/macro'
 import 'typeface-nunito-sans'
 import CambriaRegular from 'src/assets/fonts/Cambria-regular.ttf'
 import CambriaItalic from 'src/assets/fonts/Cambria-italic.ttf'
+import breakpoint from 'styled-components-breakpoint';
 
 export default createGlobalStyle`
 
@@ -36,13 +37,16 @@ span,
 ul,
 li,
 q {
-	font-size: 20px;
+	font-size: 16px;
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 300;
   margin: 0;
   padding: 0;
   display: block;
   box-sizing: border-box;
+  ${breakpoint('md')`
+			font-size: 20px;
+  `}
 }
 
 p {
