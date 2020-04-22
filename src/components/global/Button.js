@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import breakpoint from 'styled-components-breakpoint';
 
 const Button = ({ secondary, children, className }) => {
   return <StyledButton className={className} secondary={secondary}>{children}</StyledButton>
@@ -11,7 +12,7 @@ const StyledButton = styled.button`
   cursor: pointer;
   background-color: transparent;
   font-weight: 700;
-  font-size: 22px;
+  font-size: 18px;
   display: flex;
   flex-direction: column;
   &:after {
@@ -26,7 +27,9 @@ const StyledButton = styled.button`
   &:hover:after {
      width: 100%;
   }
-  /* background-color: ${props => (props.secondary ? '#F7A072' : '#a1cdf1')}; */
+  ${breakpoint('md')`
+    font-size: 22px;
+  `}
 `
 
 export default Button;

@@ -13,7 +13,7 @@ const ActWithUs = () => {
   return (
     <>
       <StyledSection>
-        <Heading h2>Agir avec nous</Heading>
+        <StyledHeading h2>Agir avec nous</StyledHeading>
         <StyledContainer>
           <StyledColumn>
             <DonationIcon />
@@ -47,12 +47,18 @@ const ActWithUs = () => {
 
 const StyledSection = styled.section`
   background-color: rgb(225, 218, 184);
-  margin: 0 -35px;
+  margin: 160px -35px 0;
   padding: 50px 35px;
   ${breakpoint('sm')`
     background-color: unset;
-    margin: unset;
+    margin: 390px 0 0;
   `}
+`
+const StyledHeading = styled(Heading)`
+  color: ${props => props.theme.colors.black};
+  ${breakpoint('sm')`
+    color: ${props => props.theme.colors.grey};
+  `}  
 `
 const StyledContainer = styled.div`
   margin-top: 100px;

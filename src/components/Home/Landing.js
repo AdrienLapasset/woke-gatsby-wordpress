@@ -35,9 +35,9 @@ const Landing = () => {
       <StyledContainer>
         <StyledColumn>
           <Heading>
-            Soutenez-nous, <br />
+            Soutenez-nous,<br />
             Soutenez-les !
-        </Heading>
+          </Heading>
           <p>
             ONG humanitaire française, nous voyageons
             à travers le monde à la rencontre d’initiatives locales
@@ -71,9 +71,10 @@ const StyledContainer = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 200px;
+  margin-bottom: 260px;
   ${breakpoint('lg')`
     flex-direction: row;
+    margin-bottom: 200px;
   `}
 `
 const StyledColumn = styled.div`
@@ -83,7 +84,7 @@ const StyledColumn = styled.div`
   flex: 1 1 0;
   align-items: flex-start;
   &:first-child{
-    padding: 120px 0 120px;
+    padding: 150px 0 260px;
     ${breakpoint('lg')`
       padding: 120px 120px 0 0;
     `}
@@ -100,17 +101,24 @@ const StyledButton = styled(Button)`
 `
 const StyledImg = styled(Img)`
   width: 100%;
-  height: 800px;
+  height: 520px;
+  ${breakpoint('lg')`
+    height: 800px;
+  `}
 `
 const VideoBtn = styled.button`
-  width: 320px;
-  height: 120px;
+  width: 200px;
+  height: 85px;
   background-color: ${props => props.theme.colors.background};
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   bottom: 0;
+  ${breakpoint('md')`
+    width: 320px;
+    height: 120px;
+  `}
 `
 const PlayIcon = styled.span`
   width: 35px;

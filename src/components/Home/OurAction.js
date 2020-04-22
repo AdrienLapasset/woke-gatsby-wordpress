@@ -44,10 +44,15 @@ const ActionContainer = styled.div`
   `}
 `
 const Number = styled.div`
-  font-size: 60px;
+  font-size: 40px;
+  margin-bottom: 10px;
+  ${breakpoint('md')`
+    font-size: 60px;
+  `}
 `
 const Text = styled.div`
-  color: ${props => props.theme.colors.grey}
+  color: ${props => props.theme.colors.grey};
+  font-size: 22px;
 `
 
 export default OurAction

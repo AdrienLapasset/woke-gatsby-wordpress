@@ -3,7 +3,7 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styled, { keyframes } from 'styled-components'
 import breakpoint from 'styled-components-breakpoint';
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import NewCarouselItem from './CarouselItem'
 import Button from 'src/components/global/Button'
 import Heading from 'src/components/global/Heading'
@@ -66,46 +66,73 @@ const NewCarousel = () => {
         <StyledCarousel showArrows={false} showStatus={false} centerMode={isCenterMode} centerSlidePercentage={70} emulateTouch>
           {carouselItems}
         </StyledCarousel>
+        <StyledLink to="/projects">
+          <Button>Voir tous nos projets</Button>
+        </StyledLink>
       </StyledContainer>
     </>
   );
 }
 
 
-const ToFullSize = keyframes`
+const ToFullSizeSm = keyframes`
+  to {
+    width: 188px;
+    height 70px;
+  }
+`
+const ToFullSizeLg = keyframes`
   to {
     width: 350px;
     height 120px;
   }
-`;
+`
 const fadeIn = keyframes`
   to {
     opacity: 1;
   }
-`;
-
-const StyledContainer = styled.div`
-  margin: 100px auto 0;
 `
-
+const StyledContainer = styled.div`
+  margin: 250px auto 0;
+  ${breakpoint('md')`
+    margin: 100px auto 0;
+  `}
+`
 const StyledCarousel = styled(Carousel)`
   margin: 100px auto 0;
   overflow: visible;
   .slider-wrapper {
-      height: 616px;
+    height: 250px;
     .slider {
       display: flex;
       align-items: center;
       .slide {
+        height: 250px;
         background-color: transparent;
         transition: height .4s;
-        height: 616px;
+        &:first-child {
+          &.selected {
+          ${breakpoint('md')`
+            padding: 0 32px 0 0;
+          `}
+          }
+        }
+        &:last-child {
+          &.selected {
+          ${breakpoint('md')`
+            padding: 0 0 0 32px;
+          `}
+          }
+        }
         &.selected {
           ${breakpoint('md')`
             padding: 0 32px;
           `}
           .carousel-link {
-            animation: ${ToFullSize} .4s forwards;
+              animation: ${ToFullSizeSm} .4s forwards;
+            ${breakpoint('md')`
+              animation: ${ToFullSizeLg} .4s forwards;
+            `}
             &__title {
               animation: ${fadeIn} .2s .4s forwards;
             }
@@ -119,8 +146,14 @@ const StyledCarousel = styled(Carousel)`
             height: 500px;
           `}
         }
+        ${breakpoint('md')`
+          height: 616px;
+        `}
       }
     }
+    ${breakpoint('md')`
+      height: 616px;
+    `}
   }
   .control-dots {
     position: relative;
@@ -138,6 +171,15 @@ const StyledCarousel = styled(Carousel)`
         outline: none;
       }
     }
+  }
+`
+const StyledLink = styled(Link)`
+  margin-top: 60px;
+  Button {
+    margin: auto;
+    ${breakpoint('md')`
+      margin: unset;
+    `}
   }
 `
 
