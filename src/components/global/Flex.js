@@ -1,5 +1,5 @@
-import React from 'react'
 import styled from 'styled-components'
+import breakpoint from 'styled-components-breakpoint';
 
 const Flex = styled.div`
   display: ${props => (props.noFlex ? 'block' : 'flex')};
@@ -34,10 +34,16 @@ const Flex = styled.div`
     return 'stretch'
   }};
   flex-direction: ${props => (props.column ? 'column' : 'row')};
+
   margin-top:  ${props => props.mt}px;
   margin-right:  ${props => props.mr}px;
   margin-bottom:  ${props => props.mb}px;
   margin-left:  ${props => props.ml}px;
+
+  ${breakpoint('md')`
+    flex-direction: ${props => props.rowMd ? 'row;' : ''}
+    margin-bottom:  ${props => props.mbMd}px;
+  `}
 `
 
 export default Flex

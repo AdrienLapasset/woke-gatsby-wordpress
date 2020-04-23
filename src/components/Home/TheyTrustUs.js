@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "gatsby"
 import styled from 'styled-components'
+import breakpoint from 'styled-components-breakpoint';
 
 import Button from 'src/components/global/Button'
 import Heading from 'src/components/global/Heading'
@@ -60,20 +61,30 @@ const StyledContainer = styled.div`
   margin: 200px 0;
 `
 const StyledLogosContainer = styled.div`
+  margin-top: 100px;
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
+  justify-content: space-around;
 `
 const StyledLogoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
-  margin: 50px;
+  margin-bottom: 50px;
+  flex: 0 0 50%;
+  ${breakpoint('lg')`
+    flex: 0 0 33%;
+  `}
 `
 const StyledLogo = styled.img`
+  max-height: 60px;
+  max-width: 100px;
+  ${breakpoint('md')`
+    max-height: unset; 
+    max-width: unset;
+  `}
 `
 const StyledButton = styled(Button)`
-  margin: auto;
+  margin: 100px auto 0;
 `
 export default TheyTrustUs;

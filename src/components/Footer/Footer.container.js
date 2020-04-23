@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components'
+import breakpoint from 'styled-components-breakpoint';
 import { Link } from "gatsby"
 
 import Flex from 'src/components/global/Flex'
@@ -20,23 +21,23 @@ const Footer = () => {
   return (
     <>
       <StyledContainer>
-        <Flex justifyBetween >
-          <Flex column>
+        <Flex column justifyBetween rowMd >
+          <Flex column mb={70} mbMd={0}>
             <StyledA href=""
               target="_blank"
               rel="noopener noreferrer">
               Facebook
-          </StyledA>
+            </StyledA>
             <StyledA href=""
               target="_blank"
               rel="noopener noreferrer">
               Instagram
-          </StyledA>
+            </StyledA>
             <StyledA href=""
               target="_blank"
               rel="noopener noreferrer">
               Linkedin
-          </StyledA>
+            </StyledA>
           </Flex>
           <Flex column>
             <StyledLink to="/intro">Qui est Woke ?</StyledLink>
@@ -47,7 +48,7 @@ const Footer = () => {
             <StyledLink to="/volunteer" state={{ actionToDisplay: 'bénévolat' }}>Agir</StyledLink>
             <StyledLink to="/">Faire un don</StyledLink>
           </Flex>
-          <Flex column>
+          <StyledAdress >
             <p>Woke</p>
             <p>55 allée des côtes de Chanturgues</p>
             <p>63100 Clermont-Ferrand</p>
@@ -57,20 +58,22 @@ const Footer = () => {
               contact@woke.fr
             </StyledA>
             <StyledA href="tel:+33669640007" >06 69 64 00 07</StyledA>
-          </Flex>
+          </StyledAdress>
         </Flex>
-        <Flex mt={60} justifyBetween>
-          <Flex>
+        <Flex column rowMd mt={60} justifyBetween>
+          <Flex column rowMd>
             © {new Date().getFullYear()} Woke.&nbsp;
         <StyledA href="https://alor.design/"
               target="_blank"
               rel="noopener noreferrer">
               Création : Alor
         </StyledA>
-            &nbsp;
-            -
-            &nbsp;
-        <StyledA href="https://adrienlapasset.fr/"
+            <StyledScore>
+              &nbsp;
+              -
+              &nbsp;
+            </StyledScore>
+            <StyledA href="https://adrienlapasset.fr/"
               target="_blank"
               rel="noopener noreferrer">
               Développement : Adrien Lapasset
@@ -92,21 +95,40 @@ const StyledContainer = styled.section`
   padding: 0 35px;
 `
 const LinkStyle = css`
+  font-weight: 600;
+  margin-bottom: 15px;
   &:hover{
     text-decoration: underline;
   }
+  ${breakpoint('md')`
+    font-weight: 300;
+    margin-bottom: unset;
+  `}
 `
 const StyledLink = styled(Link)`
   ${LinkStyle}
 `
 const StyledA = styled.a`
   ${LinkStyle}
+  text-decoration: underline;
 `
 const StyledButton = styled.button`
   font-weight: ${props => props.isNewsletterFormOpen ? '700' : '400'};
   &:hover{
     font-weight: 700
   }
+`
+const StyledAdress = styled.div`
+  display: none;
+  ${breakpoint('md')`
+    display: block;
+  `}
+`
+const StyledScore = styled.div`
+  display: none;
+  ${breakpoint('md')`
+    display: block;
+  `}
 `
 
 export default Footer;

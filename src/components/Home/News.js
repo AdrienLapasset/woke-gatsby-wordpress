@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, graphql, StaticQuery } from "gatsby"
 import styled from 'styled-components'
 import Img from "gatsby-image"
+import breakpoint from 'styled-components-breakpoint';
 
 import Heading from 'src/components/global/Heading'
 import Button from 'src/components/global/Button'
@@ -27,15 +28,16 @@ const News = ({ data }) => {
       <StyledLink to={`/blog/${projects[0].node.slug}`}>
         <FlexContainer>
           <Heading>{projects[0].node.title}</Heading>
+          <StyledImgMobile fluid={imgFluid} />
           {truncate(projects[0].node.excerpt)}
         </FlexContainer>
         <FlexContainer>
           <StyledImg fluid={imgFluid} />
         </FlexContainer>
       </StyledLink>
-      <Link to={'/blog'} >
+      <StyledArticlesLink to={'/blog'} >
         <Button>Voir tous nos articles</Button>
-      </Link>
+      </StyledArticlesLink>
     </StyledContainer>
   )
 }
@@ -46,16 +48,40 @@ const StyledContainer = styled.div`
 const FlexContainer = styled.div`
  flex: 1 1 50%;
  &:first-child{
-   padding-right: 80px;
+   ${breakpoint('lg')`
+    padding-right: 80px;
+  `}
  }
 `
 const StyledLink = styled(Link)`
   margin-top: 80px;
-  display: flex;
+  ${breakpoint('lg')`
+    display: flex;
+  `}
 `
 const StyledImg = styled(Img)`
   width: 100%;
   height: 300px;
+  display: none;
+  ${breakpoint('lg')`
+    display: block;
+  `}
+`
+const StyledImgMobile = styled(Img)`
+  width: 100%;
+  margin-bottom: 30px;
+  ${breakpoint('lg')`
+    display: none;
+  `}
+`
+const StyledArticlesLink = styled(Link)`
+  margin-top: 30px;
+  Button {
+    margin: auto;
+  }
+  ${breakpoint('lg')`
+    margin: unset;
+  `}
 `
 
 export default props => (
