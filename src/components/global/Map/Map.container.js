@@ -38,16 +38,13 @@ const Map = () => {
 const StyledSection = styled.section`
   display: none;
   margin-top: 300px;
-  height: 1200px;
-  overflow: hidden;
-  ${breakpoint('lg')`
+  ${breakpoint('xl')`
     display: block;
   `}
 `
 const StyledMapContainer = styled.div`
   margin-top: 40px;
   position: relative;
-  width: 1600px;
 `
 const StyledImg = styled.img`
   width: 100%;

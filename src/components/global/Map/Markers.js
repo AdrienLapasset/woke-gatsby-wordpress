@@ -26,6 +26,13 @@ const Markers = () => {
 
   const markers = [
     {
+      positionX: 550,
+      positionY: 150,
+      project: 'Association Woke',
+      path: 'sri-lanka',
+      img: 'menuBg'
+    },
+    {
       positionX: 200,
       positionY: 300,
       project: 'Sri Lanka',
