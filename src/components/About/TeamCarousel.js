@@ -6,11 +6,20 @@ import breakpoint from 'styled-components-breakpoint';
 import Heading from 'src/components/global/Heading'
 import Img from "gatsby-image"
 
-const TeamCarousel = ({ teamImages }) => {
+const TeamCarousel = ({ teamImages, team }) => {
 
   const carouselItems = teamImages.map((image, index) => {
     const imgFixed = image.node.childImageSharp.fixed
-    return <Img fixed={imgFixed} />
+    const teamMate = team.find(teamMate => teamMate.imgName === image.node.name)
+    return (
+      <div key={index}>
+        <StyledLegend>
+          <StyledName>{teamMate.name}</StyledName>
+          <StyledPosition>{teamMate.position}</StyledPosition>
+        </StyledLegend>
+        <Img fixed={imgFixed} style={{ width: '100%' }} />
+      </div>
+    )
   })
 
   return (
@@ -33,10 +42,8 @@ const StyledContainer = styled.div`
 const StyledCarousel = styled(Carousel)`
   .slider-wrapper {
     .slider {
-      display: flex;
-      align-items: center;
+     
       .slide {
-        /* height: 250px; */
         background-color: transparent;
       }
     }
@@ -58,6 +65,17 @@ const StyledCarousel = styled(Carousel)`
       }
     }
   }
+`
+const StyledName = styled.p`
+  font-size: 29px;
+  font-weight: 400;
+`
+const StyledPosition = styled.p`
+  font-size: 16px;
+`
+const StyledLegend = styled.p`
+  text-align: left;
+  margin-bottom: 50px;
 `
 
 

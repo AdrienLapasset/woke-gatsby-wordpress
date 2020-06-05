@@ -6,7 +6,6 @@ import Flex from 'src/components/global/Flex'
 const ArticleNav = ({ data, currentProjectSlug }) => {
 
   const projects = data.allWordpressPost.edges
-  console.log(projects)
 
   const findCategories = (cat) => {
     for (let i = 0; i < cat.length; i++) {
@@ -22,7 +21,6 @@ const ArticleNav = ({ data, currentProjectSlug }) => {
     return lang === 'fr'
   })
 
-  console.log(projectsByLang)
   const reversedProjects = projectsByLang.reverse()
 
   const projectsSlug = reversedProjects.map((project) => {

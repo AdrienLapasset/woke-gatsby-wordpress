@@ -29,7 +29,6 @@ const Team = () => {
   `)
 
   const teamImages = data.allFile.edges
-  console.log(teamImages)
   const team = [
     {
       name: 'Ludovic Lê',
@@ -66,12 +65,11 @@ const Team = () => {
   const [screenWidth, setScreenWidth] = useState(0)
   const [isMobile, setIsMobile] = useState(true)
 
-  // useEffect(() => {
-  //   setScreenWidth(window.innerWidth)
-  //   window.addEventListener("resize", () => setScreenWidth(window.innerWidth))
-  //   if (screenWidth < 992) { setIsMobile(true) } else { setIsMobile(false) }
-  // }, [screenWidth]);
-
+  useEffect(() => {
+    setScreenWidth(window.innerWidth)
+    window.addEventListener("resize", () => setScreenWidth(window.innerWidth))
+    if (screenWidth < theme.breakpoints.lg) { setIsMobile(true) } else { setIsMobile(false) }
+  }, [screenWidth]);
 
   const [currentImage, setCurrentImage] = useState(teamImages.find(image => image.node.name === 'Ludo'))
   const [memberActive, setMenmberActive] = useState('Ludovic Lê')
@@ -96,7 +94,7 @@ const Team = () => {
   return (
     <>
       {isMobile ?
-        <TeamCarousel teamImages={teamImages} />
+        <TeamCarousel teamImages={teamImages} team={team} />
         :
         <>
           <StyledContainer>
