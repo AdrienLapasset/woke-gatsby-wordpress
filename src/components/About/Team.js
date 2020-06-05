@@ -18,8 +18,8 @@ const Team = () => {
           node {
             name
             childImageSharp {
-              fixed(width: 600, height: 700, quality: 90) {
-                ...GatsbyImageSharpFixed
+              fluid(quality: 90) {
+                ...GatsbyImageSharpFluid
               }
             }
           }
@@ -94,11 +94,14 @@ const Team = () => {
   return (
     <>
       {isMobile ?
-        <TeamCarousel teamImages={teamImages} team={team} />
+        <>
+          <StyledTitle>Derrière Woke …</StyledTitle>
+          <TeamCarousel teamImages={teamImages} team={team} />
+        </>
         :
         <>
           <StyledContainer>
-            <StyledImg fixed={currentImage.node.childImageSharp.fixed} imgStyle={{ objectPosition: 'center top' }} />
+            <StyledImg fluid={currentImage.node.childImageSharp.fluid} imgStyle={{ objectPosition: 'center top' }} />
             <StyledTextContainer column>
               <StyledTitle>Derrière Woke …</StyledTitle>
               <ul>

@@ -9,7 +9,7 @@ import Img from "gatsby-image"
 const TeamCarousel = ({ teamImages, team }) => {
 
   const carouselItems = teamImages.map((image, index) => {
-    const imgFixed = image.node.childImageSharp.fixed
+    const imgFixed = image.node.childImageSharp.fluid
     const teamMate = team.find(teamMate => teamMate.imgName === image.node.name)
     return (
       <div key={index}>
@@ -17,32 +17,24 @@ const TeamCarousel = ({ teamImages, team }) => {
           <StyledName>{teamMate.name}</StyledName>
           <StyledPosition>{teamMate.position}</StyledPosition>
         </StyledLegend>
-        <Img fixed={imgFixed} style={{ width: '100%' }} />
+        <Img fluid={imgFixed} imgStyle={{ objectPosition: 'center top' }} />
       </div>
     )
   })
 
   return (
     <>
-      <StyledContainer>
-        <StyledCarousel showArrows={false} showStatus={false} emulateTouch>
-          {carouselItems}
-        </StyledCarousel>
-      </StyledContainer>
+      <StyledCarousel showArrows={false} showStatus={false} emulateTouch>
+        {carouselItems}
+      </StyledCarousel>
     </>
   );
 }
 
-const StyledContainer = styled.div`
-  margin: 250px auto 0;
-  ${breakpoint('md')`
-    margin: 100px auto 0;
-  `}
-`
 const StyledCarousel = styled(Carousel)`
+  margin: 90px 0 250px;
   .slider-wrapper {
     .slider {
-     
       .slide {
         background-color: transparent;
       }
@@ -77,6 +69,5 @@ const StyledLegend = styled.p`
   text-align: left;
   margin-bottom: 50px;
 `
-
 
 export default TeamCarousel;
