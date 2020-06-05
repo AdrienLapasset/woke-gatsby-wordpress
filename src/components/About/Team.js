@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from 'styled-components'
 import Flex from 'src/components/global/Flex'
 import Text from 'src/components/global/Text'
 import { fadeIn } from 'src/styles/keyframes';
+import breakpoint from 'styled-components-breakpoint';
+import TeamCarousel from './TeamCarousel'
+import theme from 'src/styles/theme'
 
 const Team = () => {
 
   const data = useStaticQuery(graphql`
     query {
-      allFile(filter: {relativePath: {regex: "/team/"}}) {  
+       allFile(filter: {relativeDirectory: {regex: "/team/"}}) {
         edges {
           node {
             name
@@ -26,6 +29,7 @@ const Team = () => {
   `)
 
   const teamImages = data.allFile.edges
+  console.log(teamImages)
   const team = [
     {
       name: 'Ludovic Lê',
@@ -59,6 +63,16 @@ const Team = () => {
     },
   ]
 
+  const [screenWidth, setScreenWidth] = useState(0)
+  const [isMobile, setIsMobile] = useState(true)
+
+  // useEffect(() => {
+  //   setScreenWidth(window.innerWidth)
+  //   window.addEventListener("resize", () => setScreenWidth(window.innerWidth))
+  //   if (screenWidth < 992) { setIsMobile(true) } else { setIsMobile(false) }
+  // }, [screenWidth]);
+
+
   const [currentImage, setCurrentImage] = useState(teamImages.find(image => image.node.name === 'Ludo'))
   const [memberActive, setMenmberActive] = useState('Ludovic Lê')
 
@@ -81,21 +95,28 @@ const Team = () => {
 
   return (
     <>
-      <StyledContainer>
-        <StyledImg fixed={currentImage.node.childImageSharp.fixed} imgStyle={{ objectPosition: 'center top' }} />
-        <StyledTextContainer column>
-          <StyledTitle>Derrière Woke …</StyledTitle>
-          <ul>
-            {teamRender}
-          </ul>
-        </StyledTextContainer>
-      </StyledContainer>
+      {isMobile ?
+        <TeamCarousel teamImages={teamImages} />
+        :
+        <>
+          <StyledContainer>
+            <StyledImg fixed={currentImage.node.childImageSharp.fixed} imgStyle={{ objectPosition: 'center top' }} />
+            <StyledTextContainer column>
+              <StyledTitle>Derrière Woke …</StyledTitle>
+              <ul>
+                {teamRender}
+              </ul>
+            </StyledTextContainer>
+          </StyledContainer>
+        </>
+      }
     </>
   );
 }
 
 
-const StyledContainer = styled(Flex)`
+const StyledContainer = styled.div`
+  display: flex;
   margin-bottom: 200px;
   & > * {
     flex: 1 1 0;
