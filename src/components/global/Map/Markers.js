@@ -26,26 +26,75 @@ const Markers = () => {
 
   const markers = [
     {
-      positionX: 550,
-      positionY: 150,
+      positionX: 540,
+      positionY: 260,
       project: 'Association Woke',
-      path: 'sri-lanka',
-      img: 'menuBg'
+      path: '',
+      img: ''
     },
     {
-      positionX: 200,
-      positionY: 300,
+      positionX: 617,
+      positionY: 287,
+      project: 'Les prémisses',
+      path: '',
+      img: ''
+    },
+    {
+      positionX: 936,
+      positionY: 457,
+      project: 'YKPA',
+      path: '',
+      img: ''
+    },
+    {
+      positionX: 949,
+      positionY: 467,
+      project: '4Ocean + Trash Hero Day',
+      path: '',
+      img: ''
+    },
+    {
+      positionX: 925,
+      positionY: 467,
+      project: 'Lombok',
+      path: '',
+      img: ''
+    },
+    {
+      positionX: 890,
+      positionY: 447,
+      project: 'Les tortues de Sumatra',
+      path: '',
+      img: ''
+    },
+    {
+      positionX: 882,
+      positionY: 440,
+      project: 'Kolibri',
+      path: '',
+      img: ''
+    },
+    {
+      positionX: 224,
+      positionY: 370,
+      project: 'Ix-Canaan Guatemala',
+      path: '',
+      img: ''
+    },
+    {
+      positionX: 874,
+      positionY: 361,
+      project: 'Thailande',
+      path: '',
+      img: ''
+    },
+    {
+      positionX: 814,
+      positionY: 411,
       project: 'Sri Lanka',
-      path: 'sri-lanka',
-      img: 'menuBg'
+      path: '',
+      img: ''
     },
-    {
-      positionX: 400,
-      positionY: 100,
-      project: 'Trash Hero Day',
-      path: 'classroom',
-      img: 'premices'
-    }
   ]
   const [projectActive, setProjectActive] = useState(null)
 
@@ -86,16 +135,18 @@ const StyledContainer = styled.div`
   top: ${props => props.y}px;
   display: flex;
   align-items: center;
-  width: 200px;
-  height: 50px;
 `
 const StyledLabel = styled.div`
+  display: none;
   opacity: 0;
+  width: max-content;
   background-color: ${props => props.theme.colors.black};
   color: white;
   padding: 5px 10px;
   font-size: 14px;
   transition: opacity .2s;
+  position: absolute;
+  left: 25px;
 `
 const StyledMarker = styled(Link)`
   width: 13px;
@@ -108,7 +159,8 @@ const StyledMarker = styled(Link)`
     transform: scale(2);
     background-color: ${props => props.theme.colors.primary};
     & + ${StyledLabel} {
-       opacity: 1;
+      opacity: 1;
+      display: block;
     }
   }
 `
