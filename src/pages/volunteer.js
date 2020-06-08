@@ -7,9 +7,14 @@ import Flex from 'src/components/global/Flex'
 import Actions from 'src/components/Actions/Actions'
 
 const Volunteer = ({ location }) => {
-  let actionToDisplay = null
+  let actionToDisplay = ''
   if (location.state) { // Must be tested for Build
-    actionToDisplay = location.state.actionToDisplay
+    if (location.state.actionToDisplay) {
+      actionToDisplay = location.state.actionToDisplay
+    }
+    else {
+      actionToDisplay = 'donation' // Donation is displayed basically
+    }
   } else {
     actionToDisplay = 'donation'
   }

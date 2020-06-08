@@ -10,7 +10,6 @@ const Path = () => {
     setBodyOffset(document.body.getBoundingClientRect());
     const sY = (bodyOffset.top * 3.5) + 5700
     if (sY < 70) setIsFull(true)
-    console.log(sY)
     if (!isFull) setScrollY(sY)
   };
 
