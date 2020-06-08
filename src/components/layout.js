@@ -41,8 +41,10 @@ const StyledLayout = styled.section`
     max-width: ${props => props.isFluid ? '' : '540px'};
   `}
   ${breakpoint('md')`
-    margin: ${props => props.isFluid ? '' : '220px auto 0'};
     max-width: ${props => props.isFluid ? '' : '720px'};
+  `}
+  ${breakpoint('md')`
+    margin: ${props => props.isFluid ? '' : '220px auto 0'};
   `}
   ${breakpoint('lg')`
     max-width: ${props => props.isFluid ? '' : '960px'};

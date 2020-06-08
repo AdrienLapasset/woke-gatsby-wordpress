@@ -77,7 +77,6 @@ const Actions = ({ actionToDisplay }) => {
 const StyledContainer = styled.section`
   max-width: 600px;
   margin: 0 auto;
-  height: 900px;
 `
 const StyledTestymony = styled(Text)`
   margin: 100px 0;
