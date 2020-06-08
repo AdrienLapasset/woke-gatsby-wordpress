@@ -23,7 +23,7 @@ const Volunteer = ({ location }) => {
     query {
       volunteerImg: file(relativePath: { eq: "volunteer.jpg" }) {
         childImageSharp {
-          fixed(width: 900, height: 500) {
+          fixed(width: 900, height: 500, quality: 90) {
             ...GatsbyImageSharpFixed
           }
         }

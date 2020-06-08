@@ -100,7 +100,7 @@ export default props => (
               featured_media {
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 900) {
+                    fluid(maxWidth: 900, quality: 90) {
                       ...GatsbyImageSharpFluid_withWebp
                   }
                   }

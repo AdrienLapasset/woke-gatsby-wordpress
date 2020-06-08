@@ -25,7 +25,7 @@ const About = () => {
           node {
             relativePath
             childImageSharp {
-              fixed(width: 600) {
+              fixed(width: 600, quality: 90) {
                 ...GatsbyImageSharpFixed
               }
             }
