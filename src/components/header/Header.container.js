@@ -24,6 +24,7 @@ const Header = ({ isFluid }) => {
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen)
+    console.log('toto')
   }
 
   return (
@@ -44,7 +45,7 @@ const Header = ({ isFluid }) => {
           </Link>
         </StyledGroup>
       </StyledContainer>
-      {isMenuOpen ? <Menu /> : null}
+      {isMenuOpen ? <Menu toggleMenu={toggleMenu} /> : null}
     </>
   );
 }

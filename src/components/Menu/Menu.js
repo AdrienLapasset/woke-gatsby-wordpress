@@ -7,7 +7,7 @@ import { fadeIn } from 'src/styles/keyframes';
 
 import moreIcon from 'src/assets/icons/more.svg';
 
-const Menu = () => {
+const Menu = ({ toggleMenu }) => {
 
   const pages = [
     { name: 'Intro', path: '/' },
@@ -32,7 +32,7 @@ const Menu = () => {
   const pageList = pages.map((page, index) => {
     return (
       <StyledLi key={index}>
-        <StyledNavLink to={page.path} activeClassName="active" partiallyActive={page.path !== '/'}>
+        <StyledNavLink to={page.path} activeClassName="active" partiallyActive={page.path !== '/'} onClick={toggleMenu}>
           <StyledText>
             {page.name}
           </StyledText>
