@@ -7,13 +7,20 @@ const Markers = () => {
 
   const data = useStaticQuery(graphql`
     query {
-      allFile(filter: {relativePath: {regex: "/interactiveMap/"}}) {  
-        edges {
-          node {
-            name
-            childImageSharp {
-              fluid(maxWidth: 1600) {
-                ...GatsbyImageSharpFluid
+      allWordpressPost(filter: {categories: {elemMatch: {slug: {eq: "projets"}}}}) {
+        nodes {
+          excerpt
+          title
+          slug
+          categories {
+            slug
+          }
+          featured_media {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 1600) {
+                  ...GatsbyImageSharpFluid
+                }
               }
             }
           }
@@ -22,84 +29,74 @@ const Markers = () => {
     }
   `)
 
-  const projectsImage = data.allFile.edges
-
+  const projectsImage = data.allWordpressPost.nodes
   const markers = [
     {
       positionX: 540,
       positionY: 260,
       project: 'Association Woke',
-      path: '',
-      img: ''
+      slug: ''
     },
     {
       positionX: 617,
       positionY: 287,
       project: 'Les prémisses',
-      path: '',
-      img: ''
+      slug: 'les-premisses'
     },
     {
       positionX: 936,
       positionY: 457,
       project: 'YKPA',
-      path: '',
-      img: ''
+      slug: 'ykpa'
     },
     {
       positionX: 949,
       positionY: 467,
       project: '4Ocean + Trash Hero Day',
-      path: '',
-      img: ''
+      slug: 'trash-hero-day'
     },
     {
       positionX: 925,
       positionY: 467,
       project: 'Lombok',
-      path: '',
-      img: ''
+      slug: 'lombok'
     },
     {
       positionX: 890,
       positionY: 447,
       project: 'Les tortues de Sumatra',
-      path: '',
-      img: ''
+      slug: 'tortues-de-sumatra'
     },
     {
       positionX: 882,
       positionY: 440,
       project: 'Kolibri',
-      path: '',
-      img: ''
+      slug: 'kolibri'
     },
     {
       positionX: 224,
       positionY: 370,
       project: 'Ix-Canaan Guatemala',
-      path: '',
-      img: ''
+      slug: 'ix-canaan-guatemala'
     },
     {
       positionX: 874,
       positionY: 361,
       project: 'Thailande',
-      path: '',
-      img: ''
+      slug: 'classroom'
     },
     {
       positionX: 814,
       positionY: 411,
       project: 'Sri Lanka',
-      path: '',
-      img: ''
+      slug: 'sri-lanka'
     },
   ]
-  const [projectActive, setProjectActive] = useState(null)
+  const [imgToDisplay, setImgToDisplay] = useState(null)
 
   const handleMouseEnter = (img) => {
-    setProjectActive(projectsImage.find(image => image.node.name === img))
+    const activeProject = projectsImage.find(image => image.slug === img)
+    setImgToDisplay(activeProject.featured_media.localFile?.childImageSharp.fluid)
   }
 
   const renderMarkers = markers.map((marker, index) => {
@@ -107,9 +104,9 @@ const Markers = () => {
       <>
         <StyledContainer x={marker.positionX} y={marker.positionY} key={index}>
           <StyledMarker
-            to={`projects/${marker.path}`}
-            onMouseEnter={() => handleMouseEnter(marker.img)}
-            onMouseLeave={() => setProjectActive(null)}
+            to={`projects/${marker.slug}`}
+            onMouseEnter={() => handleMouseEnter(marker.slug)}
+            onMouseLeave={() => setImgToDisplay(null)}
           />
           <StyledLabel>{marker.project}</StyledLabel>
         </StyledContainer>
@@ -119,9 +116,9 @@ const Markers = () => {
 
   return (
     <>
-      {projectActive ?
+      {imgToDisplay ?
         <StyledImgWrapper>
-          <SyledBgImage fluid={projectActive.node.childImageSharp.fluid} />
+          <SyledBgImage fluid={imgToDisplay} />
         </StyledImgWrapper>
         : null}
       {renderMarkers}

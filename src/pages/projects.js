@@ -9,7 +9,6 @@ const ProjectsList = ({ data }) => {
 
   const projects = data.allWordpressPost.edges
 
-
   const projectsByLang = projects.filter(project => {
     const lang = project.node.categories[0].slug
     return lang === 'fr'
