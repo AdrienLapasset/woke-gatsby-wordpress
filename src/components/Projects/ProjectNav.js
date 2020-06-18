@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, graphql, StaticQuery } from "gatsby"
 import styled from 'styled-components'
 import Flex from 'src/components/global/Flex'
+import breakpoint from 'styled-components-breakpoint';
 
 const ProjectNav = ({ data, currentProjectSlug }) => {
 
@@ -73,15 +74,33 @@ const ProjectNav = ({ data, currentProjectSlug }) => {
 
 const StyledContainer = styled.div`
   display: flex;
-  justify-content: space-between;
   margin-top: 60px;
+  align-items: center;   
+  flex-direction: column;
+  ${breakpoint('sm')`
+    flex-direction: row;
+    justify-content: space-between;
+  `}
+  a {
+    &:first-child {
+      margin-right: auto;
+      margin-bottom: 20px;
+    }
+    &:last-child {
+      margin-left: auto;
+    }
+  }
 `
 const StyledNumber = styled.span`
   color: ${props => props.theme.colors.grey};
-  font-size: 64px;
   opacity: .3;
   font-weight: 500;
-  margin: 0 20px;
+  font-size: 35px;
+  margin: 0 5px;
+  ${breakpoint('md')`
+    margin: 0 20px;
+    font-size: 64px;
+  `}
 `
 const StyledTitle = styled.span`
   font-size: 18px;

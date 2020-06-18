@@ -48,6 +48,7 @@ const StyledDate = styled.p`
 const StyledContainer = styled.div`
   max-width: 960px;
   margin: auto; 
+  padding: 0 30px; 
 `
 export default ArticleTemplate
 

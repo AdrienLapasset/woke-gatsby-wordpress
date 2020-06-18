@@ -33,7 +33,8 @@ const ProjectTemplate = ({ data }) => {
 
 const StyledContainer = styled.div`
   max-width: 960px;
-  margin: auto; 
+  margin: auto;
+  padding: 0 30px; 
 `
 const StyledHeaderImg = styled(Img)`
   width: 100%;

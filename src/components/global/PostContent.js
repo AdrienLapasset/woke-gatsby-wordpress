@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import breakpoint from 'styled-components-breakpoint';
 
 const PostContent = ({ content }) => {
   return (
@@ -12,18 +13,28 @@ const PostContent = ({ content }) => {
 const StyledContent = styled.div`
   blockquote p {
     font-family: 'Cambria', serif;
-    font-size: 35px;
-    margin: 0 150px 50px; 
-    text-align: center
+    font-size: 28px;
+    text-align: center;
+    margin: 0 0 50px;
+    ${breakpoint('md')`
+      margin: 0 150px 50px; 
+      font-size: 35px;
+    `}
   }
   & p {
-    &:first-of-type {
+    /* &:first-of-type {
       font-family: 'Cambria', serif;
-      font-size: 35px;
+      font-size: 28px;
       margin-bottom: 120px;
-    }
+      ${breakpoint('md')`
+        font-size: 35px;
+      `}
+    } */
     &:not(:first-of-type) {
-      margin: 0 100px 50px;
+        margin: 0 0 50px;
+        ${breakpoint('md')`
+          margin: 0 100px 50px;
+        `}
       & > img {
         margin: 0 auto 50px; 
       }
