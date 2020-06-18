@@ -75,13 +75,12 @@ const StyledImgMobile = styled(Img)`
   `}
 `
 const StyledArticlesLink = styled(Link)`
-  margin-top: 30px;
   Button {
-    margin: auto;
+    margin: 30px auto 0;
+    ${breakpoint('lg')`
+      margin: 30px auto 0 0;
+    `}
   }
-  ${breakpoint('lg')`
-    margin: unset;
-  `}
 `
 
 export default props => (
