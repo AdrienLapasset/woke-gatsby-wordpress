@@ -3,6 +3,7 @@ import Flex from 'src/components/global/Flex'
 import styled, { css } from 'styled-components'
 import Text from 'src/components/global/Text'
 import Button from 'src/components/global/Button';
+import breakpoint from 'styled-components-breakpoint';
 
 const Actions = ({ actionToDisplay }) => {
 
@@ -78,10 +79,14 @@ const StyledContainer = styled.section`
   max-width: 600px;
   margin: 0 auto;
 `
-const StyledTestymony = styled(Text)`
-  margin: 100px 0;
+const StyledTestymony = styled.p`
+  font-family: 'Cambria', serif;
+  margin: 50px 0;  
+  ${breakpoint('md')`
+    margin: 100px 0;  
+  `}
 `
-const StyledTabText = styled(Text)`
+const StyledTabText = styled.p`
   text-transform: capitalize;
   color: ${props => props.isActive ? props.theme.colors.black : props.theme.colors.grey};
   transition: color .2s;
@@ -93,7 +98,7 @@ const StyledContent = styled.div`
   transition: opacity ${props => props.transitionDuration}ms;
   opacity: ${props => props.isTransition ? 0 : 1};
 `
-const StyledContentText = styled(Text)`
+const StyledContentText = styled.p`
   margin-bottom: 40px;
 `
 
