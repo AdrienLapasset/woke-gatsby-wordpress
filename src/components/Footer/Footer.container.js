@@ -82,9 +82,7 @@ const Footer = () => {
           <StyledButton isNewsletterFormOpen={isNewsletterFormOpen} onClick={() => showNewsletterForm()}>S’abonner à la newsletter</StyledButton>
         </Flex>
       </StyledContainer>
-      {isNewsletterFormOpen ?
-        <NewsletterForm />
-        : null}
+      <NewsletterForm isNewsletterFormOpen={isNewsletterFormOpen} />
     </>
   );
 }
@@ -114,6 +112,10 @@ const StyledA = styled.a`
 `
 const StyledButton = styled.button`
   font-weight: ${props => props.isNewsletterFormOpen ? '700' : '400'};
+  margin-top: 50px;
+  ${breakpoint('lg')`
+    margin-top: 0;
+  `}
   &:hover{
     font-weight: 700
   }

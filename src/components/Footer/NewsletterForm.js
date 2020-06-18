@@ -2,13 +2,14 @@ import React from 'react';
 import styled, { css } from 'styled-components'
 import Flex from 'src/components/global/Flex'
 import { Link } from "gatsby"
+import breakpoint from 'styled-components-breakpoint';
 
-const NewsletterForm = () => {
+const NewsletterForm = ({ isNewsletterFormOpen }) => {
   return (
     <>
-      <StyledContainer>
+      <StyledContainer isNewsletterFormOpen={isNewsletterFormOpen}>
         <StyledLayout>
-          <p>Pour recevoir nos actualités et nos projets, laissez votre email : </p>
+          <StyledTitle>Pour recevoir nos actualités et nos projets, laissez votre email : </StyledTitle>
           <Flex column>
             <StyledForm method="post" action="#">
               <StyledInput type="email" name="email" id="email" />
@@ -32,39 +33,63 @@ const NewsletterForm = () => {
 }
 
 const StyledContainer = styled.section`
-  background-color: #eeede2;  
+  max-height: ${props => props.isNewsletterFormOpen ? '900px' : '0px'};
+  overflow: hidden;
+  transition: max-height 1s cubic-bezier(0.22, 0.61, 0.36, 1);
 `
 const StyledLayout = styled.section`
+  background-color: #eeede2;  
   margin: 0 auto;
   max-width: 1600px;
-  padding: 60px 15px;
+  padding: 60px 30px;
   display: flex;
+  flex-direction: column;
+  ${breakpoint('lg')`
+    flex-direction: row;
+  `}
   & > * {
     flex: 1 1 0;
   }
 `
+const StyledTitle = styled.p`
+  font-size: 25px;
+  margin: 15px 0;
+  font-weight: 900;
+`
 const StyledForm = styled.form`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   width: 100%;
   margin-bottom: 40px;
+  ${breakpoint('sm')`
+    flex-direction: row;
+  `}
 `
 const StyledInput = styled.input`
+  height: 62px;
   flex-grow: 1;
   background-color: transparent;
   border: 1px solid ${props => props.theme.colors.black};
-  margin-right: 60px;
   text-align: center;
   font-size: 16px;
   color: ${props => props.theme.colors.grey};
+  margin: 0 0 30px 0;
+  ${breakpoint('sm')`
+    margin: 0 60px 0 0;
+  `}
 `
 const StyledButton = styled.button`
+  height: 62px;
   display: flex;
   background-color: ${props => props.theme.colors.black};
   color: white;
+  justify-content: center;
+  align-items: center;
   padding: 10px 50px;
 `
 const StyledText = styled.p`
+  font-style: italic;
   color: ${props => props.theme.colors.black};
   font-size: 18px;
 `
