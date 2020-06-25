@@ -53,7 +53,7 @@ const Header = ({ isFluid }) => {
 const StyledContainer = styled.div`
   z-index: 2;
   margin: 0 auto;
-  padding: 58px 35px 35px;
+  padding: 35px 35px 15px;
   max-width: 1600px;
   position: ${props => props.isHeaderFixed ? `fixed` : `absolute`};
   top: 0;
@@ -70,6 +70,7 @@ const StyledContainer = styled.div`
   `}
 
   ${breakpoint('md')`
+    padding: 58px 35px 35px;
     flex-direction: row;
     height: 150px;
   `}
@@ -82,11 +83,12 @@ const StyledGroup = styled.div`
   &:first-child {
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 52px;
+    margin-bottom: 35px;
     ${breakpoint('md')`
       flex-direction: row-reverse;
       width: unset;
       margin-bottom: 0;
+      margin-bottom: 52px;
     `}
   }
   

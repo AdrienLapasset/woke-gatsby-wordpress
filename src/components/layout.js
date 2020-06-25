@@ -34,7 +34,7 @@ const Layout = ({ children, isFluid }) => {
 }
 
 const StyledLayout = styled.section`
-  margin: ${props => props.isFluid ? '' : '300px auto 0'};
+  margin: ${props => props.isFluid ? '' : '200px auto 0'};
   max-width: ${props => props.isFluid ? '' : '100%'};
   padding:${props => props.isFluid ? '' : '0 35px'};
   ${breakpoint('sm')`

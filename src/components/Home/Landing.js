@@ -81,20 +81,22 @@ const StyledColumn = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  flex: 1 1 0;
   align-items: flex-start;
-  &:first-child{
-    padding: 150px 0 260px;
+  &:first-child {
+    padding: 0 0 260px;
     ${breakpoint('lg')`
       padding: 120px 120px 0 0;
     `}
   }
-  &:last-child{
+  &:last-child {
     padding-left: 0;
     ${breakpoint('lg')`
       padding-left: 120px;
     `}
   }
+  ${breakpoint('lg')`
+    flex: 1 1 0;
+  `}
 `
 const StyledButton = styled(Button)`
   margin-top: 60px;
