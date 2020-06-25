@@ -24,7 +24,6 @@ const Header = ({ isFluid }) => {
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen)
-    console.log('toto')
   }
 
   return (

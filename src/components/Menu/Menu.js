@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components'
 import { Link, useStaticQuery, graphql } from "gatsby"
 import BackgroundImage from 'gatsby-background-image'
+import breakpoint from 'styled-components-breakpoint';
 
 import { fadeIn } from 'src/styles/keyframes';
 
@@ -79,9 +80,13 @@ const StyledUlContainer = styled.div`
 `
 const heightAnim = keyframes`
   to {
+    padding: 200px 0 0 40px;
+    height: 100vh;
+  }
+  ${breakpoint('lg')`
     padding: 400px 0 0 40px;
     height: 680px;
-  }
+  `}
 `
 const StyledUl = styled.ul`
   flex: 0 0 auto;
