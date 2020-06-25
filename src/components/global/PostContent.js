@@ -12,7 +12,7 @@ const PostContent = ({ content }) => {
 
 const StyledContent = styled.div`
   blockquote p {
-    font-family: 'Cambria', serif;
+    font-family: 'Cambria', 'Oranienbaum', serif;
     font-size: 28px;
     text-align: center;
     margin: 0 0 50px;
@@ -23,7 +23,7 @@ const StyledContent = styled.div`
   }
   & p {
     /* &:first-of-type {
-      font-family: 'Cambria', serif;
+      font-family: 'Cambria', 'Oranienbaum', serif;
       font-size: 28px;
       margin-bottom: 120px;
       ${breakpoint('md')`

@@ -99,10 +99,10 @@ const About = () => {
 }
 
 const StyledWoke = styled.p`
-  font-family: 'Cambria', serif;
+  font-family: 'Cambria', 'Oranienbaum', serif;
 `
 const StyledItalic = styled.p`
-  font-family: 'Cambria', serif;
+  font-family: 'Cambria', 'Oranienbaum', serif;
   font-style: italic;
   font-weight: 300;
 `

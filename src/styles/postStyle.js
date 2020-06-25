@@ -24,14 +24,14 @@ const postStyle = () => {
 `
   const StyledContent = styled.div`
   blockquote p {
-    font-family: 'Cambria', serif;
+    font-family: 'Cambria', 'Oranienbaum', serif;
     font-size: 35px;
     margin: 0 150px 50px; 
     text-align: center
   }
   & p {
     &:first-of-type {
-      font-family: 'Cambria', serif;
+      font-family: 'Cambria', 'Oranienbaum', serif;
       font-size: 35px;
       margin-bottom: 120px;
     }

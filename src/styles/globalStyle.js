@@ -1,22 +1,9 @@
 import { createGlobalStyle } from 'styled-components/macro'
 import 'typeface-nunito-sans'
-import CambriaRegular from 'src/assets/fonts/Cambria-regular.ttf'
-import CambriaItalic from 'src/assets/fonts/Cambria-italic.ttf'
+import 'typeface-oranienbaum'
 import breakpoint from 'styled-components-breakpoint';
 
 export default createGlobalStyle`
-
- @font-face {
-  font-family: 'Cambria Regular';
-  src: local('Cambria Regular'), local('CambriaRegular')
-  url(${CambriaRegular}) format('ttf')
-}
-
- @font-face {
-  font-family: 'Cambria Italic';
-  src: local('CambriaItalic')
-  url(${CambriaItalic}) format('ttf')
-}
 
 * {
   margin: 0;

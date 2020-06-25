@@ -80,7 +80,7 @@ const StyledContainer = styled.section`
   margin: 0 auto;
 `
 const StyledTestymony = styled.p`
-  font-family: 'Cambria', serif;
+  font-family: 'Cambria', 'Oranienbaum', serif;
   margin: 50px 0;  
   ${breakpoint('md')`
     margin: 100px 0;  

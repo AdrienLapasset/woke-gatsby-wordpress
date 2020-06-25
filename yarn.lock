@@ -11825,6 +11825,11 @@ typeface-nunito-sans@^0.0.72:
   resolved "https://registry.yarnpkg.com/typeface-nunito-sans/-/typeface-nunito-sans-0.0.72.tgz#c99198a8d62ebdda0399dbe8cd81586a0976a01c"
   integrity sha512-b58R4movZchZJNe5pWvqMVoJzKRs7GP09iIri4WWQOs9+G+yjoTSIpOUMU2xtLmxuyXUo1F8XhnOHY06kSDhuQ==
 
+typeface-oranienbaum@^0.0.72:
+  version "0.0.72"
+  resolved "https://registry.yarnpkg.com/typeface-oranienbaum/-/typeface-oranienbaum-0.0.72.tgz#f734c2e88af588ca16ac940cb24fe366ae40ec0a"
+  integrity sha512-m03wzcCAQ9jF/wqmCPj0rIXpFlcyJTuKPIqI7j593Eg6Mhqeaf65XDKO9wobGyZc+08/qSXS/MB6epDAvy+FRA==
+
 ua-parser-js@^0.7.18:
   version "0.7.21"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.21.tgz#853cf9ce93f642f67174273cc34565ae6f308777"

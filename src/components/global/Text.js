@@ -18,7 +18,7 @@ const Lg = styled.p`
   font-weight: 400;
 `
 const Quote = styled.p`
-  font-family: 'Cambria', serif;
+  font-family: 'Cambria', 'Oranienbaum', serif;
   font-size: 35px;
   color: ${props => props.theme.colors.black};
   line-height: initial;
