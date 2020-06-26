@@ -78,23 +78,28 @@ const StyledUlContainer = styled.div`
   top: 0;
   right: 0;
 `
-const heightAnim = keyframes`
+const heightAnimMobile = keyframes`
   to {
     padding: 200px 0 0 40px;
     height: 100vh;
   }
-  ${breakpoint('lg')`
+`
+const heightAnimDesktop = keyframes`
+  to {
     padding: 400px 0 0 40px;
     height: 680px;
-  `}
+  }
 `
 const StyledUl = styled.ul`
   flex: 0 0 auto;
   margin-left: auto;
   border-left: 1px solid rgba(255, 255, 255, .3);
   width: 240px;
-  animation: ${heightAnim} .6s forwards;
+  animation: ${heightAnimMobile} .6s forwards;
   height: 0;
+  ${breakpoint('lg')`
+    animation: ${heightAnimDesktop} .6s forwards;
+  `}
 `
 const StyledText = styled.p`
   font-weight: 400;
