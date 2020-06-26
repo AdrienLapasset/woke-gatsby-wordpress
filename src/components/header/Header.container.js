@@ -15,6 +15,11 @@ const Header = ({ isFluid }) => {
   const [isHeaderFixed, setHeaderFixed] = useState(!isFluid)
 
   useEffect(() => {
+    if (isMenuOpen) {
+      setHeaderFixed(true)
+    } else {
+      setHeaderFixed(false)
+    }
     if (isMenuOpen || isFluid) {
       setHeaderWhite(true)
     } else {
