@@ -19,10 +19,11 @@ const StyledButton = styled.button`
     content: '';
     display: block;
     width: 30%;
-    height: 3px;
+    height: 4px;
     background-color: ${props => props.theme.colors.black};
     margin-top: 15px;
-    transition: width .2s ease-out
+    transition: width .2s ease-out;
+    border-radius: 4px;
   }
   &:hover:after {
      width: 100%;

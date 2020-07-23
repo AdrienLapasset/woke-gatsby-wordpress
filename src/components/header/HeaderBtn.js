@@ -16,11 +16,11 @@ const StyledButton = styled.button`
   transition: all .4s;
   background-color: ${props => props.second ? 'transparent' : props.theme.colors.primary};
   color: ${props => props.second ? props.theme.colors.black : 'white'};
-  border: 2px solid;
+  border: ${props => props.second ? '2px solid' : 'none'};
   border-color: ${props => props.second ? props.theme.colors.black : props.theme.colors.primary};
-  /* margin-left: ${props => props.second ? '30px' : 'none'}; */
   box-sizing: border-box;
   transition-delay: ${props => props.second ? '.2s' : '.1s'};
+  height: 40px;
 
   ${({ isHeaderWhite }) => isHeaderWhite && `
     border-color: white;
@@ -31,6 +31,7 @@ const StyledButton = styled.button`
     display: flex;
     font-size: 18px;
     padding: 12px 25px;
+    height: 50px;
   `}
 `
 

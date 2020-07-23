@@ -18,7 +18,7 @@ const StyledSvg = styled.svg`
 	height: 25px;
   ${breakpoint('sm')`
 		fill: #C1BFAB;
-		margin: 0 0 30px;
+		margin: 0 0 36px;
 		height: unset;
   `}
 `

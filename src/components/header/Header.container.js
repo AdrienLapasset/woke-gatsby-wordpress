@@ -92,7 +92,6 @@ const StyledGroup = styled.div`
       flex-direction: row-reverse;
       width: unset;
       margin-bottom: 0;
-      margin-bottom: 52px;
     `}
   }
   

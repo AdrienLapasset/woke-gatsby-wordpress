@@ -15,11 +15,11 @@ const Sponsoring = () => {
 }
 
 const StyledSvg = styled.svg`
-display: block;
+	display: block;
 	margin: 0 auto 20px;
 	height: 25px;
   ${breakpoint('sm')`
-	  margin: 0 0 30px;
+	  margin: 0 0 36px;
 		stroke: #C1BFAB;
 		height: unset;
   `}

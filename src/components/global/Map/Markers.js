@@ -18,7 +18,7 @@ const Markers = () => {
           featured_media {
             localFile {
               childImageSharp {
-                fluid(maxWidth: 1600) {
+                fluid(maxWidth: 900) {
                   ...GatsbyImageSharpFluid
                 }
               }
@@ -35,7 +35,7 @@ const Markers = () => {
       positionX: 540,
       positionY: 260,
       project: 'Association Woke',
-      slug: ''
+      slug: 'les-premisses'
     },
     {
       positionX: 617,
