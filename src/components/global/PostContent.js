@@ -11,33 +11,26 @@ const PostContent = ({ content }) => {
 }
 
 const StyledContent = styled.div`
-  blockquote p {
-    font-family: 'Cambria', 'Oranienbaum', serif;
-    font-size: 28px;
-    text-align: center;
+  blockquote {
     margin: 0 0 50px;
     ${breakpoint('md')`
       margin: 0 150px 50px; 
       font-size: 35px;
     `}
-  }
-  & p {
-    /* &:first-of-type {
+    p, span {
       font-family: 'Cambria', 'Oranienbaum', serif;
       font-size: 28px;
-      margin-bottom: 120px;
-      ${breakpoint('md')`
-        font-size: 35px;
-      `}
-    } */
-    &:not(:first-of-type) {
-        margin: 0 0 50px;
-        ${breakpoint('md')`
-          margin: 0 100px 50px;
-        `}
-      & > img {
-        margin: 0 auto 50px; 
-      }
+      text-align: center;
+      line-height: 1.5;
+    }
+  }
+  & p {
+    margin: 0 0 50px;
+    ${breakpoint('md')`
+      margin: 0 100px 50px;
+    `}
+    & > img {
+      margin: 0 auto 50px; 
     }
   }
   & img, .wp-video {

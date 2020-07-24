@@ -15,7 +15,9 @@ const ArticleTemplate = ({ data }) => {
   return (
     <>
       <Layout isFluid>
-        <StyledHeaderImg fluid={imgFluid} />
+        <StyledOverlay>
+          <StyledHeaderImg fluid={imgFluid} />
+        </StyledOverlay>
         <StyledInfoContainer>
           <StyledDate>
             <Moment interval={0} format="DD MMMM YYYY" >{article.date}</Moment>
@@ -31,9 +33,15 @@ const ArticleTemplate = ({ data }) => {
   )
 }
 
-const StyledHeaderImg = styled(Img)`
+const StyledOverlay = styled.div`
   width: 100%;
   height: 100vh;
+  background-color: black;  
+`
+const StyledHeaderImg = styled(Img)`
+  opacity: 0.64;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 `

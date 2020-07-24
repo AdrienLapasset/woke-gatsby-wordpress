@@ -23,17 +23,17 @@ const Footer = () => {
       <StyledContainer>
         <Flex column justifyBetween rowMd >
           <Flex column mb={70} mbMd={0}>
-            <StyledA href=""
+            <StyledA href="https://www.facebook.com/Woke-121383801750149/"
               target="_blank"
               rel="noopener noreferrer">
               Facebook
             </StyledA>
-            <StyledA href=""
+            <StyledA href="https://www.instagram.com/woke.fr/"
               target="_blank"
               rel="noopener noreferrer">
               Instagram
             </StyledA>
-            <StyledA href=""
+            <StyledA href="https://www.linkedin.com/company/ngowoke/"
               target="_blank"
               rel="noopener noreferrer">
               Linkedin
@@ -57,7 +57,7 @@ const Footer = () => {
               rel="noopener noreferrer">
               contact@woke.fr
             </StyledA>
-            <StyledA href="tel:+33669640007" >06 69 64 00 07</StyledA>
+            <StyledLink href="tel:+33669640007" >06 69 64 00 07</StyledLink>
           </StyledAdress>
         </Flex>
         <Flex column rowMd mt={60} justifyBetween>

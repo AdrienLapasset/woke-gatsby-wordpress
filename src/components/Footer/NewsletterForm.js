@@ -54,7 +54,7 @@ const StyledLayout = styled.section`
 const StyledTitle = styled.p`
   font-size: 25px;
   margin: 15px 0;
-  font-weight: 900;
+  font-weight: 600;
 `
 const StyledForm = styled.form`
   display: flex;
@@ -87,6 +87,7 @@ const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
   padding: 10px 50px;
+  border-radius: 5px;
 `
 const StyledText = styled.p`
   font-style: italic;

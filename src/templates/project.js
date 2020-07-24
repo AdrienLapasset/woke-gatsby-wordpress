@@ -15,7 +15,9 @@ const ProjectTemplate = ({ data }) => {
   return (
     <>
       <Layout isFluid>
-        <StyledHeaderImg fluid={imgFluid} />
+        <StyledOverlay>
+          <StyledHeaderImg fluid={imgFluid} />
+        </StyledOverlay>
         <StyledInfoContainer>
           <StyledDate>
             <Moment interval={0} format="DD MMMM YYYY" >{project.date}</Moment>
@@ -30,6 +32,11 @@ const ProjectTemplate = ({ data }) => {
     </>
   )
 }
+
+const StyledOverlay = styled.div`
+  width: 100%;
+  height: 100vh;
+`
 
 const StyledContainer = styled.div`
   max-width: 960px;
