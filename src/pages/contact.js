@@ -39,7 +39,9 @@ const Contact = () => {
         <Img fluid={contactImg} imgStyle={{ objectPosition: 'center top' }} />
       </StyledContainer>
 
-      <StyledForm name="contact" method="POST" data-netlify="true">
+      <StyledForm name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="bot-field" />
+        <input type="hidden" name="form-name" value="contact" />
         <StyledFormRow>
           <StyledInputText type="text" name="company" placeholder="Nom de votre entreprise"></StyledInputText>
           <StyledInputText type="text" name="firstname" placeholder="Nom *" required></StyledInputText>
@@ -53,7 +55,7 @@ const Contact = () => {
           <StyledInputText type="email" name="email" placeholder="Email *" required></StyledInputText>
         </StyledFormRow>
         <StyledInputTextarea name="message" placeholder="Votre message *" rows="10" required></StyledInputTextarea>
-        <StyledButton submit>Envoyer mon message </StyledButton>
+        <StyledButton submit>Envoyer mon message</StyledButton>
       </StyledForm>
 
 
