@@ -9,17 +9,17 @@ const NewsletterForm = ({ isNewsletterFormOpen }) => {
     <>
       <StyledContainer isNewsletterFormOpen={isNewsletterFormOpen}>
         <StyledLayout>
-          <StyledTitle>Pour recevoir nos actualités et nos projets, laissez votre email : </StyledTitle>
+          <StyledTitle>Pour recevoir nos actualités et nos projets, laissez votre email&nbsp;: </StyledTitle>
           <Flex column>
             <StyledForm method="post" action="#">
-              <StyledInput type="email" name="email" id="email" />
+              <StyledInput type="email" name="email" id="email" placeholder="exemple : monmail@gmail.com" />
               <StyledButton type="submit">Je m’abonne</StyledButton>
             </StyledForm>
             <StyledText>
               En renseignant votre adresse mail, vous acceptez de recevoir chaque semaine
               nos derniers articles de blog par courrier électronique et vous prenez connaissance
             de notre <StyledLink to="/terms">Politique de confidentialité</StyledLink>.  Vous pouvez vous désinscrire à tout moment à l’aide
-            des liens de désinscription ou en nous contactant à l’adresse mail :  <StyledA href="mailto:contact@woke.fr"
+            des liens de désinscription ou en nous contactant à l’adresse mail&nbsp;:  <StyledA href="mailto:contact@woke.fr"
                 target="_blank"
                 rel="noopener noreferrer">
                 contact@woke.fr
@@ -33,7 +33,7 @@ const NewsletterForm = ({ isNewsletterFormOpen }) => {
 }
 
 const StyledContainer = styled.section`
-  max-height: ${props => props.isNewsletterFormOpen ? '900px' : '0px'};
+  display: ${props => props.isNewsletterFormOpen ? 'block' : 'none'};
   overflow: hidden;
   transition: max-height 1s cubic-bezier(0.22, 0.61, 0.36, 1);
 `
@@ -44,7 +44,7 @@ const StyledLayout = styled.section`
   padding: 60px 30px;
   display: flex;
   flex-direction: column;
-  ${breakpoint('lg')`
+  ${breakpoint('xl')`
     flex-direction: row;
   `}
   & > * {
@@ -52,8 +52,7 @@ const StyledLayout = styled.section`
   }
 `
 const StyledTitle = styled.p`
-  font-size: 25px;
-  margin: 15px 0;
+  margin: 15px 15px 15px 0;
   font-weight: 600;
 `
 const StyledForm = styled.form`
@@ -72,9 +71,11 @@ const StyledInput = styled.input`
   background-color: transparent;
   border: 1px solid ${props => props.theme.colors.black};
   text-align: center;
-  font-size: 16px;
+  font-size: 17px;
   color: ${props => props.theme.colors.grey};
   margin: 0 0 30px 0;
+  font-style: italic;
+  border-radius: 5px;
   ${breakpoint('sm')`
     margin: 0 60px 0 0;
   `}
