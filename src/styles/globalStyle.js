@@ -23,7 +23,9 @@ div,
 span,
 ul,
 li,
-q {
+q,
+input,
+textarea {
 	font-size: 16px;
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 300;

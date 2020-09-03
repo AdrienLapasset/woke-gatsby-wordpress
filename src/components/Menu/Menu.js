@@ -16,6 +16,7 @@ const Menu = ({ toggleMenu }) => {
     { name: 'Projets', path: '/projects' },
     { name: 'Blog', path: '/blog' },
     { name: 'Agir avec nous', path: '/volunteer' },
+    { name: 'Contactez-nous', path: '/contact' },
   ]
 
   const data = useStaticQuery(graphql`
