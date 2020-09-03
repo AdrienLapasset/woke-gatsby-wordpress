@@ -62,8 +62,10 @@ const Footer = () => {
         </Flex>
         <Flex column rowMd mt={60} justifyBetween>
           <Flex column rowMd>
-            © {new Date().getFullYear()} Woke.&nbsp;
-        <StyledA href="https://alor.design/"
+            <StyledCopyrights>
+              © {new Date().getFullYear()} Woke.&nbsp;
+            </StyledCopyrights>
+            <StyledA href="https://alor.design/"
               target="_blank"
               rel="noopener noreferrer">
               Création : Alor
@@ -130,6 +132,12 @@ const StyledScore = styled.div`
   display: none;
   ${breakpoint('md')`
     display: block;
+  `}
+`
+const StyledCopyrights = styled.p`
+  margin-bottom: 15px;
+  ${breakpoint('lg')`
+    margin-bottom: 0;
   `}
 `
 
