@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components'
 import breakpoint from 'styled-components-breakpoint';
 
-const Button = ({ secondary, children, className }) => {
-  return <StyledButton className={className} secondary={secondary}>{children}</StyledButton>
+const Button = ({ children, className, submit }) => {
+  if (submit) return <StyledButton className={className} type="submit">{children}</StyledButton>
+  return <StyledButton className={className}>{children}</StyledButton>
 }
 
 const StyledButton = styled.button`

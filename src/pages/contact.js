@@ -53,7 +53,7 @@ const Contact = () => {
           <StyledInputText type="email" name="email" placeholder="Email *" required></StyledInputText>
         </StyledFormRow>
         <StyledInputTextarea name="message" placeholder="Votre message *" rows="10" required></StyledInputTextarea>
-        <StyledButton type="submit">Envoyer mon message </StyledButton>
+        <StyledButton submit>Envoyer mon message </StyledButton>
       </StyledForm>
 
 
