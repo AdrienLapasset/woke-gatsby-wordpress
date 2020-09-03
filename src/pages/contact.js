@@ -54,39 +54,26 @@ const Contact = () => {
           <StyledInputText type="text" name="city" placeholder="Ville *" required></StyledInputText>
           <StyledInputText type="email" name="email" placeholder="Email *" required></StyledInputText>
         </StyledFormRow>
-        <StyledInputTextarea name="message" placeholder="Votre message *" rows="10" required></StyledInputTextarea>
+        <StyledInputTextarea name="message" placeholder="Votre message *" rows="8" required></StyledInputTextarea>
+        <StyledAsterix>* Champs obligatoires</StyledAsterix>
         <StyledButton submit>Envoyer mon message</StyledButton>
       </StyledForm>
-
-
-      {/* <form name="contact" method="POST" data-netlify="true">
-        <p>
-          <label>Your Name: <input type="text" name="name" /></label>
-        </p>
-        <p>
-          <label>Your Email: <input type="email" name="email" /></label>
-        </p>
-        <p>
-          <label>Your Role: <select name="role[]" multiple>
-            <option value="leader">Leader</option>
-            <option value="follower">Follower</option>
-          </select></label>
-        </p>
-        <p>
-          <label>Message: <textarea name="message"></textarea></label>
-        </p>
-        <p>
-          <button type="submit">Send</button>
-        </p>
-      </form> */}
-
+      <StyledAdress>
+        <Text>55 allée des côtes de Chanturgues<br />63100 Clermont-Ferrand</Text>
+        <StyledIframe
+          frameborder="0"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBTCJQiYvYBBbHvQTd82Zlg17otE_X0PH0&q=55+Allée+des+Côtes+de+Chanturgue,+63100+Clermont-Ferrand" allowfullscreen>
+        </StyledIframe>
+      </StyledAdress>
     </Layout>
   </>)
 }
 
 const StyledIntro = styled.div`
-  padding-right: 80px;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
+  ${breakpoint('lg')`
+    padding-right: 80px;
+  `}
 `
 const StyledContainer = styled.div`
   display: flex;
@@ -103,28 +90,31 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
 `
-
 const StyledInput = css`
   background-color: transparent;
   border: none;
   border-bottom: 2px solid ${props => props.theme.colors.grey};
   overflow: auto;
   width: 100%;
-  padding: 5px 15px 5px;
+  padding: 10px 0;
   box-sizing: border-box;
-  margin-bottom: 40px;
   font-size: 18px;
   resize: none;
   ::placeholder {
     color: ${props => props.theme.colors.black};
     font-size: 18px;
   }
+  ${breakpoint('lg')`
+    padding: 5px 10px;
+  `}
 `
 const StyledInputText = styled.input`
   ${StyledInput}; 
+  margin-bottom: 40px;
 `
 const StyledInputTextarea = styled.textarea`
   ${StyledInput};
+  margin-bottom: 15px;
 `
 const StyledFormRow = styled.div`
   display: flex;
@@ -147,6 +137,26 @@ const StyledFormRow = styled.div`
   }
 `
 const StyledButton = styled(Button)`
-  margin: auto
+  margin: 40px auto 0;
+`
+const StyledAdress = styled.div`
+  max-width: 780px;
+  margin: 230px auto;
+  p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    ${breakpoint('lg')`
+      font-size: 23px;
+    `}
+  }
+`
+const StyledIframe = styled.iframe`
+  border: none;
+  width: 100%;
+  height: 400px;
+`
+const StyledAsterix = styled.p`
+  font-style: italic;
+  font-size: 12px;
 `
 export default Contact
