@@ -8,7 +8,7 @@ import MenuBtn from './MenuBtn';
 import HeaderBtn from './HeaderBtn';
 import Menu from 'src/components/Menu/Menu';
 
-const Header = ({ isFluid }) => {
+const Header = ({ isFluid, toggle }) => {
 
   const [isMenuOpen, setMenuOpen] = useState(false)
   const [isHeaderWhite, setHeaderWhite] = useState(isFluid)
@@ -29,6 +29,7 @@ const Header = ({ isFluid }) => {
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen)
+    toggle()
   }
 
   return (

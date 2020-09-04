@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import styled, { ThemeProvider } from 'styled-components'
 import theme from 'src/styles/theme'
@@ -19,15 +19,23 @@ const Layout = ({ children, isFluid }) => {
     }
   `)
 
+  const [isMenuOpen, setMenuOpen] = useState(false)
+
+  const toggle = () => {
+    setMenuOpen(!isMenuOpen)
+  }
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Header siteTitle={data.site.siteMetadata.title} isFluid={isFluid} />
-        <StyledLayout isFluid={isFluid} >
-          {children}
-        </StyledLayout>
-        <Footer />
+        <Header siteTitle={data.site.siteMetadata.title} isFluid={isFluid} toggle={toggle} />
+        {!isMenuOpen ? <>
+          <StyledLayout isFluid={isFluid} >
+            {children}
+          </StyledLayout>
+          <Footer /> </>
+          : null}
       </ThemeProvider>
     </>
   )

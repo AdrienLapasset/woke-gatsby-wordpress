@@ -60,47 +60,32 @@ const Menu = ({ toggleMenu }) => {
 
 const StyledContainer = styled.div`
   z-index: 1;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  min-height: 100vh;
   opacity: 0;
-  animation: ${fadeIn} .2s forwards;
+  animation: ${fadeIn} 1s forwards;
 `
 const StyledBackgroundImage = styled(BackgroundImage)`
-  width: 100%;
-  height: 100%;
+  min-height: 100vh;  
 `
 const StyledUlContainer = styled.div`
   max-width: 1600px;
   padding: 0 15px;
   margin: 0 auto;
-  top: 0;
-  right: 0;
 `
-const heightAnimMobile = keyframes`
+const heightAnim = keyframes`
   to {
-    padding: 200px 0 0 40px;
-    height: 100vh;
-  }
-`
-const heightAnimDesktop = keyframes`
-  to {
-    padding: 400px 0 0 40px;
-    height: 680px;
+    height: 310px;
   }
 `
 const StyledUl = styled.ul`
+  padding: 200px 0 40px 40px;
+  box-sizing: content-box;
   flex: 0 0 auto;
   margin-left: auto;
   border-left: 1px solid rgba(255, 255, 255, .3);
   width: 240px;
-  animation: ${heightAnimMobile} .6s forwards;
+  animation: ${heightAnim} 1s forwards;
   height: 0;
-  ${breakpoint('lg')`
-    animation: ${heightAnimDesktop} .6s forwards;
-  `}
 `
 const StyledText = styled.p`
   font-weight: 400;
@@ -123,6 +108,11 @@ const StyledLi = styled.li`
   &:nth-child(5) {
     animation-delay: .8s;
   }
+  &:last-child {
+    animation-delay: .9s;
+    margin-bottom: 0;
+  }
+
 `
 const StyledNavLink = styled(Link)`
   position: relative;
