@@ -47,6 +47,7 @@ const Footer = () => {
           <Flex column>
             <StyledLink to="/volunteer" state={{ actionToDisplay: 'bénévolat' }}>Agir</StyledLink>
             <StyledLink to="/">Faire un don</StyledLink>
+            <StyledLink to="/contact">Contact</StyledLink>
           </Flex>
           <StyledAdress >
             <p>Woke</p>
@@ -61,7 +62,7 @@ const Footer = () => {
           </StyledAdress>
         </Flex>
         <Flex column rowMd mt={60} justifyBetween>
-          <Flex column rowMd>
+          <StyledSignature column rowMd>
             <StyledCopyrights>
               © {new Date().getFullYear()} Woke.&nbsp;
             </StyledCopyrights>
@@ -69,7 +70,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer">
               Création : Alor
-        </StyledA>
+            </StyledA>
             <StyledScore>
               &nbsp;
               -
@@ -79,8 +80,8 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer">
               Développement : Adrien Lapasset
-        </StyledA>
-          </Flex>
+            </StyledA>
+          </StyledSignature>
           <StyledButton isNewsletterFormOpen={isNewsletterFormOpen} onClick={() => showNewsletterForm()}>S’abonner à la newsletter</StyledButton>
         </Flex>
       </StyledContainer>
@@ -114,9 +115,9 @@ const StyledA = styled.a`
 `
 const StyledButton = styled.button`
   font-weight: ${props => props.isNewsletterFormOpen ? '700' : '400'};
-  margin-top: 50px;
-  ${breakpoint('lg')`
-    margin-top: 0;
+  margin: 50px auto;
+  ${breakpoint('md')`
+    margin: 0;
   `}
   &:hover{
     font-weight: 700
@@ -139,6 +140,19 @@ const StyledCopyrights = styled.p`
   ${breakpoint('lg')`
     margin-bottom: 0;
   `}
+`
+const StyledSignature = styled(Flex)`
+  align-items: center;
+  width: 100%;
+  ${breakpoint('md')`
+    width: auto;
+    align-items: start;
+  `}
+  a {
+    font-weight: 400;
+    text-decoration: none;
+    margin-bottom: 0;
+  }
 `
 
 export default Footer;

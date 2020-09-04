@@ -36,9 +36,9 @@ const StyledContainer = styled.section`
   display: ${props => props.isNewsletterFormOpen ? 'block' : 'none'};
   overflow: hidden;
   transition: max-height 1s cubic-bezier(0.22, 0.61, 0.36, 1);
+  background-color: #eeede2;  
 `
 const StyledLayout = styled.section`
-  background-color: #eeede2;  
   margin: 0 auto;
   max-width: 1600px;
   padding: 60px 30px;
@@ -52,8 +52,11 @@ const StyledLayout = styled.section`
   }
 `
 const StyledTitle = styled.p`
-  margin: 15px 15px 15px 0;
   font-weight: 600;
+  margin: 0 0 60px 0;
+  ${breakpoint('sm')`
+    margin: 15px 15px 15px 0;
+  `}
 `
 const StyledForm = styled.form`
   display: flex;
@@ -93,17 +96,24 @@ const StyledButton = styled.button`
 const StyledText = styled.p`
   font-style: italic;
   color: ${props => props.theme.colors.black};
-  font-size: 18px;
+  font-size: 14px;
+  ${breakpoint('sm')`
+    font-size: 18px;
+  `}
 `
 const LinkStyle = css`
-  font-size: 18px;
+  font-size: 14px;
   display: inline-block;
   &:hover{
     text-decoration: underline;
   }
+  ${breakpoint('sm')`
+    font-size: 18px;
+  `}
 `
 const StyledLink = styled(Link)`
-  ${LinkStyle}
+  ${LinkStyle};
+  text-decoration: underline;
 `
 const StyledA = styled.a`
   ${LinkStyle}

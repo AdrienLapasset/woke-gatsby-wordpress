@@ -13,13 +13,12 @@ const StyledButton = styled.button`
   padding: 12px 12px;
   font-size: 14px;
   font-weight: 400;
-  transition: all .4s;
+  transition: all .2s;
   background-color: ${props => props.second ? 'transparent' : props.theme.colors.primary};
   color: ${props => props.second ? props.theme.colors.black : 'white'};
   border: ${props => props.second ? '2px solid' : 'none'};
   border-color: ${props => props.second ? props.theme.colors.black : props.theme.colors.primary};
   box-sizing: border-box;
-  transition-delay: ${props => props.second ? '.2s' : '.1s'};
   height: 40px;
 
   ${({ isHeaderWhite }) => isHeaderWhite && `
