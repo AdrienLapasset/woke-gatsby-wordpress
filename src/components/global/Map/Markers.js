@@ -35,7 +35,7 @@ const Markers = () => {
       positionX: 540,
       positionY: 260,
       project: 'Association Woke',
-      slug: 'les-premisses'
+      slug: '4ocean'
     },
     {
       positionX: 617,
