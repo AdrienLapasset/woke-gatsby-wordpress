@@ -146,7 +146,6 @@ const StyledSignature = styled(Flex)`
   width: 100%;
   ${breakpoint('md')`
     width: auto;
-    align-items: start;
   `}
   a {
     font-weight: 400;
