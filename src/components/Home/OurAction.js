@@ -38,7 +38,7 @@ const StyledContainer = styled.div`
 `
 const ActionContainer = styled.div`
   text-align: center;
-  margin-top: 120px;
+  margin-top: 100px;
   ${breakpoint('lg')`
      margin-top: 0;
   `}

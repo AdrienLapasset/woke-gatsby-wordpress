@@ -56,8 +56,7 @@ class NewsletterForm extends React.Component {
 
 const StyledContainer = styled.section`
   display: ${props => props.isNewsletterFormOpen ? 'block' : 'none'};
-  overflow: hidden;
-  transition: max-height 1s cubic-bezier(0.22, 0.61, 0.36, 1);
+  /* transition: max-height 1s cubic-bezier(0.22, 0.61, 0.36, 1); */
   background-color: #eeede2;  
 `
 const StyledLayout = styled.section`
@@ -68,10 +67,10 @@ const StyledLayout = styled.section`
   flex-direction: column;
   ${breakpoint('xl')`
     flex-direction: row;
+    & > * {
+      flex: 1 1 0;
+    }
   `}
-  & > * {
-    flex: 1 1 0;
-  }
 `
 const StyledTitle = styled.p`
   font-weight: 600;

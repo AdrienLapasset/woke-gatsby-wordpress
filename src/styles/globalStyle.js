@@ -34,12 +34,15 @@ textarea {
   display: block;
   box-sizing: border-box;
   ${breakpoint('md')`
-			font-size: 20px;
+		font-size: 20px;
   `}
 }
 
 p {
-  line-height: 1.7;
+  line-height: 22px;
+  ${breakpoint('md')`
+    line-height: 1.7;
+  `}
 }
 
 a {
