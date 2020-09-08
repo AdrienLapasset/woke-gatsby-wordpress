@@ -42,9 +42,9 @@ const Header = ({ isFluid, toggle }) => {
           <MenuBtn onClick={toggleMenu} isHeaderWhite={isHeaderWhite} />
         </StyledGroup>
         <StyledGroup>
-          <Link to={'/'}  >
+          <a href="https://www.helloasso.com/associations/woke/formulaires/1/widget" target="_blank" rel="noopener">
             <HeaderBtn isHeaderWhite={isHeaderWhite}>Faire un don</HeaderBtn>
-          </Link>
+          </a>
           <Link to={'/volunteer'} state={{ actionToDisplay: 'bénévolat' }} >
             <HeaderBtn second isHeaderWhite={isHeaderWhite}>Devenir volontaire</HeaderBtn>
           </Link>
