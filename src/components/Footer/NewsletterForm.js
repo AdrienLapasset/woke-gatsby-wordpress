@@ -1,35 +1,56 @@
-import React from 'react';
+import React from "react";
 import styled, { css } from 'styled-components'
 import Flex from 'src/components/global/Flex'
 import { Link } from "gatsby"
 import breakpoint from 'styled-components-breakpoint';
+import addToMailchimp from 'gatsby-plugin-mailchimp'
 
-const NewsletterForm = ({ isNewsletterFormOpen }) => {
-  return (
-    <>
-      <StyledContainer isNewsletterFormOpen={isNewsletterFormOpen}>
-        <StyledLayout>
-          <StyledTitle>Pour recevoir nos actualités et nos projets, laissez votre email&nbsp;: </StyledTitle>
-          <Flex column>
-            <StyledForm method="post" action="#">
-              <StyledInput type="email" name="email" id="email" placeholder="exemple : monmail@gmail.com" />
-              <StyledButton type="submit">Je m’abonne</StyledButton>
-            </StyledForm>
-            <StyledText>
-              En renseignant votre adresse mail, vous acceptez de recevoir chaque semaine
-              nos derniers articles de blog par courrier électronique et vous prenez connaissance
+class NewsletterForm extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { email: '' };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({ email: e.target.value });
+  }
+
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    const result = await addToMailchimp(this.state.email)
+  }
+
+  render() {
+    return (
+      <>
+        <StyledContainer isNewsletterFormOpen={this.props.isNewsletterFormOpen}>
+          <StyledLayout>
+            <StyledTitle>Pour recevoir nos actualités et nos projets, laissez votre email&nbsp;: </StyledTitle>
+            <Flex column>
+              <StyledForm onSubmit={this.handleSubmit}>
+                <StyledInput onChange={this.handleChange} type="email" name="email" id="email" placeholder="exemple : monmail@gmail.com" />
+                <StyledButton type="submit">Je m’abonne</StyledButton>
+              </StyledForm>
+              <StyledText>
+                En renseignant votre adresse mail, vous acceptez de recevoir chaque semaine
+                nos derniers articles de blog par courrier électronique et vous prenez connaissance
             de notre <StyledLink to="/terms">Politique de confidentialité</StyledLink>.  Vous pouvez vous désinscrire à tout moment à l’aide
             des liens de désinscription ou en nous contactant à l’adresse mail&nbsp;:  <StyledA href="mailto:contact@woke.fr"
-                target="_blank"
-                rel="noopener noreferrer">
-                contact@woke.fr
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  contact@woke.fr
             </StyledA>.
           </StyledText>
-          </Flex>
-        </StyledLayout>
-      </StyledContainer>
-    </>
-  );
+            </Flex>
+          </StyledLayout>
+        </StyledContainer>
+      </>
+    );
+  }
 }
 
 const StyledContainer = styled.section`

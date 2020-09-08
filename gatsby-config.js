@@ -39,6 +39,13 @@ module.exports = {
         useACF: false
       }
     },
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint: 'https://woke.us19.list-manage.com/subscribe/post?u=d1435ae04361a6bdbdae68a23&amp;id=a1fd4291c9', // string; add your MC list endpoint here; see instructions below
+        timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
+      },
+    },
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     'gatsby-plugin-root-import',
