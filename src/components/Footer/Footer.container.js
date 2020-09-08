@@ -40,13 +40,15 @@ const Footer = () => {
             </StyledA>
           </Flex>
           <Flex column>
-            <StyledLink to="/intro">Qui est Woke ?</StyledLink>
+            <StyledLink to="/about">Qui est Woke ?</StyledLink>
             <StyledLink to="/projects">Projets</StyledLink>
             <StyledLink to="/blog">Blog</StyledLink>
           </Flex>
           <Flex column>
             <StyledLink to="/volunteer" state={{ actionToDisplay: 'bénévolat' }}>Agir</StyledLink>
-            <StyledLink to="/">Faire un don</StyledLink>
+            <StyledA className="noUnderline" href="https://www.helloasso.com/associations/woke/formulaires/1/widget" target="_blank" rel="noopener noreferrer">
+              Faire un don
+            </StyledA>
             <StyledLink to="/contact">Contact</StyledLink>
           </Flex>
           <StyledAdress >
@@ -58,7 +60,7 @@ const Footer = () => {
               rel="noopener noreferrer">
               contact@woke.fr
             </StyledA>
-            <StyledA href="tel:+33669640007" >06 69 64 00 07</StyledA>
+            <StyledA className="noUnderline" href="tel:+33669640007" >06 69 64 00 07</StyledA>
           </StyledAdress>
         </Flex>
         <Flex column rowMd mt={60} justifyBetween>
@@ -76,7 +78,7 @@ const Footer = () => {
               -
               &nbsp;
             </StyledScore>
-            <StyledA href="https://adrienlapasset.fr/"
+            <StyledA href="https://alapasset.dev/"
               target="_blank"
               rel="noopener noreferrer">
               Développement : Adrien Lapasset
@@ -111,7 +113,9 @@ const StyledLink = styled(Link)`
 `
 const StyledA = styled.a`
   ${LinkStyle}
-  text-decoration: underline;
+  &:not(.noUnderline) {
+    text-decoration: underline;
+  }
 `
 const StyledButton = styled.button`
   font-weight: ${props => props.isNewsletterFormOpen ? '700' : '400'};

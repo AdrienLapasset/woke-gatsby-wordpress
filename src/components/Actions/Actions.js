@@ -68,7 +68,19 @@ const Actions = ({ actionToDisplay }) => {
           {currentAction.testymonySignature}
         </StyledTestymony>
         <StyledContentText>{currentAction.description}</StyledContentText>
-        <Button>{currentAction.btnText}</Button>
+        {
+          currentAction.type === 'donation' ?
+            <a href="https://www.helloasso.com/associations/woke/formulaires/1/widget" target="_blank" rel="noopener noreferrer">
+              <Button>{currentAction.btnText}</Button>
+            </a>
+            : currentAction.type === 'bénévolat' ?
+              <Button>{currentAction.btnText}</Button>
+              : currentAction.type === 'mécénat' ?
+                <a href="https://www.helloasso.com/associations/woke/formulaires/1/widget" target="_blank" rel="noopener noreferrer">
+                  <Button>{currentAction.btnText}</Button>
+                </a>
+                : null
+        }
       </StyledContent>
     </StyledContainer >
   );
