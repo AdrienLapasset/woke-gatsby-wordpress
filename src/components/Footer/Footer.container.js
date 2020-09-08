@@ -58,7 +58,7 @@ const Footer = () => {
               rel="noopener noreferrer">
               contact@woke.fr
             </StyledA>
-            <StyledLink href="tel:+33669640007" >06 69 64 00 07</StyledLink>
+            <StyledA href="tel:+33669640007" >06 69 64 00 07</StyledA>
           </StyledAdress>
         </Flex>
         <Flex column rowMd mt={60} justifyBetween>

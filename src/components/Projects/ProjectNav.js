@@ -56,13 +56,13 @@ const ProjectNav = ({ data, currentProjectSlug }) => {
 
   return (
     <StyledContainer>
-      <Link to={`projects/${previousSlug}`}>
+      <Link to={`/projects/${previousSlug}`}>
         <Flex alignCenter>
           <StyledNumber>{addZeroToNumber(previousNumber)}</StyledNumber>
           <StyledTitle>{previousTitle}</StyledTitle>
         </Flex>
       </Link>
-      <Link to={`projects/${nextSlug}`}>
+      <Link to={`/projects/${nextSlug}`}>
         <Flex alignCenter>
           <StyledTitle>{nextTitle}</StyledTitle>
           <StyledNumber>{addZeroToNumber(nextNumber)}</StyledNumber>

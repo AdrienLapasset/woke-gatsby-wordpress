@@ -19,7 +19,7 @@ const ArticleListItem = ({ edge }) => {
   const truncateExcerpt = truncate(article.excerpt)
 
   return (
-    <StyledLink to={`blog/${article.slug}`} >
+    <StyledLink to={`/blog/${article.slug}`} >
       <StyledFlex column>
         <Heading>{article.title}</Heading>
         <p dangerouslySetInnerHTML={{ __html: truncateExcerpt }} />

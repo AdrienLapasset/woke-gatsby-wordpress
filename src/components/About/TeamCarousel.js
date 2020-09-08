@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styled from 'styled-components'
-import breakpoint from 'styled-components-breakpoint';
-import Heading from 'src/components/global/Heading'
 import Img from "gatsby-image"
 
 const TeamCarousel = ({ teamImages, team }) => {

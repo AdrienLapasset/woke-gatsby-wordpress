@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, graphql, StaticQuery } from "gatsby"
 import styled from 'styled-components'
 import Flex from 'src/components/global/Flex'
@@ -30,40 +30,30 @@ const ArticleNav = ({ data, currentProjectSlug }) => {
     return project.node.slug
   })
 
-  const projectsTitle = reversedProjects.map((project) => {
-    return project.node.title
-  })
-
   const currentProjectIndex = projectsSlug.indexOf(currentProjectSlug)
 
   let previousSlugIndex = currentProjectIndex - 1
   let nextSlugIndex = currentProjectIndex + 1
-
   let previousSlug = projectsSlug[previousSlugIndex]
-  let previousTitle = projectsTitle[previousSlugIndex]
-
   let nextSlug = projectsSlug[nextSlugIndex]
-  let nextTitle = projectsTitle[nextSlugIndex]
 
   if (previousSlugIndex <= -1) {
     previousSlug = projectsSlug[projectsSlug.length - 1]
-    previousTitle = projectsTitle[projectsSlug.length - 1]
   }
 
   if (nextSlugIndex >= projectsSlug.length - 1) {
     nextSlug = projectsSlug[0]
-    nextTitle = projectsTitle[0]
   }
 
   return (
     <StyledContainer>
-      <Link to={`blog/${previousSlug}`}>
+      <Link to={`/blog/${previousSlug}`}>
         <Flex alignCenter>
           <img src={chevronIcon} alt="Précédent" />
           <StyledTitle>Précédent</StyledTitle>
         </Flex>
       </Link>
-      <Link to={`blog/${nextSlug}`}>
+      <Link to={`/blog/${nextSlug}`}>
         <Flex alignCenter>
           <StyledTitle>Suivant</StyledTitle>
           <img src={chevronIcon} alt="Suivant" />

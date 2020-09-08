@@ -63,7 +63,7 @@ const NewCarousel = () => {
     <>
       <StyledContainer>
         <Heading h2>Nos dernières interventions</Heading>
-        <StyledCarousel showArrows={false} showStatus={false} centerMode={isCenterMode} centerSlidePercentage={70} emulateTouch>
+        <StyledCarousel showArrows={false} showStatus={false} centerMode={isCenterMode} centerSlidePercentage={70} emulateTouch showThumbs={false}>
           {carouselItems}
         </StyledCarousel>
         <StyledLink to="/projects">

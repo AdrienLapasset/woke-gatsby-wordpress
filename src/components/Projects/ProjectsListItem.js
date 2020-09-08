@@ -15,7 +15,7 @@ const ProjectsListItem = ({ edge, index }) => {
 
   return (
     <StyledLi>
-      <Link to={`projects/${project.slug}`}>
+      <Link to={`/projects/${project.slug}`}>
         <StyledNumber>{index}</StyledNumber>
         <Img fluid={imgFluid} />
         <StyledTitle>{project.title}</StyledTitle>

@@ -2,7 +2,6 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components'
 import { Link, useStaticQuery, graphql } from "gatsby"
 import BackgroundImage from 'gatsby-background-image'
-import breakpoint from 'styled-components-breakpoint';
 
 import { fadeIn } from 'src/styles/keyframes';
 

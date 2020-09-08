@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import Flex from 'src/components/global/Flex'
 import Text from 'src/components/global/Text'
 import { fadeIn } from 'src/styles/keyframes';
-import breakpoint from 'styled-components-breakpoint';
 import TeamCarousel from './TeamCarousel'
 import theme from 'src/styles/theme'
 

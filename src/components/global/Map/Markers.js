@@ -101,16 +101,16 @@ const Markers = () => {
 
   const renderMarkers = markers.map((marker, index) => {
     return (
-      <>
+      <div key={index}>
         <StyledContainer x={marker.positionX} y={marker.positionY} key={index}>
           <StyledMarker
-            to={`projects/${marker.slug}`}
+            to={`/projects/${marker.slug}`}
             onMouseEnter={() => handleMouseEnter(marker.slug)}
             onMouseLeave={() => setImgToDisplay(null)}
           />
           <StyledLabel>{marker.project}</StyledLabel>
         </StyledContainer>
-      </>
+      </div>
     )
   })
 

@@ -7,7 +7,6 @@ import breakpoint from 'styled-components-breakpoint';
 
 import Heading from 'src/components/global/Heading'
 import Text from 'src/components/global/Text'
-import Flex from 'src/components/global/Flex'
 import Button from 'src/components/global/Button'
 
 const Contact = () => {

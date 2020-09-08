@@ -22,6 +22,7 @@ class NewsletterForm extends React.Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     const result = await addToMailchimp(this.state.email)
+    console.log('result =>', result)
   }
 
   render() {

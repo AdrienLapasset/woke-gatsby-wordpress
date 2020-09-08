@@ -11,10 +11,10 @@ const News = ({ data }) => {
 
   const projects = data.allWordpressPost.edges
 
-  const projectsByLang = projects.filter(project => {
-    const lang = project.node.categories[0].slug
-    return lang === 'fr'
-  })
+  // const projectsByLang = projects.filter(project => {
+  //   const lang = project.node.categories[0].slug
+  //   return lang === 'fr'
+  // })
 
   const imgFluid = projects[0].node.featured_media.localFile.childImageSharp.fluid
 
