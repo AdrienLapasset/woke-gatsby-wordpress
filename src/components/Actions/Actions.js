@@ -1,11 +1,29 @@
 import React, { useState } from 'react';
+import { useStaticQuery, graphql } from "gatsby"
 import Flex from 'src/components/global/Flex'
 import styled from 'styled-components'
 import Button from 'src/components/global/Button';
 import breakpoint from 'styled-components-breakpoint';
 import Text from 'src/components/global/Text'
+import { fadeIn } from 'src/styles/keyframes';
+import Img from "gatsby-image"
 
 const Actions = ({ actionToDisplay }) => {
+
+  const data = useStaticQuery(graphql`
+    query {
+      allFile(filter: {relativeDirectory: {eq: "actions"}}) {
+        nodes {
+          name
+          childImageSharp {
+            fluid(quality: 90, maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  `)
 
   const actions = [
     {
@@ -58,35 +76,66 @@ const Actions = ({ actionToDisplay }) => {
   })
 
   const currentAction = actions.find(action => action.type === activeAction)
+
+  const currentImg = data.allFile.nodes.find(img => img.name === activeAction)
+
   return (
-    <StyledContainer>
-      <Flex justifyBetween>
-        {actionTypes}
-      </Flex>
-      <StyledContent isTransition={isTransition} transitionDuration={transitionDuration}>
-        <StyledTestymony>
-          {currentAction.testymony}<br />
-          {currentAction.testymonySignature}
-        </StyledTestymony>
-        <StyledContentText>{currentAction.description}</StyledContentText>
-        {
-          currentAction.type === 'donation' ?
-            <a href="https://www.helloasso.com/associations/woke/formulaires/1/widget" target="_blank" rel="noopener noreferrer">
-              <Button>{currentAction.btnText}</Button>
-            </a>
-            : currentAction.type === 'bénévolat' ?
-              <Button>{currentAction.btnText}</Button>
-              : currentAction.type === 'mécénat' ?
-                <a href="https://www.helloasso.com/associations/woke/formulaires/1/widget" target="_blank" rel="noopener noreferrer">
-                  <Button>{currentAction.btnText}</Button>
-                </a>
-                : null
-        }
-      </StyledContent>
-    </StyledContainer >
+    <>
+      <StyledImgContainer>
+        <div>
+          <StyledImg fluid={currentImg.childImageSharp.fluid} imgStyle={{ objectPosition: 'center top' }} />
+        </div>
+      </StyledImgContainer>
+      <StyledContainer>
+        <Flex justifyBetween>
+          {actionTypes}
+        </Flex>
+        <StyledContent isTransition={isTransition} transitionDuration={transitionDuration}>
+          <StyledTestymony>
+            {currentAction.testymony}<br />
+            {currentAction.testymonySignature}
+          </StyledTestymony>
+          <StyledContentText>{currentAction.description}</StyledContentText>
+          {
+            currentAction.type === 'donation' ?
+              <a href="https://www.helloasso.com/associations/woke/formulaires/1/widget" target="_blank" rel="noopener noreferrer">
+                <Button>{currentAction.btnText}</Button>
+              </a>
+              : currentAction.type === 'bénévolat' ?
+                <Button>{currentAction.btnText}</Button>
+                : currentAction.type === 'mécénat' ?
+                  <a href="https://www.helloasso.com/associations/woke/formulaires/1/widget" target="_blank" rel="noopener noreferrer">
+                    <Button>{currentAction.btnText}</Button>
+                  </a>
+                  : null
+          }
+        </StyledContent>
+      </StyledContainer >
+    </>
   );
 }
 
+const StyledImgContainer = styled.div`
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ${breakpoint('md')`
+    height: 850px;
+  `}
+  div {
+    width: 100%;
+    max-width: 800px;
+  }
+`
+const StyledImg = styled(Img)`
+  opacity: 0;
+  animation: ${fadeIn} 2s forwards;
+  max-height: 300px;
+  ${breakpoint('md')`
+    max-height: unset;
+  `}
+`
 const StyledContainer = styled.section`
   max-width: 800px;
   margin: 0 auto;

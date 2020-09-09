@@ -143,5 +143,4 @@ const StyledImg = styled(Img)`
   animation: ${fadeIn} .4s forwards; 
 `
 
-
 export default Team;

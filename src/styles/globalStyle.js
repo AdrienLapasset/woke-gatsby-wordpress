@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components/macro'
 import 'typeface-nunito-sans'
 import 'typeface-oranienbaum'
-import breakpoint from 'styled-components-breakpoint';
 
 export default createGlobalStyle`
 
