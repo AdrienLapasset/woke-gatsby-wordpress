@@ -93,9 +93,12 @@ const Footer = () => {
 }
 
 const StyledContainer = styled.section`
-  margin: 150px auto 80px;
+  margin: 185px auto 80px;  
   max-width: 1600px;
   padding: 0 35px;
+  ${breakpoint('md')`
+    margin: 150px auto 80px;
+  `}
 `
 const LinkStyle = css`
   font-weight: 600;

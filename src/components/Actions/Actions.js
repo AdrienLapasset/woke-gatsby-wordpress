@@ -3,6 +3,7 @@ import Flex from 'src/components/global/Flex'
 import styled from 'styled-components'
 import Button from 'src/components/global/Button';
 import breakpoint from 'styled-components-breakpoint';
+import Text from 'src/components/global/Text'
 
 const Actions = ({ actionToDisplay }) => {
 
@@ -19,7 +20,7 @@ const Actions = ({ actionToDisplay }) => {
       type: 'bénévolat',
       testymony: '« Merci à toute l’équipe de WOKE, grâce à leur soutien nous avons au-jourd’hui une salle de classe sup-plémentaire dans notre petite école ! »',
       testymonySignature: ' Whan P., School Principal',
-      description: 'Tu souhaites t’engager dans une cause qui te touche, développer tes compétences ou les faire partager, relever un défi ou tout simplement faire de nouvelles rencontres ?  L’association est constamment à la recherche de bénévoles afin de nous épauler dans nos missions.Que ce soit organiser des évènements caritatifs au profit de l’association(tournois sportifs, concerts, vente aux enchères...), partir avec nous à l’étranger ou rechercher de nouveaux partenaires, il existe de nombreuses façons de nous aider ! Alors n’hésite pas à nous contacter.',
+      description: 'Tu souhaites t’engager dans une cause qui te touche, développer tes compétences ou les faire partager, relever un défi ou tout simplement faire de nouvelles rencontres ? L’association est constamment à la recherche de bénévoles afin de nous épauler dans nos missions. Que ce soit organiser des évènements caritatifs au profit de l’association(tournois sportifs, concerts, vente aux enchères...), partir avec nous à l’étranger ou rechercher de nouveaux partenaires, il existe de nombreuses façons de nous aider ! Alors n’hésite pas à nous contacter.',
       btnText: 'J’agis',
       btnLink: ''
     },
@@ -87,29 +88,38 @@ const Actions = ({ actionToDisplay }) => {
 }
 
 const StyledContainer = styled.section`
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
 `
 const StyledTestymony = styled.p`
   font-family: 'Cambria', 'Oranienbaum', serif;
   margin: 50px 0;
+  font-size: 30px;
+  font-size: 22px;  
   ${breakpoint('md')`
-    margin: 100px 0;  
+    margin: 100px 0;
+    font-size: 30px;  
   `}
 `
 const StyledTabText = styled.p`
   text-transform: capitalize;
   color: ${props => props.isActive ? props.theme.colors.black : props.theme.colors.grey};
   transition: color .2s;
+  font-weight: 700;
+  font-size: 16px;
   &:hover {
     color: ${props => props.theme.colors.black}
   }
+  ${breakpoint('md')`
+    font-size: 30px;
+    font-weight: 400;
+  `}
 `
 const StyledContent = styled.div`
   transition: opacity ${props => props.transitionDuration}ms;
   opacity: ${props => props.isTransition ? 0 : 1};
 `
-const StyledContentText = styled.p`
+const StyledContentText = styled(Text)`
   margin-bottom: 40px;
 `
 

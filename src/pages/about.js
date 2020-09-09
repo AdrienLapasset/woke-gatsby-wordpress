@@ -57,17 +57,13 @@ const About = () => {
       </StyledLgText>
       <StyledContainer mb={200}>
         <StyledText column>
-          <p>Comment rester inactif face à eux ? Il fallait agir.
-          Il nous fallait créer un lien entre la générosité des uns
-          et la nécessité des autres. Créer une entité qui nous permettait de collecter des fonds afin de construire, ensemble, des actions humanitaires ayant un réel impact.
-            Et pour être certain que ces actions soient le plus efficaces possible et qu’elles perdurent dans le temps, il nous faut s’associer avec des acteurs locaux.<br />
-            Des individus, souvent regroupés en petites organisations, qui luttent déjà contre ces problématiques et qui connaissent donc parfaitement leurs environnements. Ce sont eux qui assureront la pérennité du projet après notre départ, un point capital si nous voulons vraiment que les choses changent.
-            </p>
+          <p>Comment rester inactif face à eux ? Il fallait agir. Il nous fallait créer un lien entre la générosité des uns et la nécessité des autres. Créer une entité qui nous permettait de collecter des fonds afin de construire, ensemble, des actions humanitaires ayant un réel impact. Et pour être certain que ces actions soient le plus efficaces possible et qu’elles perdurent dans le temps, il nous faut s’associer avec des acteurs locaux.</p>
+          <p className="second">Des individus, souvent regroupés en petites organisations, qui luttent déjà contre ces problématiques et qui connaissent donc parfaitement leurs environnements. Ce sont eux qui assureront la pérennité du projet après notre départ, un point capital si nous voulons vraiment que les choses changent.</p>
         </StyledText>
         <StyledImg fixed={data.allFile.edges[0].node.childImageSharp.fixed} imgStyle={{ objectPosition: 'center top' }} />
       </StyledContainer>
       <Heading h2>Notre force</Heading>
-      <StyledLgText lg>
+      <StyledLgText lg className="second">
         Woke est une entité apolitique, indépendante et autonome.<br />
         Nous choisissons nos projets en fonction des rencontres et des opportunités
         et ceci en toute indépendance. Sachez également que l’ensemble des membres
@@ -78,7 +74,7 @@ const About = () => {
       <StyledPoints alignCenter>
         <StyledPoint column>
           <StyledIcon src={waterIcon} alt="" />
-          <Text lg>Eau<br />et assainissement</Text>
+          <Text lg>Eau<StyledBr />et assainissement</Text>
         </StyledPoint>
         <StyledPoint column>
           <StyledIcon src={educationIcon} alt="" />
@@ -86,11 +82,11 @@ const About = () => {
         </StyledPoint>
         <StyledPoint column>
           <StyledIcon src={emergencyIcon} alt="" />
-          <Text lg>Gestion situation<br />urgence</Text>
+          <Text lg>Gestion situation<StyledBr /> urgence</Text>
         </StyledPoint>
         <StyledPoint column>
           <StyledIcon src={povertyIcon} alt="" />
-          <Text lg>Réduction<br />de la pauvreté</Text>
+          <Text lg>Réduction<StyledBr /> de la pauvreté</Text>
         </StyledPoint>
       </StyledPoints>
       <Map />
@@ -115,20 +111,33 @@ const StyledContainer = styled(Flex)`
   `}
 `
 const StyledText = styled(Flex)`
-  margin-bottom: 80px;
+  margin-bottom: 180px;
   ${breakpoint('lg')`
     margin-bottom: 0px;
     padding-right: 75px;
   `}
+  p.second {
+    margin-top: 120px;
+    ${breakpoint('lg')`
+      margin-top: 0;
+    `}
+  }
 `
 const StyledLgText = styled(Text)`
-  margin: 30px 0 200px;
-  max-width: 950px;
+  margin: 30px 0 60px;
+  ${breakpoint('lg')`
+    margin: 30px 0 200px;
+    max-width: 950px;
+  `}
+  &.second {
+    margin: 30px 0 290px;
+  }
 `
 const StyledIcon = styled.img`
-  height: 50px;
   margin-bottom: 20px;
+  height: 34px;
   ${breakpoint('lg')`
+    height: 50px;
     margin-bottom: 40px;
   `}
 `
@@ -151,6 +160,12 @@ const StyledPoint = styled(Flex)`
     margin-bottom: 0px;
     align-items: flex-start;
     text-align: left;
+  `}
+`
+const StyledBr = styled.br`
+  display: none;
+  ${breakpoint('lg')`
+    display: block;
   `}
 `
 
