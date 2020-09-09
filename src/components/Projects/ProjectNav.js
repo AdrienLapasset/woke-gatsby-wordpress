@@ -85,6 +85,9 @@ const StyledContainer = styled.div`
     &:first-child {
       margin-right: auto;
       margin-bottom: 20px;
+      ${breakpoint('sm')`
+        margin-bottom: 0px;
+      `}
     }
     &:last-child {
       margin-left: auto;

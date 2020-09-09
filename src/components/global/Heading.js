@@ -10,10 +10,13 @@ const Heading = ({ h2, children, className }) => {
 const HeadingOne = styled.h1`
   font-size: 32px;
   color: ${props => props.theme.colors.black};
-  font-weight: 600;
+  font-weight: 700;
   margin: 0 0 30px;
+  line-height: 30px;
   ${breakpoint('md')`
+    line-height: unset;
     font-size: 38px;
+    font-weight: 600;
   `}
 `
 const HeadingTwo = styled.h2`

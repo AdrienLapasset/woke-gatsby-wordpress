@@ -32,7 +32,7 @@ const StyledNumber = styled.p`
   color: ${props => props.theme.colors.grey};
   opacity: .3;
   position: relative;
-  bottom: -63px;
+  bottom: -42px;
 `
 const StyledLi = styled.li`
   margin-bottom: 150px;
