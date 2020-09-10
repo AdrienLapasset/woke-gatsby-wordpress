@@ -4,6 +4,7 @@ import breakpoint from 'styled-components-breakpoint';
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
+import Text from 'src/components/global/Text'
 import Heading from 'src/components/global/Heading'
 import Button from 'src/components/global/Button'
 
@@ -38,12 +39,12 @@ const Landing = () => {
             Soutenez-nous,<br />
             Soutenez-les !
           </Heading>
-          <p>
+          <Text>
             ONG humanitaire française, nous voyageons
             à travers le monde à la rencontre d’initiatives locales
             afin d’apporter, ensemble, des solutions pérennes
             à la lutte contre la pauvreté et l’exclusion sociale.
-        </p>
+          </Text>
           <StyledButton>En savoir + sur Woke</StyledButton>
         </StyledColumn>
         <StyledColumn>

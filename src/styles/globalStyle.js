@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components/macro'
+import breakpoint from 'styled-components-breakpoint';
 import 'typeface-nunito-sans'
 import 'typeface-oranienbaum'
 
@@ -32,6 +33,11 @@ textarea {
   padding: 0;
   display: block;
   box-sizing: border-box;
+  line-height: 22px;
+  ${breakpoint('md')`
+    line-height: 1.7;
+		font-size: 20px;
+  `}
 }
 
 a {

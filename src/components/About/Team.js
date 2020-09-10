@@ -84,7 +84,7 @@ const Team = () => {
       <>
         <SyledLi key={index} onMouseEnter={() => handleMouseEnter(member.imgName, member.name)} isActive={isActive}>
           <StyledName lg>{member.name}</StyledName>
-          <p>{member.position}</p>
+          <Text>{member.position}</Text>
         </SyledLi>
       </>
     )

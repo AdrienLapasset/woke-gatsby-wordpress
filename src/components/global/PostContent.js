@@ -27,7 +27,7 @@ const StyledContent = styled.div`
   & p {
     margin: 0 0 50px;
     ${breakpoint('md')`
-      margin: 0 100px 50px;
+      margin: 0 50px 50px;
     `}
     & > img {
       margin: 0 auto 50px; 
