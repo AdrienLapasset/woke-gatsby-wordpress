@@ -29,7 +29,6 @@ const WokeLogo = ({ isHeaderWhite }) => {
 const StyledImg = styled.img`
   opacity: ${props => props.isTransition ? '0' : '1'}; 
   animation: ${props => props.isTransition ? css`${fadeIn} ${props.transitionDuration}ms forwards` : 'none'}; 
-  /* animation: ${fadeIn} .4s 2s forwards; */
 `
 
 

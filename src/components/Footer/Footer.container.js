@@ -96,8 +96,21 @@ const StyledContainer = styled.section`
   margin: 185px auto 80px;  
   max-width: 1600px;
   padding: 0 35px;
+  box-sizing: border-box;
   ${breakpoint('md')`
     margin: 150px auto 80px;
+  `}
+  ${breakpoint('sm')`
+    max-width: ${props => props.isFluid ? '' : '540px'};
+  `}
+  ${breakpoint('md')`
+    max-width: ${props => props.isFluid ? '' : '720px'};
+  `}
+  ${breakpoint('lg')`
+    max-width: ${props => props.isFluid ? '' : '960px'};
+  `}
+  ${breakpoint('xl')`
+    max-width: ${props => props.isFluid ? '' : '1140px'};
   `}
 `
 const LinkStyle = css`

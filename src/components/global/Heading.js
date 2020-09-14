@@ -12,9 +12,8 @@ const HeadingOne = styled.h1`
   color: ${props => props.theme.colors.black};
   font-weight: 700;
   margin: 0 0 30px;
-  line-height: 30px;
+  line-height: 1.45em;
   ${breakpoint('md')`
-    line-height: unset;
     font-size: 38px;
     font-weight: 600;
   `}

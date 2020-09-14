@@ -1,10 +1,9 @@
-import { createGlobalStyle } from 'styled-components/macro'
+import styled, { createGlobalStyle } from 'styled-components/macro'
 import breakpoint from 'styled-components-breakpoint';
 import 'typeface-nunito-sans'
 import 'typeface-oranienbaum'
 
 export default createGlobalStyle`
-
 * {
   margin: 0;
   padding: 0;
@@ -74,4 +73,18 @@ li {
   opacity: 0;
   transition: opacity 3s ease-in;
 }
+`
+export const LayoutResponsiveWidth = styled.div`
+  ${breakpoint('sm')`
+    max-width: ${props => props.isFluid ? '' : '540px'};
+  `}
+  ${breakpoint('md')`
+    max-width: ${props => props.isFluid ? '' : '720px'};
+  `}
+  ${breakpoint('lg')`
+    max-width: ${props => props.isFluid ? '' : '960px'};
+  `}
+  ${breakpoint('xl')`
+    max-width: ${props => props.isFluid ? '' : '1140px'};
+  `}
 `

@@ -45,6 +45,7 @@ const StyledLayout = styled.section`
   margin: ${props => props.isFluid ? '' : '200px auto 0'};
   max-width: ${props => props.isFluid ? '' : '100%'};
   padding:${props => props.isFluid ? '' : '0 35px'};
+  box-sizing: border-box;
   ${breakpoint('sm')`
     max-width: ${props => props.isFluid ? '' : '540px'};
   `}

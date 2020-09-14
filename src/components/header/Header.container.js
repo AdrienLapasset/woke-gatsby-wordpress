@@ -59,7 +59,6 @@ const StyledContainer = styled.div`
   z-index: 2;
   margin: 0 auto;
   padding: 35px 35px 15px;
-  max-width: 1600px;
   position: ${props => props.isHeaderFixed ? `fixed` : `absolute`};
   top: 0;
   left: 0;
@@ -78,6 +77,18 @@ const StyledContainer = styled.div`
     padding: 58px 35px 35px;
     flex-direction: row;
     height: 150px;
+  `}
+  ${breakpoint('sm')`
+    max-width: ${props => props.isFluid ? '' : '540px'};
+  `}
+  ${breakpoint('md')`
+    max-width: ${props => props.isFluid ? '' : '720px'};
+  `}
+  ${breakpoint('lg')`
+    max-width: ${props => props.isFluid ? '' : '960px'};
+  `}
+  ${breakpoint('xl')`
+    max-width: ${props => props.isFluid ? '' : '1140px'};
   `}
 `
 const StyledGroup = styled.div`

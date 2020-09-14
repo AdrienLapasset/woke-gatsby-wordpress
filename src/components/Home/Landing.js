@@ -119,7 +119,7 @@ const VideoBtn = styled.button`
   position: absolute;
   bottom: 0;
   ${breakpoint('md')`
-    width: 320px;
+    width: 330px;
     height: 120px;
   `}
 `
