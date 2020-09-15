@@ -9,7 +9,11 @@ class NewsletterForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { email: '' };
+    this.state = {
+      email: '',
+      isSubscribed: false,
+      isError: false
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,12 +21,19 @@ class NewsletterForm extends React.Component {
 
   handleChange(e) {
     this.setState({ email: e.target.value });
+    this.setState({ isSubscribed: false, isError: false })
   }
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await addToMailchimp(this.state.email)
-    console.log('result =>', result)
+    const mailChimp = await addToMailchimp(this.state.email)
+    console.log('mailChimp =>', mailChimp)
+    if (mailChimp.result === 'success') {
+      this.setState({ isSubscribed: true })
+    }
+    if (mailChimp.result === 'error') {
+      this.setState({ isError: true })
+    }
   }
 
   render() {
@@ -36,16 +47,19 @@ class NewsletterForm extends React.Component {
                 <StyledInput onChange={this.handleChange} type="email" name="email" id="email" placeholder="exemple : monmail@gmail.com" />
                 <StyledButton type="submit">Je m’abonne</StyledButton>
               </StyledForm>
-              <StyledText>
-                En renseignant votre adresse mail, vous acceptez de recevoir chaque semaine
-                nos derniers articles de blog par courrier électronique et vous prenez connaissance
-            de notre <StyledLink to="/terms">Politique de confidentialité</StyledLink>.  Vous pouvez vous désinscrire à tout moment à l’aide
-            des liens de désinscription ou en nous contactant à l’adresse mail&nbsp;:  <StyledA href="mailto:contact@woke.fr"
-                  target="_blank"
-                  rel="noopener noreferrer">
-                  contact@woke.fr
-            </StyledA>.
-          </StyledText>
+              {this.state.isSubscribed ?
+                <StyledText>Merci, vous êtes bien inscrit(e) à notre newsletter, vous allez recevoir un mail de confirmation.</StyledText>
+                : this.state.isError ?
+                  <StyledText>Vous êtes déjà inscrit(e) à notre newsletter.</StyledText>
+                  :
+                  <StyledText>
+                    En renseignant votre adresse mail, vous acceptez de recevoir chaque semaine
+                    nos derniers articles de blog par courrier électronique et vous prenez connaissance
+                de notre <StyledLink to="/terms">Politique de confidentialité</StyledLink>.  Vous pouvez vous désinscrire à tout moment à l’aide
+                des liens de désinscription ou en nous contactant à l’adresse mail&nbsp;:&nbsp;
+                <StyledA href="mailto:contact@woke.fr" target="_blank" rel="noopener noreferrer"> contact@woke.fr</StyledA>.
+              </StyledText>
+              }
             </Flex>
           </StyledLayout>
         </StyledContainer>
@@ -56,7 +70,6 @@ class NewsletterForm extends React.Component {
 
 const StyledContainer = styled.section`
   display: ${props => props.isNewsletterFormOpen ? 'block' : 'none'};
-  /* transition: max-height 1s cubic-bezier(0.22, 0.61, 0.36, 1); */
   background-color: #eeede2;  
 `
 const StyledLayout = styled.section`
