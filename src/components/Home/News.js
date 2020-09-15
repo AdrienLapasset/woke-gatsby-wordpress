@@ -19,25 +19,30 @@ const News = ({ data }) => {
   const imgFluid = projects[0].node.featured_media.localFile.childImageSharp.fluid
 
   const truncate = (string) => {
-    return string.substring(3, 300) + "..."
+    return string.substring(3, 170) + "..."
   }
 
   return (
     <StyledContainer>
       <Heading h2>Les actualités</Heading>
-      <StyledLink to={`/blog/${projects[0].node.slug}`}>
-        <FlexContainer>
-          <Heading>{projects[0].node.title}</Heading>
-          <StyledImgMobile fluid={imgFluid} />
-          {truncate(projects[0].node.excerpt)}
-        </FlexContainer>
-        <FlexContainer>
-          <StyledImg fluid={imgFluid} />
-        </FlexContainer>
-      </StyledLink>
-      <StyledArticlesLink to={'/blog'} >
-        <Button>Voir tous nos articles</Button>
-      </StyledArticlesLink>
+      <FlexContainer>
+        <FlexElement>
+          <Link to={`/blog/${projects[0].node.slug}`}>
+            <Heading>{projects[0].node.title}</Heading>
+            <StyledImgMobile fluid={imgFluid} />
+            {truncate(projects[0].node.excerpt)}
+            <StyledReadBtn>Lire la suite</StyledReadBtn>
+          </Link>
+          <StyledArticlesLink to={'/blog'} >
+            <Button>Voir tous nos articles</Button>
+          </StyledArticlesLink>
+        </FlexElement>
+        <FlexElement>
+          <Link to={`/blog/${projects[0].node.slug}`}>
+            <StyledImg fluid={imgFluid} />
+          </Link>
+        </FlexElement>
+      </FlexContainer>
     </StyledContainer>
   )
 }
@@ -46,18 +51,35 @@ const StyledContainer = styled.div`
   margin-top: 200px;
 `
 const FlexContainer = styled.div`
- flex: 1 1 50%;
- &:first-child{
-   ${breakpoint('lg')`
+  display: flex;
+  margin-top: 60px;
+`
+const StyledReadBtn = styled.u`
+  font-size: 14px;
+  display: block;
+  text-align: center;
+  margin-top: 85px;
+  ${breakpoint('lg')`
+    font-size: 18px;
+    display: inline-block;
+    margin-top: 0;
+  `}
+`
+const FlexElement = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 50%;
+  &:first-child {
+    ${breakpoint('lg')`
     padding-right: 80px;
   `}
- }
-`
-const StyledLink = styled(Link)`
-  margin-top: 80px;
-  ${breakpoint('lg')`
-    display: flex;
+  }
+  &:last-child {
+    display: none;
+    ${breakpoint('lg')`
+      display: block
   `}
+  }
 `
 const StyledImg = styled(Img)`
   width: 100%;
@@ -77,7 +99,9 @@ const StyledImgMobile = styled(Img)`
 const StyledArticlesLink = styled(Link)`
   Button {
     margin: 30px auto 0;
+    display: none;
     ${breakpoint('lg')`
+      display: block;
       margin: 30px auto 0 0;
     `}
   }

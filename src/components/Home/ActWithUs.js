@@ -52,6 +52,7 @@ const StyledSection = styled.section`
   ${breakpoint('sm')`
     background-color: unset;
     margin: 390px 0 0;
+    padding: 0;
   `}
 `
 const StyledHeading = styled(Heading)`
@@ -72,20 +73,20 @@ const StyledText = styled.p`
 `
 const StyledColumn = styled.div`
   flex: 0 1 340px;
-  margin-right: 35px;
   margin-bottom: 50px;
   &:nth-child(2) {
     ${StyledText} {
-      margin-bottom: 70px;
+      margin-bottom: 63px;
     }
   }
   &:nth-child(3) {
     ${StyledText} {
-      margin-bottom: 70px;
+      margin-bottom: 63px;
     }
   }
   ${breakpoint('xl')`
     margin-bottom: 0px;
+    margin-right: 35px;
   `}
 `
 
