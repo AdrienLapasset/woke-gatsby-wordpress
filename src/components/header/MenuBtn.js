@@ -27,6 +27,7 @@ const StyledButton = styled.button`
   `}
   &:hover {
     &:after {
+      ${breakpoint('xl')`
       content: 'Menu';
       position: absolute;
       color: white;
@@ -36,8 +37,10 @@ const StyledButton = styled.button`
       border-radius: 2px;
       top: 40px;
       left: -20px;
+      `}
     }
     &:before {
+      ${breakpoint('xl')`
       content:"";
       width: 0; 
       height: 0; 
@@ -47,6 +50,7 @@ const StyledButton = styled.button`
       position: absolute;
       top: 35px;
       left: 9px;
+      `}
     }
   }
 `
