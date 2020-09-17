@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../components/layout"
 import styled, { css } from 'styled-components'
 import Img from "gatsby-image"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import breakpoint from 'styled-components-breakpoint';
 
 import Heading from 'src/components/global/Heading'
@@ -57,7 +57,7 @@ const Contact = () => {
         <StyledAsterix>* Champs obligatoires</StyledAsterix>
         <StyledPolicy>
           <StyledCheckbox type="checkbox" required />
-          J'accepte la politique de confidentialité de ce site. *
+          <p>J'accepte la <Link to="/privacy">politique de confidentialité</Link> de ce site.&nbsp;*</p>
         </StyledPolicy>
         <StyledButton submit>Envoyer mon message</StyledButton>
       </StyledForm>
@@ -166,7 +166,16 @@ const StyledPolicy = styled.div`
   display: flex;
   align-items: center;
   margin-top: 40px;
-  font-size: 18px;
+  p {
+    font-size: 18px;
+  }
+  a {
+    font-size: 18px;
+    display: inline;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `
 const StyledCheckbox = styled.input`
   margin-right: 10px;
