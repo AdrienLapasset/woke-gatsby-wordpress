@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import styled from 'styled-components'
-import breakpoint from 'styled-components-breakpoint';
 
 const ProjectsListItem = ({ edge, index }) => {
 
@@ -20,7 +19,6 @@ const ProjectsListItem = ({ edge, index }) => {
         <StyledNumber>{index}</StyledNumber>
         <Img fluid={imgFluid} />
         <StyledTitle>{project.title}</StyledTitle>
-        {/* <div dangerouslySetInnerHTML={{ __html: project.excerpt }} /> */}
         <div>{truncate(project.excerpt)}</div>
       </Link>
     </StyledLi>

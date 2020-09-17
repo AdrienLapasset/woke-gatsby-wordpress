@@ -4,7 +4,7 @@ import Heading from 'src/components/global/Heading'
 import Text from 'src/components/global/Text'
 import styled from 'styled-components'
 
-const Privacy = () => {
+const Legal = () => {
 
   return (
     <Layout>
@@ -30,15 +30,5 @@ const StyledText = styled(Text)`
     display: inline;
   }
 `
-const StyledHeading = styled(Heading)`
-  margin-top: 60px;
-`
-const StyledUl = styled.ul`
-  padding-left: 60px;
-  li {
-    list-style: disc;
-    display: list-item;
-  }
-`
 
-export default Privacy
+export default Legal

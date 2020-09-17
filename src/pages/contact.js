@@ -55,6 +55,10 @@ const Contact = () => {
         </StyledFormRow>
         <StyledInputTextarea name="message" placeholder="Votre message *" rows="8" required></StyledInputTextarea>
         <StyledAsterix>* Champs obligatoires</StyledAsterix>
+        <StyledPolicy>
+          <StyledCheckbox type="checkbox" required />
+          J'accepte la politique de confidentialité de ce site. *
+        </StyledPolicy>
         <StyledButton submit>Envoyer mon message</StyledButton>
       </StyledForm>
       <StyledAdress>
@@ -157,5 +161,15 @@ const StyledIframe = styled.iframe`
 const StyledAsterix = styled.p`
   font-style: italic;
   font-size: 12px;
+`
+const StyledPolicy = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  font-size: 18px;
+`
+const StyledCheckbox = styled.input`
+  margin-right: 10px;
+  cursor: pointer;
 `
 export default Contact
