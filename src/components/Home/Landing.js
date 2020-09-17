@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import breakpoint from 'styled-components-breakpoint';
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 import Text from 'src/components/global/Text'
@@ -45,7 +45,9 @@ const Landing = () => {
             afin d’apporter, ensemble, des solutions pérennes
             à la lutte contre la pauvreté et l’exclusion sociale.
           </Text>
-          <StyledButton>En savoir + sur Woke</StyledButton>
+          <Link to="/about">
+            <StyledButton>En savoir + sur Woke</StyledButton>
+          </Link>
         </StyledColumn>
         <StyledColumn>
           <StyledImg fluid={data.landingImg.childImageSharp.fluid} />

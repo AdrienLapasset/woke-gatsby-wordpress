@@ -109,7 +109,7 @@ const StyledInput = styled.input`
   border: 1px solid ${props => props.theme.colors.black};
   text-align: center;
   font-size: 17px;
-  color: ${props => props.theme.colors.grey};
+  color: ${props => props.theme.colors.black};
   margin: 0 0 30px 0;
   font-style: italic;
   border-radius: 5px;

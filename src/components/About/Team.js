@@ -81,12 +81,10 @@ const Team = () => {
   const teamRender = team.map((member, index) => {
     const isActive = member.name === memberActive
     return (
-      <>
-        <SyledLi key={index} onMouseEnter={() => handleMouseEnter(member.imgName, member.name)} isActive={isActive}>
-          <StyledName lg>{member.name}</StyledName>
-          <Text>{member.position}</Text>
-        </SyledLi>
-      </>
+      <SyledLi key={index} onMouseEnter={() => handleMouseEnter(member.imgName, member.name)} isActive={isActive}>
+        <StyledName lg>{member.name}</StyledName>
+        <Text>{member.position}</Text>
+      </SyledLi>
     )
   })
 

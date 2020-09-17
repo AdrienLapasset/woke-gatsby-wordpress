@@ -22,7 +22,7 @@ const TeamCarousel = ({ teamImages, team }) => {
 
   return (
     <>
-      <StyledCarousel showArrows={false} showStatus={false} emulateTouch>
+      <StyledCarousel showArrows={false} showStatus={false} emulateTouch showThumbs={false}>
         {carouselItems}
       </StyledCarousel>
     </>
@@ -56,16 +56,16 @@ const StyledCarousel = styled(Carousel)`
     }
   }
 `
+const StyledLegend = styled.div`
+  text-align: left;
+  margin-bottom: 50px;
+`
 const StyledName = styled.p`
   font-size: 29px;
   font-weight: 400;
 `
 const StyledPosition = styled.p`
   font-size: 16px;
-`
-const StyledLegend = styled.p`
-  text-align: left;
-  margin-bottom: 50px;
 `
 
 export default TeamCarousel;
