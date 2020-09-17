@@ -69,8 +69,8 @@ const Footer = () => {
           <Link to="/legal">Mentions légales</Link>
           <a href={statutsPDF} download>Statuts</a>
         </StyledLegalContainer>
-        <Flex column rowlg mt={60} justifyBetween>
-          <StyledSignature column rowlg>
+        <Flex column rowLg mt={60} justifyBetween>
+          <StyledSignature column rowLg>
             <StyledCopyrights>
               © {new Date().getFullYear()} Woke.&nbsp;
             </StyledCopyrights>
