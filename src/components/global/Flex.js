@@ -44,6 +44,9 @@ const Flex = styled.div`
     flex-direction: ${props => props.rowMd ? 'row;' : ''}
     margin-bottom:  ${props => props.mbMd}px;
   `}
+  ${breakpoint('lg')`
+    flex-direction: ${props => props.rowLg ? 'row;' : ''}
+  `}
 `
 
 export default Flex

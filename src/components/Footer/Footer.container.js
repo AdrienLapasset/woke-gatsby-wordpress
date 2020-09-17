@@ -5,6 +5,7 @@ import { Link } from "gatsby"
 
 import Flex from 'src/components/global/Flex'
 import NewsletterForm from './NewsletterForm'
+import statutsPDF from 'src/assets/docs/STATUTS ASSOCIATION WOKE.pdf'
 
 const Footer = () => {
 
@@ -21,8 +22,8 @@ const Footer = () => {
   return (
     <>
       <StyledContainer>
-        <Flex column justifyBetween rowMd >
-          <Flex column mb={70} mbMd={0}>
+        <Flex column justifyBetween rowLg >
+          <Flex column mb={70} mblg={0}>
             <StyledA href="https://www.facebook.com/Woke-121383801750149/"
               target="_blank"
               rel="noopener noreferrer">
@@ -63,8 +64,13 @@ const Footer = () => {
             <StyledA className="noUnderline" href="tel:+33669640007" >06 69 64 00 07</StyledA>
           </StyledAdress>
         </Flex>
-        <Flex column rowMd mt={60} justifyBetween>
-          <StyledSignature column rowMd>
+        <StyledLegalContainer>
+          <Link to="/privacy">Politique de confidentialité</Link>
+          <Link to="/legal">Mentions légales</Link>
+          <a href={statutsPDF} download>Statuts</a>
+        </StyledLegalContainer>
+        <Flex column rowlg mt={60} justifyBetween>
+          <StyledSignature column rowlg>
             <StyledCopyrights>
               © {new Date().getFullYear()} Woke.&nbsp;
             </StyledCopyrights>
@@ -97,7 +103,7 @@ const StyledContainer = styled.section`
   max-width: 1600px;
   padding: 0 35px;
   box-sizing: border-box;
-  ${breakpoint('md')`
+  ${breakpoint('lg')`
     margin: 150px auto 80px;
   `}
   ${breakpoint('sm')`
@@ -119,7 +125,7 @@ const LinkStyle = css`
   &:hover{
     text-decoration: underline;
   }
-  ${breakpoint('md')`
+  ${breakpoint('lg')`
     font-weight: 300;
     margin-bottom: unset;
   `}
@@ -136,7 +142,7 @@ const StyledA = styled.a`
 const StyledButton = styled.button`
   font-weight: ${props => props.isNewsletterFormOpen ? '700' : '400'};
   margin: 50px auto;
-  ${breakpoint('md')`
+  ${breakpoint('lg')`
     margin: 0;
   `}
   &:hover{
@@ -145,13 +151,13 @@ const StyledButton = styled.button`
 `
 const StyledAdress = styled.div`
   display: none;
-  ${breakpoint('md')`
+  ${breakpoint('lg')`
     display: block;
   `}
 `
 const StyledScore = styled.div`
   display: none;
-  ${breakpoint('md')`
+  ${breakpoint('lg')`
     display: block;
   `}
 `
@@ -164,7 +170,7 @@ const StyledCopyrights = styled.p`
 const StyledSignature = styled(Flex)`
   align-items: center;
   width: 100%;
-  ${breakpoint('md')`
+  ${breakpoint('lg')`
     width: auto;
   `}
   a {
@@ -172,6 +178,17 @@ const StyledSignature = styled(Flex)`
     text-decoration: none;
     margin-bottom: 0;
   }
+`
+const StyledLegalContainer = styled.div`
+  margin-top: 60px;
+  & > * {
+    ${LinkStyle} 
+    margin-right: 30px;
+  }
+  ${breakpoint('lg')`
+    margin-top: 30px;
+    display: flex;
+  `}
 `
 
 export default Footer;
