@@ -4,9 +4,11 @@ import styled, { ThemeProvider } from 'styled-components'
 import theme from 'src/styles/theme'
 import GlobalStyle from 'src/styles/globalStyle'
 import breakpoint from 'styled-components-breakpoint';
+// import CookieConsent from 'react-cookie-consent';
 
 import Header from "./header/Header.container"
 import Footer from "./Footer/Footer.container"
+import Cookies from "./global/Cookies"
 
 const Layout = ({ children, isFluid }) => {
   const data = useStaticQuery(graphql`
@@ -30,12 +32,22 @@ const Layout = ({ children, isFluid }) => {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header siteTitle={data.site.siteMetadata.title} isFluid={isFluid} toggle={toggle} />
-        {!isMenuOpen ? <>
-          <StyledLayout isFluid={isFluid} >
-            {children}
-          </StyledLayout>
-          <Footer /> </>
+        {!isMenuOpen ?
+          <>
+            <StyledLayout isFluid={isFluid} >
+              {children}
+            </StyledLayout>
+            <Footer />
+          </>
           : null}
+        {/* <CookieConsent
+          location="bottom"
+          buttonText="Accept"
+          declineButtonText="Decline"
+          cookieName="gatsby-gdpr-google-analytics">
+          This site uses cookies ...
+        </CookieConsent> */}
+        <Cookies />
       </ThemeProvider>
     </>
   )
