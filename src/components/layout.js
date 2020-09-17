@@ -22,9 +22,14 @@ const Layout = ({ children, isFluid }) => {
   `)
 
   const [isMenuOpen, setMenuOpen] = useState(false)
+  const [isCookiesAccepted, setIsCookiesAccepted] = useState(false)
 
   const toggle = () => {
     setMenuOpen(!isMenuOpen)
+  }
+
+  const handleCookies = () => {
+    setIsCookiesAccepted(true)
   }
 
   return (
@@ -47,7 +52,7 @@ const Layout = ({ children, isFluid }) => {
           cookieName="gatsby-gdpr-google-analytics">
           This site uses cookies ...
         </CookieConsent> */}
-        <Cookies />
+        {!isCookiesAccepted ? <Cookies isCookiesAccepted={handleCookies} /> : null}
       </ThemeProvider>
     </>
   )

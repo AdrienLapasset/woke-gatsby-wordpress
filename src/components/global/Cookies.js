@@ -3,25 +3,21 @@ import styled from 'styled-components'
 import breakpoint from 'styled-components-breakpoint';
 import Text from 'src/components/global/Text'
 
-const Cookies = () => {
+const Cookies = ({ isCookiesAccepted }) => {
 
-  const [isCookiesAccepted, setIsCookiesAccepted] = useState(false)
+  // const [isCookiesAccepted, setIsCookiesAccepted] = useState(false)
 
   const onClickOk = () => {
-    setIsCookiesAccepted(true)
+    isCookiesAccepted();
   }
 
-  if (!isCookiesAccepted) {
-    return (
-      <StyledContainer>
-        <p>Nous utilisons des cookies pour vous garantir la meilleure expérience sur notre site.
+  return (
+    <StyledContainer>
+      <p>Nous utilisons des cookies pour vous garantir la meilleure expérience sur notre site.
         Si vous continuez à utiliser ce dernier, nous considérons que vous acceptez l’utilisation des cookies.</p>
-        <button onClick={() => onClickOk()} type="button">Accepter les cookies</button>
-      </StyledContainer>
-    )
-  } else {
-    return null
-  }
+      <button onClick={() => onClickOk()} type="button">Accepter les cookies</button>
+    </StyledContainer>
+  )
 }
 
 const StyledContainer = styled.div`
