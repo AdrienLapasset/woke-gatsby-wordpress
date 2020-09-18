@@ -8,7 +8,7 @@ const Privacy = () => {
 
   return (
     <Layout>
-      <Heading>POLITIQUE DE CONFIDENTIALITE</Heading>
+      <Heading>Politique de confidentialité</Heading>
       <StyledHeading h2>Collecte de l’information</StyledHeading>
       <StyledText>
         Nous recueillons des informations lorsque vous vous inscrivez sur notre site, lorsque vous vous connectez à votre compte, faites un achat, participez à un concours, et / ou lorsque vous vous déconnectez. Les informations recueillies incluent votre nom, votre adresse e-mail, numéro de téléphone, et / ou carte de crédit.

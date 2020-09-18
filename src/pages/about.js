@@ -74,7 +74,7 @@ const About = () => {
       <StyledPoints alignCenter>
         <StyledPoint column>
           <StyledIcon src={waterIcon} alt="" />
-          <Text lg>Eau<StyledBr />et assainissement</Text>
+          <Text lg>Eau<StyledBr /> et assainissement</Text>
         </StyledPoint>
         <StyledPoint column>
           <StyledIcon src={educationIcon} alt="" />

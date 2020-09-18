@@ -33,7 +33,7 @@ const StyledContent = styled.div`
       margin: 0 auto 50px; 
     }
   }
-  & img, .wp-video {
+  & img, .wp-video, video {
     max-width: 100%;
     height: auto;
     margin: auto;

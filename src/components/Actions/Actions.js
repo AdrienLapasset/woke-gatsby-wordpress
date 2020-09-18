@@ -127,15 +127,15 @@ const StyledImgContainer = styled.div`
   div {
     width: 100%;
     max-width: 800px;
+    max-height: 300px;
+    ${breakpoint('md')`
+      max-height: 437px;
+  `}
   }
 `
 const StyledImg = styled(Img)`
   opacity: 0;
   animation: ${fadeIn} 2s forwards;
-  max-height: 300px;
-  ${breakpoint('md')`
-    max-height: unset;
-  `}
 `
 const StyledContainer = styled.section`
   max-width: 800px;

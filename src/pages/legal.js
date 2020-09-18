@@ -8,7 +8,7 @@ const Legal = () => {
 
   return (
     <Layout>
-      <Heading>MENTIONS LEGALES</Heading>
+      <Heading>Mentions légales</Heading>
       <StyledText>
         Le site www.woke.fr est la propriété de WOKE, Association loi 1901, reconnue d’intérêt général, dont le siège social est situé au 55 allée des côtes de Chanturgues – 63100 Clermont-Ferrand.
       </StyledText>
