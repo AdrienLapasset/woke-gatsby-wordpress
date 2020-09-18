@@ -38,7 +38,7 @@ const Contact = () => {
         <Img fluid={contactImg} imgStyle={{ objectPosition: 'center top' }} />
       </StyledContainer>
 
-      <StyledForm name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <StyledForm action="/contactSuccess" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="bot-field" />
         <input type="hidden" name="form-name" value="contact" />
         <StyledFormRow>
