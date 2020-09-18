@@ -1,24 +1,14 @@
 import React, { useState } from 'react';
-import { useStaticQuery, graphql } from "gatsby"
+import { Helmet } from "react-helmet"
 import styled, { ThemeProvider } from 'styled-components'
 import theme from 'src/styles/theme'
 import GlobalStyle from 'src/styles/globalStyle'
-import breakpoint from 'styled-components-breakpoint';
-import CookieConsent from './CookieConsent';
-
+import breakpoint from 'styled-components-breakpoint'
+import CookieConsent from './CookieConsent'
 import Header from "./header/Header.container"
 import Footer from "./Footer/Footer.container"
 
 const Layout = ({ children, isFluid }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
 
   const [isMenuOpen, setMenuOpen] = useState(false)
 
@@ -27,19 +17,25 @@ const Layout = ({ children, isFluid }) => {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Header siteTitle={data.site.siteMetadata.title} isFluid={isFluid} toggle={toggle} />
-      {!isMenuOpen ?
-        <>
-          <StyledLayout isFluid={isFluid} >
-            {children}
-          </StyledLayout>
-          <Footer />
-        </>
-        : null}
-      <CookieConsent />
-    </ThemeProvider>
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Woke</title>
+      </Helmet>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Header isFluid={isFluid} toggle={toggle} />
+        {!isMenuOpen ?
+          <>
+            <StyledLayout isFluid={isFluid} >
+              {children}
+            </StyledLayout>
+            <Footer />
+          </>
+          : null}
+        <CookieConsent />
+      </ThemeProvider>
+    </>
   )
 }
 

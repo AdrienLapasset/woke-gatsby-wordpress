@@ -2,6 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Woke`,
     description: `Woke`,
+    url: `https://www.woke.fr`,
+    image: `/logos/wokeLogoBlack.svg`,
     author: `Adrien Lapasset`,
   },
   plugins: [
