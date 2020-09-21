@@ -23,7 +23,7 @@ const Landing = () => {
     query {
       landingImg: file(relativePath: { eq: "premices.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 900, quality:90) {
+          fluid(maxWidth: 415, quality:90) {
             ...GatsbyImageSharpFluid
           }
         }
