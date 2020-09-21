@@ -1,13 +1,15 @@
 import React from 'react';
-import styled from 'styled-components'
+import { Link } from "gatsby"
+import styled, { css } from 'styled-components'
 import breakpoint from 'styled-components-breakpoint';
 
-const Button = ({ children, className, submit }) => {
+const Button = ({ children, className, to, submit }) => {
   if (submit) return <StyledButton className={className} type="submit">{children}</StyledButton>
+  if (to !== null) return <StyledLink to={to} className={className}>{children}</StyledLink>
   return <StyledButton className={className}>{children}</StyledButton>
 }
 
-const StyledButton = styled.button`
+const Styles = css`
   outline: none;
   border: none;
   cursor: pointer;
@@ -32,6 +34,13 @@ const StyledButton = styled.button`
   ${breakpoint('md')`
     font-size: 22px;
   `}
+`
+
+const StyledButton = styled.button`
+  ${Styles}
+`
+const StyledLink = styled(Link)`
+  ${Styles}
 `
 
 export default Button;

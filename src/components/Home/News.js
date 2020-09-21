@@ -33,8 +33,8 @@ const News = ({ data }) => {
             {truncate(projects[0].node.excerpt)}
             <StyledReadBtn>Lire la suite</StyledReadBtn>
           </Link>
-          <StyledArticlesLink to={'/blog'} >
-            <Button>Voir tous nos articles</Button>
+          <StyledArticlesLink to='/blog' >
+            Voir tous nos articles
           </StyledArticlesLink>
         </FlexElement>
         <FlexElement>
@@ -96,15 +96,13 @@ const StyledImgMobile = styled(Img)`
     display: none;
   `}
 `
-const StyledArticlesLink = styled(Link)`
-  Button {
-    margin: 30px auto 0;
-    display: none;
-    ${breakpoint('lg')`
-      display: block;
-      margin: 30px auto 0 0;
-    `}
-  }
+const StyledArticlesLink = styled(Button)`
+  margin: 30px auto 0;
+  display: none;
+  ${breakpoint('lg')`
+    display: block;
+    margin: 30px auto 0 0;
+  `}
 `
 
 export default props => (
