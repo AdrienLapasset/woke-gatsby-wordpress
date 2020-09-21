@@ -4,7 +4,7 @@ import breakpoint from 'styled-components-breakpoint';
 
 const MenuBtn = ({ onClick, isHeaderWhite }) => {
   return (
-    <StyledButton onClick={() => onClick()} isHeaderWhite={isHeaderWhite}>
+    <StyledButton onClick={() => onClick()} isHeaderWhite={isHeaderWhite} aria-label="Menu">
       <FirstBar />
       <SecondBar />
     </StyledButton>

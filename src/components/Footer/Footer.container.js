@@ -176,7 +176,6 @@ const StyledSignature = styled(Flex)`
   a {
     font-weight: 400;
     text-decoration: none;
-    margin-bottom: 0;
   }
 `
 const StyledLegalContainer = styled.div`
