@@ -6,6 +6,7 @@ import Moment from 'react-moment';
 import Layout from "src/components/layout"
 import PostContent from "src/components/global/PostContent"
 import ProjectNav from "src/components/Projects/ProjectNav"
+import SEO from "src/components/seo"
 
 const ProjectTemplate = ({ data }) => {
 
@@ -15,6 +16,7 @@ const ProjectTemplate = ({ data }) => {
   return (
     <>
       <Layout isFluid>
+        <SEO title={`Woke - ${project.title}`} />
         <StyledHeaderImg fluid={imgFluid} />
         <StyledOverlay />
         <StyledInfoContainer>
@@ -75,12 +77,6 @@ export const postQuery = graphql`
             }
           }
         }
-      }
-    }
-    site {
-      siteMetadata {
-        title
-        description
       }
     }
   }

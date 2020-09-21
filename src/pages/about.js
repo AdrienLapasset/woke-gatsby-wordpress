@@ -10,6 +10,7 @@ import Text from 'src/components/global/Text'
 import Flex from 'src/components/global/Flex'
 import Team from 'src/components/About/Team'
 import Map from 'src/components/global/Map/Map.container'
+import SEO from "src/components/seo"
 
 import waterIcon from 'src/assets/icons/eau.svg'
 import educationIcon from 'src/assets/icons/education.svg'
@@ -37,6 +38,7 @@ const About = () => {
 
   return (
     <Layout>
+      <SEO title="Woke - Qui est Woke" />
       <StyledContainer mb={200}>
         <StyledText column>
           <Flex mb={50}>

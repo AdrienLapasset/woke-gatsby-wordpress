@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Woke`,
-    description: `Woke`,
+    description: `Woke est une Organisation non gouvernementale, ONG : Assistance aux réfugiés, éducations, aide au développement économique et protection des ecosystèmes.`,
     url: `https://www.woke.fr`,
     image: `/logos/wokeLogoBlack.svg`,
     author: `Adrien Lapasset`,

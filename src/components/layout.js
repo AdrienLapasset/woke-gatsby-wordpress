@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Helmet } from "react-helmet"
 import styled, { ThemeProvider } from 'styled-components'
 import theme from 'src/styles/theme'
 import GlobalStyle from 'src/styles/globalStyle'
@@ -7,6 +6,7 @@ import breakpoint from 'styled-components-breakpoint'
 import CookieConsent from './CookieConsent'
 import Header from "./header/Header.container"
 import Footer from "./Footer/Footer.container"
+import SEO from "./seo"
 
 const Layout = ({ children, isFluid }) => {
 
@@ -18,10 +18,7 @@ const Layout = ({ children, isFluid }) => {
 
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Woke</title>
-      </Helmet>
+      <SEO />
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header isFluid={isFluid} toggle={toggle} />

@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 import Img from "gatsby-image"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import breakpoint from 'styled-components-breakpoint';
+import SEO from "src/components/seo"
 
 import Heading from 'src/components/global/Heading'
 import Text from 'src/components/global/Text'
@@ -26,6 +27,7 @@ const Contact = () => {
 
   return (<>
     <Layout>
+      <SEO title="Woke - Contactez-nous" />
       <StyledContainer>
         <StyledIntro>
           <Heading>Contactez-nous<br />ou venez nous rencontrer.</Heading>

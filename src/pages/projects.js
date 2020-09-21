@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import styled from 'styled-components'
+import SEO from "src/components/seo"
 
 import Layout from "../components/layout"
 import ProjectsListItem from "src/components/Projects/ProjectsListItem"
@@ -21,6 +22,7 @@ const ProjectsList = ({ data }) => {
 
   return (
     <Layout>
+      <SEO title="Woke - Projets" />
       <StyledUl>
         {projectsList}
       </StyledUl>

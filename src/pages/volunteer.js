@@ -3,6 +3,7 @@ import Layout from "src/components/layout"
 import styled from 'styled-components'
 import Actions from 'src/components/Actions/Actions'
 import Text from 'src/components/global/Text'
+import SEO from "src/components/seo"
 
 const Volunteer = ({ location }) => {
   let actionToDisplay = ''
@@ -19,6 +20,7 @@ const Volunteer = ({ location }) => {
 
   return (
     <Layout>
+      <SEO title="Woke - Agir avec nous" />
       <StyledText>
         Que vous soyez un particulier, une entreprise ou une fondation, que vous ayez beaucoup de temps libre ou très peu, il existe de nombreuses façons d’agir avec nous.
       </StyledText>
