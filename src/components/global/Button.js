@@ -3,9 +3,9 @@ import { Link } from "gatsby"
 import styled, { css } from 'styled-components'
 import breakpoint from 'styled-components-breakpoint';
 
-const Button = ({ children, className, to, submit }) => {
+const Button = ({ children, className, submit }) => {
   if (submit) return <StyledButton className={className} type="submit">{children}</StyledButton>
-  if (to !== null) return <StyledLink to={to} className={className}>{children}</StyledLink>
+  // if (to !== null) return <StyledLink to={to} className={className}>{children}</StyledLink>
   return <StyledButton className={className}>{children}</StyledButton>
 }
 
