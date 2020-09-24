@@ -3,6 +3,7 @@ import { Link, graphql, StaticQuery } from "gatsby"
 import styled from 'styled-components'
 import Flex from 'src/components/global/Flex'
 import breakpoint from 'styled-components-breakpoint';
+import chevron from 'src/assets/icons/chevron-right.svg'
 
 const ProjectNav = ({ data, currentProjectSlug }) => {
 
@@ -58,6 +59,7 @@ const ProjectNav = ({ data, currentProjectSlug }) => {
     <StyledContainer>
       <Link to={`/projects/${previousSlug}`}>
         <Flex alignCenter>
+          <img src={chevron} alt="Précédent" />
           <StyledNumber>{addZeroToNumber(previousNumber)}</StyledNumber>
           <StyledTitle>{previousTitle}</StyledTitle>
         </Flex>
@@ -66,6 +68,7 @@ const ProjectNav = ({ data, currentProjectSlug }) => {
         <Flex alignCenter>
           <StyledTitle>{nextTitle}</StyledTitle>
           <StyledNumber>{addZeroToNumber(nextNumber)}</StyledNumber>
+          <img src={chevron} alt="Suivant" />
         </Flex>
       </Link>
     </StyledContainer>
@@ -91,6 +94,18 @@ const StyledContainer = styled.div`
     }
     &:last-child {
       margin-left: auto;
+    }
+  }
+  img {
+    height: 30px;
+    margin-left: 10px;
+    ${breakpoint('md')`
+      height: unset;
+    `}
+    &:first-child {
+      margin-left: 0px;
+      margin-right: 10px;
+      transform: rotate(180deg);
     }
   }
 `
