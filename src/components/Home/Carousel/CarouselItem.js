@@ -13,17 +13,21 @@ const NewCarouselItem = ({ project }) => {
   }
 
   return (
-    <>
+    <StyledLink to={'/projects/' + project.slug}>
       <Img fluid={imgFluid} style={{ height: '100%' }} />
-      <StyledInfoContainer className="carousel-link" to={'/projects/' + project.slug}>
+      <StyledInfoContainer className="carousel-link">
         <StyledTitle className="carousel-link__title">{project.title}</StyledTitle>
         <StyledDate className="carousel-link__date" interval={0} format="DD MMMM YYYY" >{project.date}</StyledDate>
       </StyledInfoContainer>
-    </>
+    </StyledLink>
   );
 }
 
-const StyledInfoContainer = styled(Link)`
+const StyledLink = styled(Link)`
+  height: 100%;
+  width: 100%;
+`
+const StyledInfoContainer = styled.div`
   background-color: ${props => props.theme.colors.background};
   position: absolute;
   top: 0;

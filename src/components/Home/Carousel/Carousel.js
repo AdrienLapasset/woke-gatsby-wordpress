@@ -4,9 +4,11 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styled, { keyframes } from 'styled-components'
 import breakpoint from 'styled-components-breakpoint';
 import { useStaticQuery, graphql, Link } from "gatsby"
+
 import CarouselItem from './CarouselItem'
 import Button from 'src/components/global/Button'
 import Heading from 'src/components/global/Heading'
+import chevron from 'src/assets/icons/chevron-white.svg'
 
 const ProjectsCarousel = () => {
   const [screenWidth, setScreenWidth] = useState(0)
@@ -59,16 +61,20 @@ const ProjectsCarousel = () => {
     return <CarouselItem project={project.node} key={index} />
   })
 
-  // const renderArrowPrev = () => {
-
-  // };
-
-
   return (
     <>
       <StyledContainer>
         <Heading h2>Nos dernières interventions</Heading>
-        <StyledCarousel autoPlay infiniteLoop interval={4000} showStatus={false} centerMode={isCenterMode} centerSlidePercentage={70} emulateTouch showThumbs={false}>
+        <StyledCarousel infiniteLoop transitionTime={600} interval={4000} showStatus={false} centerMode={isCenterMode} centerSlidePercentage={70} emulateTouch showThumbs={false}
+          renderArrowPrev={(onClickHandler) =>
+            <button className="prevBtn" type="button" onClick={onClickHandler}>
+              <img src={chevron} alt="" />
+            </button>}
+          renderArrowNext={(onClickHandler) =>
+            <button className="nextBtn" type="button" onClick={onClickHandler}>
+              <img src={chevron} alt="" />
+            </button>}
+        >
           {carouselItems}
         </StyledCarousel>
         <StyledLink to="/projects">
@@ -104,6 +110,7 @@ const StyledContainer = styled.div`
   `}
 `
 const StyledCarousel = styled(Carousel)`
+  position: relative;
   margin: 100px auto 0;
   overflow: visible;
   .slider-wrapper {
@@ -115,24 +122,10 @@ const StyledCarousel = styled(Carousel)`
         height: 250px;
         background-color: transparent;
         transition: height .4s;
-        &:first-child {
-          &.selected {
-          ${breakpoint('md')`
-            padding: 0 32px 0 0;
-          `}
-          }
-        }
-        &:last-child {
-          &.selected {
-          ${breakpoint('md')`
-            padding: 0 0 0 32px;
-          `}
-          }
-        }
+        ${breakpoint('md')`
+          padding: 0 16px;
+        `}
         &.selected {
-          ${breakpoint('md')`
-            padding: 0 32px;
-          `}
           .carousel-link {
               animation: ${ToFullSizeSm} .4s forwards;
             ${breakpoint('md')`
@@ -177,14 +170,27 @@ const StyledCarousel = styled(Carousel)`
       }
     }
   }
-  .control-arrow {
-    &.control-next {
-      &:before {
-        content: './src/assets/icons/chevron-right.svg';
-        border: none;
-      }
+  button {
+    z-index: 1;
+    position: absolute;
+    top: 0px;
+    display: none;
+    height: 600px;
+    width: 100px;
+    ${breakpoint('md')`
+      display: block;
+    `}
+    &.prevBtn {
+      left: 0px;
+      transform: rotate(180deg);
     }
-  } 
+    &.nextBtn {
+      right: 0px;
+    }
+    img {
+      width: auto;
+    }
+  }
 `
 const StyledLink = styled(Link)`
   margin-top: 60px;
