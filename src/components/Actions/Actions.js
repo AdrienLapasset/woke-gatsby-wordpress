@@ -12,7 +12,7 @@ const Actions = ({ actionToDisplay }) => {
 
   const data = useStaticQuery(graphql`
     query {
-      allFile(filter: {relativeDirectory: {eq: "actions"}}) {
+      allFile(filter: {relativeDirectory: {eq: "imgs/actions"}}) {
         nodes {
           name
           childImageSharp {

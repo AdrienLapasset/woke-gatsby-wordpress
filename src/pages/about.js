@@ -21,7 +21,7 @@ const About = () => {
 
   const data = useStaticQuery(graphql`
     query {
-      allFile(filter: {relativePath: {regex: "/about/"}}) {  
+      allFile(filter: {relativePath: {regex: "imgs/about/"}}) {  
         edges {
           node {
             relativePath

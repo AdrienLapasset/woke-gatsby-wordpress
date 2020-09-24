@@ -14,7 +14,7 @@ const Contact = () => {
 
   const data = useStaticQuery(graphql`
     query {
-      contactImg: file(relativePath: {eq: "contact.jpg"}) {
+      contactImg: file(relativePath: {eq: "imgs/contact.jpg"}) {
         childImageSharp {
           fluid(maxWidth: 900, quality:90) {
             ...GatsbyImageSharpFluid

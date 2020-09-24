@@ -12,7 +12,7 @@ const Team = () => {
 
   const data = useStaticQuery(graphql`
     query {
-       allFile(filter: {relativeDirectory: {regex: "/team/"}}) {
+       allFile(filter: {relativeDirectory: {regex: "imgs/team/"}}) {
         edges {
           node {
             name

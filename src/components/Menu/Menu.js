@@ -20,7 +20,7 @@ const Menu = ({ toggleMenu }) => {
 
   const data = useStaticQuery(graphql`
     query {
-      menuBgImg: file(relativePath: { eq: "menuBg.jpg" }) {
+      menuBgImg: file(relativePath: { eq: "imgs/menuBg.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1600, quality: 90) {
             ...GatsbyImageSharpFluid_withWebp
