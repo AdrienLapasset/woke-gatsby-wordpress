@@ -65,7 +65,7 @@ const ProjectsCarousel = () => {
     <>
       <StyledContainer>
         <Heading h2>Nos dernières interventions</Heading>
-        <StyledCarousel infiniteLoop transitionTime={600} interval={4000} showStatus={false} centerMode={isCenterMode} centerSlidePercentage={70} emulateTouch showThumbs={false}
+        <StyledCarousel autoPlay infiniteLoop transitionTime={600} interval={4000} showStatus={false} centerMode={isCenterMode} centerSlidePercentage={70} emulateTouch showThumbs={false}
           renderArrowPrev={(onClickHandler) =>
             <button className="prevBtn" type="button" onClick={onClickHandler}>
               <img src={chevron} alt="" />
@@ -175,8 +175,13 @@ const StyledCarousel = styled(Carousel)`
     position: absolute;
     top: 0px;
     display: none;
-    height: 600px;
+    height: 610px;
     width: 100px;
+    opacity: 0;
+    transition: opacity .2s;
+    &:hover {
+      opacity: 1;
+    }
     ${breakpoint('md')`
       display: block;
     `}
