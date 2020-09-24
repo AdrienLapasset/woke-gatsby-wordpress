@@ -4,11 +4,11 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styled, { keyframes } from 'styled-components'
 import breakpoint from 'styled-components-breakpoint';
 import { useStaticQuery, graphql, Link } from "gatsby"
-import NewCarouselItem from './CarouselItem'
+import CarouselItem from './CarouselItem'
 import Button from 'src/components/global/Button'
 import Heading from 'src/components/global/Heading'
 
-const NewCarousel = () => {
+const ProjectsCarousel = () => {
   const [screenWidth, setScreenWidth] = useState(0)
   const [isCenterMode, setIsCenterMode] = useState(true)
 
@@ -56,14 +56,19 @@ const NewCarousel = () => {
   })
 
   const carouselItems = projectsByLang.map((project, index) => {
-    return <NewCarouselItem project={project.node} key={index} />
+    return <CarouselItem project={project.node} key={index} />
   })
+
+  // const renderArrowPrev = () => {
+
+  // };
+
 
   return (
     <>
       <StyledContainer>
         <Heading h2>Nos dernières interventions</Heading>
-        <StyledCarousel showArrows={false} showStatus={false} centerMode={isCenterMode} centerSlidePercentage={70} emulateTouch showThumbs={false}>
+        <StyledCarousel autoPlay infiniteLoop interval={4000} showStatus={false} centerMode={isCenterMode} centerSlidePercentage={70} emulateTouch showThumbs={false}>
           {carouselItems}
         </StyledCarousel>
         <StyledLink to="/projects">
@@ -172,6 +177,14 @@ const StyledCarousel = styled(Carousel)`
       }
     }
   }
+  .control-arrow {
+    &.control-next {
+      &:before {
+        content: './src/assets/icons/chevron-right.svg';
+        border: none;
+      }
+    }
+  } 
 `
 const StyledLink = styled(Link)`
   margin-top: 60px;
@@ -184,4 +197,4 @@ const StyledLink = styled(Link)`
 `
 
 
-export default NewCarousel;
+export default ProjectsCarousel;

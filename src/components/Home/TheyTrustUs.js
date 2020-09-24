@@ -1,54 +1,44 @@
 import React from 'react';
-import { Link } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from 'styled-components'
 import breakpoint from 'styled-components-breakpoint';
+import Img from "gatsby-image"
 
 import Button from 'src/components/global/Button'
 import Heading from 'src/components/global/Heading'
 
-import axaLogo from 'src/assets/logos/theyTrustUs/axa-logo.png'
-import capdecoLogo from 'src/assets/logos/theyTrustUs/capdeco-logo.png'
-import cesisLogo from 'src/assets/logos/theyTrustUs/cesis-logo.png'
-import pizzasLogo from 'src/assets/logos/theyTrustUs/euro-pizzas-logo.png'
-import albaneLogo from 'src/assets/logos/theyTrustUs/logo-albane.png'
-import octopusLogo from 'src/assets/logos/theyTrustUs/logo-octopus.png'
-import pitayaLogo from 'src/assets/logos/theyTrustUs/logo-pitaya.png'
-import mmaLogo from 'src/assets/logos/theyTrustUs/mma-logo.png'
-import sushishopLogo from 'src/assets/logos/theyTrustUs/sushishop-logo.png'
-
 const TheyTrustUs = () => {
+
+  const data = useStaticQuery(graphql`
+    query {
+      allFile(filter: {relativeDirectory: {eq: "logos/theyTrustUs"}}) {
+        nodes {
+          name
+          childImageSharp {
+            fixed {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const logos = data.allFile.nodes
+
+  const logosRender = logos.map((logo, index) => {
+    return (
+      <StyledLogoContainer key={index}>
+        <StyledLogo fixed={logo.childImageSharp.fixed} imgStyle={{ objectFit: 'contain' }} />
+      </StyledLogoContainer>
+    )
+  })
 
   return (
     <StyledContainer>
       <Heading h2>Ils nous font confiance</Heading>
       <StyledLogosContainer>
-        <StyledLogoContainer>
-          <StyledLogo src={axaLogo} alt="" />
-        </StyledLogoContainer>
-        <StyledLogoContainer>
-          <StyledLogo src={capdecoLogo} alt="" />
-        </StyledLogoContainer>
-        <StyledLogoContainer>
-          <StyledLogo src={cesisLogo} alt="" />
-        </StyledLogoContainer>
-        <StyledLogoContainer>
-          <StyledLogo src={pizzasLogo} alt="" />
-        </StyledLogoContainer>
-        <StyledLogoContainer>
-          <StyledLogo src={albaneLogo} alt="" />
-        </StyledLogoContainer>
-        <StyledLogoContainer>
-          <StyledLogo src={octopusLogo} alt="" />
-        </StyledLogoContainer>
-        <StyledLogoContainer>
-          <StyledLogo src={pitayaLogo} alt="" />
-        </StyledLogoContainer>
-        <StyledLogoContainer>
-          <StyledLogo src={mmaLogo} alt="" />
-        </StyledLogoContainer>
-        <StyledLogoContainer>
-          <StyledLogo src={sushishopLogo} alt="" />
-        </StyledLogoContainer>
+        {logosRender}
       </StyledLogosContainer>
       <Link to={'/volunteer'} state={{ actionToDisplay: 'mécénat' }}>
         <StyledButton>Entreprises, rejoignez-nous</StyledButton>
@@ -64,7 +54,7 @@ const StyledLogosContainer = styled.div`
   margin-top: 100px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
 `
 const StyledLogoContainer = styled.div`
   display: flex;
@@ -76,7 +66,7 @@ const StyledLogoContainer = styled.div`
     flex: 0 0 33%;
   `}
 `
-const StyledLogo = styled.img`
+const StyledLogo = styled(Img)`
   max-height: 60px;
   max-width: 100px;
   ${breakpoint('md')`

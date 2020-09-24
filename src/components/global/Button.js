@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import styled, { css } from 'styled-components'
 import breakpoint from 'styled-components-breakpoint';
 
@@ -39,8 +39,8 @@ const Styles = css`
 const StyledButton = styled.button`
   ${Styles}
 `
-const StyledLink = styled(Link)`
-  ${Styles}
-`
+// const StyledLink = styled(Link)`
+//   ${Styles}
+// `
 
 export default Button;

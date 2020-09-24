@@ -21,7 +21,7 @@ const Landing = () => {
 
   const data = useStaticQuery(graphql`
     query {
-      landingImg: file(relativePath: { eq: "premices.jpg" }) {
+      landingImg: file(relativePath: { eq: "imgs/premices.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 415, quality:90) {
             ...GatsbyImageSharpFluid
