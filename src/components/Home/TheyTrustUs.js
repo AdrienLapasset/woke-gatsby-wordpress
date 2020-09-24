@@ -24,12 +24,60 @@ const TheyTrustUs = () => {
     }
   `)
 
-  const logos = data.allFile.nodes
+  const logosImgs = data.allFile.nodes
+  const logos = [
+    {
+      name: 'cesis',
+      url: 'https://www.cesis-avocats.com'
+    },
+    {
+      name: 'albane',
+      url: 'https://salon.camillealbane.com/coiffeur/chamalieres/'
+    },
+    {
+      name: 'axa',
+      url: 'https://agence.axa.fr/auvergne/puy-de-dome/chamalieres/premiere-ligne-1'
+    },
+    {
+      name: 'capdeco',
+      url: 'https://www.capdeco-france.com/fr/'
+    },
+    {
+      name: 'colombus',
+      url: 'https://www.columbuscafe.com/'
+    },
+    {
+      name: 'euro-pizzas',
+      url: 'https://www.euro-pizza.fr/'
+    },
+    {
+      name: 'mma',
+      url: 'https://agence.mma.fr/clermont-ferrand-blatin/'
+    },
+    {
+      name: 'octopus',
+      url: 'https://www.octopusmag.fr/'
+    },
+    {
+      name: 'pitaya',
+      url: 'https://clermont-ferrand.pitayaresto.fr/?utm_source=google&utm_medium=organic&utm_campaign=mybusiness-website'
+    },
+    {
+      name: 'pokawa',
+      url: 'https://www.pokawa.com/'
+    },
+    {
+      name: 'sushishop',
+      url: 'https://www.sushishop.fr/fr/restaurant/clermont-ferrand'
+    }
+  ]
+
 
   const logosRender = logos.map((logo, index) => {
+    const logoImg = logosImgs.find(logoImg => logoImg.name === logo.name)
     return (
-      <StyledLogoContainer key={index}>
-        <StyledLogo fixed={logo.childImageSharp.fixed} imgStyle={{ objectFit: 'contain' }} />
+      <StyledLogoContainer key={index} href={logo.url} target="_blank" rel="noopener noreferrer">
+        <StyledLogo fixed={logoImg.childImageSharp.fixed} imgStyle={{ objectFit: 'contain' }} />
       </StyledLogoContainer>
     )
   })
@@ -56,7 +104,7 @@ const StyledLogosContainer = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
 `
-const StyledLogoContainer = styled.div`
+const StyledLogoContainer = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
