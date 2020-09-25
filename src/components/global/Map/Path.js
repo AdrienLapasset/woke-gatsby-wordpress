@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 
 import styled from 'styled-components'
 
-const Path = ({ about }) => {
+const Path = ({ isAbout }) => {
 
   let animOffset = 0
 
-  if (about) { animOffset = 3100 }
-  else { animOffset = 1200 }
+  if (isAbout) { animOffset = 3200 }
+  else { animOffset = 1300 }
 
   useEffect(() => {
     const path = document.querySelector('#path');

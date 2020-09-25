@@ -91,7 +91,7 @@ const About = () => {
           <Text lg>Réduction<StyledBr /> de la pauvreté</Text>
         </StyledPoint>
       </StyledPoints>
-      <Map about />
+      <Map isAbout />
     </Layout >
   )
 }

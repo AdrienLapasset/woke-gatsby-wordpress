@@ -7,23 +7,23 @@ import worldMap from 'src/assets/imgs/worldMap.svg'
 import Path from './Path'
 import Markers from './Markers'
 
-const Map = ({ about }) => {
+const Map = ({ isAbout }) => {
 
   useEffect(() => {
     let screenWidth = window.innerWidth
     window.addEventListener("resize", () => screenWidth = window.innerWidth)
     if (screenWidth > 768) {
       let controller = new ScrollMagic.Controller();
-      if (about) {
+      if (isAbout) {
         new ScrollMagic.Scene({
-          offset: 3800,
+          offset: 3600,
           duration: 2500
         })
           .setPin('#pinned')
           .addTo(controller)
       } else {
         new ScrollMagic.Scene({
-          offset: 1800,
+          offset: 1600,
           duration: 2500
         })
           .setPin('#pinned')
@@ -37,7 +37,7 @@ const Map = ({ about }) => {
       <Heading h2>Nous sommes passés par là</Heading>
       <StyledMapContainer >
         <StyledImg src={worldMap} alt="" />
-        <Path about={about} />
+        <Path isAbout={isAbout} />
         <Markers />
       </StyledMapContainer>
     </StyledSection>
