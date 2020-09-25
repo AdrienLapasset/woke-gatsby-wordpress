@@ -32,62 +32,62 @@ const Markers = () => {
   const projectsImage = data.allWordpressPost.nodes
   const markers = [
     {
-      positionX: 540,
-      positionY: 260,
+      positionX: 505,
+      positionY: 246,
       project: 'Association Woke',
       slug: '4ocean'
     },
     {
-      positionX: 617,
-      positionY: 287,
+      positionX: 580,
+      positionY: 269,
       project: 'Les prémisses',
       slug: 'les-premisses'
     },
     {
-      positionX: 936,
-      positionY: 457,
+      positionX: 876,
+      positionY: 427,
       project: 'YKPA',
       slug: 'ykpa'
     },
     {
-      positionX: 949,
-      positionY: 467,
+      positionX: 889,
+      positionY: 437,
       project: '4Ocean + Trash Hero Day',
       slug: 'trash-hero-day'
     },
     {
-      positionX: 925,
-      positionY: 467,
+      positionX: 865,
+      positionY: 437,
       project: 'Lombok',
       slug: 'lombok'
     },
     {
-      positionX: 890,
-      positionY: 447,
+      positionX: 830,
+      positionY: 417,
       project: 'Les tortues de Sumatra',
       slug: 'tortues-de-sumatra'
     },
     {
-      positionX: 882,
-      positionY: 440,
+      positionX: 822,
+      positionY: 410,
       project: 'Kolibri',
       slug: 'kolibri'
     },
     {
-      positionX: 224,
-      positionY: 370,
+      positionX: 213,
+      positionY: 347,
       project: 'Ix-Canaan Guatemala',
       slug: 'ix-canaan-guatemala'
     },
     {
-      positionX: 874,
-      positionY: 361,
+      positionX: 823,
+      positionY: 342,
       project: 'Thailande',
       slug: 'classroom'
     },
     {
-      positionX: 814,
-      positionY: 411,
+      positionX: 762,
+      positionY: 383,
       project: 'Sri Lanka',
       slug: 'sri-lanka'
     },
