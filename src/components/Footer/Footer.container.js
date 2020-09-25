@@ -67,7 +67,7 @@ const Footer = () => {
         <StyledLegalContainer>
           <Link to="/privacy">Politique de confidentialité</Link>
           <Link to="/legal">Mentions légales</Link>
-          <a href={statutsPDF} download>Statuts</a>
+          <a href={statutsPDF} target="_blank" rel="noopener noreferrer">Statuts</a>
         </StyledLegalContainer>
         <Flex column rowLg mt={60} justifyBetween>
           <StyledSignature column rowLg>
@@ -179,13 +179,11 @@ const StyledSignature = styled(Flex)`
   }
 `
 const StyledLegalContainer = styled.div`
-  margin-top: 60px;
   & > * {
     ${LinkStyle} 
     margin-right: 30px;
   }
   ${breakpoint('lg')`
-    margin-top: 30px;
     display: flex;
   `}
 `
