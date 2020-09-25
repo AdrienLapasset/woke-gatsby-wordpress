@@ -17,14 +17,14 @@ const Map = ({ isAbout }) => {
       if (isAbout) {
         new ScrollMagic.Scene({
           offset: 3600,
-          duration: 2500
+          duration: 1000
         })
           .setPin('#pinned')
           .addTo(controller)
       } else {
         new ScrollMagic.Scene({
           offset: 1600,
-          duration: 2500
+          duration: 1000
         })
           .setPin('#pinned')
           .addTo(controller)

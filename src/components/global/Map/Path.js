@@ -6,8 +6,8 @@ const Path = ({ isAbout }) => {
 
   let animOffset = 0
 
-  if (isAbout) { animOffset = 3200 }
-  else { animOffset = 1300 }
+  if (isAbout) { animOffset = 3100 }
+  else { animOffset = 1200 }
 
   useEffect(() => {
     const path = document.querySelector('#path');
@@ -17,7 +17,7 @@ const Path = ({ isAbout }) => {
 
     window.addEventListener("scroll", function (e) {
       let scrollLength = document.documentElement.scrollTop + document.body.scrollTop - animOffset;
-      let strokeDashoffset = pathLength - scrollLength
+      let strokeDashoffset = pathLength - scrollLength * 2
       if (strokeDashoffset >= 0) {
         path.style.strokeDashoffset = strokeDashoffset
       } else {
