@@ -59,7 +59,7 @@ const Contact = () => {
         <StyledAsterix>* Champs obligatoires</StyledAsterix>
         <StyledPolicy>
           <StyledCheckbox type="checkbox" required />
-          <p>J'accepte la <Link to="/privacy">politique de confidentialité</Link> de ce site.&nbsp;*</p>
+          <p>J'accepte la <a href="/privacy" target="_blank">politique de confidentialité</a> de ce site.&nbsp;*</p>
         </StyledPolicy>
         <StyledButton submit>Envoyer mon message</StyledButton>
       </StyledForm>

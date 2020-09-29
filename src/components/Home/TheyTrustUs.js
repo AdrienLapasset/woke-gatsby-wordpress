@@ -69,6 +69,10 @@ const TheyTrustUs = () => {
     {
       name: 'sushishop',
       url: 'https://www.sushishop.fr/fr/restaurant/clermont-ferrand'
+    },
+    {
+      name: 'socooc',
+      url: 'https://www.socooc.com/magasin/socooc-clermont-aubiere'
     }
   ]
 
