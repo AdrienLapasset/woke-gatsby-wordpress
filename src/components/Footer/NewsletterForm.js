@@ -48,7 +48,7 @@ class NewsletterForm extends React.Component {
                 <StyledButton type="submit">Je m’abonne</StyledButton>
               </StyledForm>
               {this.state.isSubscribed ?
-                <StyledText>Merci, vous êtes bien inscrit(e) à notre newsletter, vous allez recevoir un mail de confirmation.</StyledText>
+                <StyledText>Merci, vous allez recevoir un mail afin de confirmer votre abonnement.</StyledText>
                 : this.state.isError ?
                   <StyledText>Vous êtes déjà inscrit(e) à notre newsletter.</StyledText>
                   :
