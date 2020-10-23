@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
 import styled from 'styled-components'
 import Moment from 'react-moment';
 import Layout from "src/components/layout"
@@ -11,13 +10,14 @@ import SEO from "src/components/seo"
 const ArticleTemplate = ({ data }) => {
 
   const article = data.wordpressPost
-  const imgFluid = article.featured_media.localFile?.childImageSharp.fluid
+  // const imgFluid = article.featured_media.localFile?.childImageSharp.fluid
+  const imgFluid = article.featured_media.source_url
 
   return (
     <>
       <Layout isFluid>
         <SEO title={`Woke - ${article.title}`} />
-        <StyledHeaderImg fluid={imgFluid} />
+        <StyledHeaderImg src={imgFluid} />
         <StyledOverlay />
         <StyledInfoContainer>
           <StyledDate>
@@ -41,7 +41,7 @@ const StyledOverlay = styled.div`
   position: absolute;
   top: 0;
 `
-const StyledHeaderImg = styled(Img)`
+const StyledHeaderImg = styled.img`
   width: 100%;
   height: 100vh;
   object-fit: cover;
@@ -70,13 +70,14 @@ export const postQuery = graphql`
       date
       slug
       featured_media {
-        localFile {
-          childImageSharp {
-            fluid(maxWidth: 1600, quality: 90) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
+        source_url
+        # localFile {
+        #   childImageSharp {
+        #     fluid(maxWidth: 1600, quality: 90) {
+        #       ...GatsbyImageSharpFluid
+        #     }
+        #   }
+        # }
       }
     }
   }

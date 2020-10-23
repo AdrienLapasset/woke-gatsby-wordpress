@@ -32,13 +32,17 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        // your WordPress source
-        baseUrl: `woke.fr`,
-        protocol: `https`,
-        // is it hosted on wordpress.com, or self-hosted?
+        baseUrl: `wokefryyws.cluster023.hosting.ovh.net`,
+        protocol: `http`,
         hostingWPCOM: false,
-        // does your site use the Advanced Custom Fields Plugin?
-        useACF: false
+        useACF: false,
+        includedRoutes: [
+          "**/categories",
+          "**/posts",
+          "**/media"
+        ],
+        keepMediaSizes: true,
+
       }
     },
     {

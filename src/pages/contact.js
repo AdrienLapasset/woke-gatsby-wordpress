@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../components/layout"
 import styled, { css } from 'styled-components'
 import Img from "gatsby-image"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import breakpoint from 'styled-components-breakpoint';
 import SEO from "src/components/seo"
 

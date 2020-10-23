@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components'
 import { Link, useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+// import Img from "gatsby-image"
 
 const Markers = () => {
 
@@ -16,13 +16,14 @@ const Markers = () => {
             slug
           }
           featured_media {
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 900) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
+            source_url
+            # localFile {
+            #   childImageSharp {
+            #     fluid(maxWidth: 900) {
+            #       ...GatsbyImageSharpFluid
+            #     }
+            #   }
+            # }
           }
         }
       }
@@ -96,7 +97,8 @@ const Markers = () => {
 
   const handleMouseEnter = (img) => {
     const activeProject = projectsImage.find(image => image.slug === img)
-    setImgToDisplay(activeProject.featured_media.localFile?.childImageSharp.fluid)
+    // setImgToDisplay(activeProject.featured_media.localFile?.childImageSharp.fluid)
+    setImgToDisplay(activeProject.featured_media.source_url)
   }
 
   const renderMarkers = markers.map((marker, index) => {
@@ -118,7 +120,7 @@ const Markers = () => {
     <>
       {imgToDisplay ?
         <StyledImgWrapper>
-          <SyledBgImage fluid={imgToDisplay} />
+          <SyledBgImage src={imgToDisplay} />
         </StyledImgWrapper>
         : null}
       {renderMarkers}
@@ -161,22 +163,24 @@ const StyledMarker = styled(Link)`
     }
   }
 `
-const fadeIn = keyframes`
-  to {
-    opacity: .15;
-  }
-`
 const StyledImgWrapper = styled.div`
    position: absolute;
    width: 100%;
    height: 100%;
    top: 0;
 `
-const SyledBgImage = styled(Img)`
+const fadeIn = keyframes`
+  to {
+    opacity: .15;
+  }
+`
+const SyledBgImage = styled.img`
   opacity: 0;
   filter: saturate(0);
-  animation: ${fadeIn} .2s forwards;
+  animation: ${fadeIn} 2s forwards;
+  width: 100%;
   height: 100%;
+  object-fit: cover;
 `
 
 export default Markers;
