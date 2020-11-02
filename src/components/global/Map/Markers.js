@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components'
 import { Link, useStaticQuery, graphql } from "gatsby"
-// import Img from "gatsby-image"
+import Img from "gatsby-image"
 
 const Markers = () => {
 
@@ -16,14 +16,13 @@ const Markers = () => {
             slug
           }
           featured_media {
-            source_url
-            # localFile {
-            #   childImageSharp {
-            #     fluid(maxWidth: 900) {
-            #       ...GatsbyImageSharpFluid
-            #     }
-            #   }
-            # }
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 900) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
@@ -97,8 +96,7 @@ const Markers = () => {
 
   const handleMouseEnter = (img) => {
     const activeProject = projectsImage.find(image => image.slug === img)
-    // setImgToDisplay(activeProject.featured_media.localFile?.childImageSharp.fluid)
-    setImgToDisplay(activeProject.featured_media.source_url)
+    setImgToDisplay(activeProject.featured_media.localFile?.childImageSharp.fluid)
   }
 
   const renderMarkers = markers.map((marker, index) => {
@@ -120,7 +118,7 @@ const Markers = () => {
     <>
       {imgToDisplay ?
         <StyledImgWrapper>
-          <SyledBgImage src={imgToDisplay} />
+          <SyledBgImage fluid={imgToDisplay} />
         </StyledImgWrapper>
         : null}
       {renderMarkers}
@@ -163,24 +161,22 @@ const StyledMarker = styled(Link)`
     }
   }
 `
+const fadeIn = keyframes`
+  to {
+    opacity: .15;
+  }
+`
 const StyledImgWrapper = styled.div`
    position: absolute;
    width: 100%;
    height: 100%;
    top: 0;
 `
-const fadeIn = keyframes`
-  to {
-    opacity: .15;
-  }
-`
-const SyledBgImage = styled.img`
+const SyledBgImage = styled(Img)`
   opacity: 0;
   filter: saturate(0);
-  animation: ${fadeIn} 2s forwards;
-  width: 100%;
+  animation: ${fadeIn} .2s forwards;
   height: 100%;
-  object-fit: cover;
 `
 
 export default Markers;

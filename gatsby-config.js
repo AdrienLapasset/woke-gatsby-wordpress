@@ -32,8 +32,8 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        baseUrl: `wokefryyws.cluster023.hosting.ovh.net`,
-        protocol: `http`,
+        baseUrl: `woke.ovh`,
+        protocol: `https`,
         hostingWPCOM: false,
         useACF: false,
         includedRoutes: [
@@ -41,8 +41,6 @@ module.exports = {
           "**/posts",
           "**/media"
         ],
-        keepMediaSizes: true,
-
       }
     },
     {

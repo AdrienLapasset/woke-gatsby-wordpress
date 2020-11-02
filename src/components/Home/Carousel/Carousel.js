@@ -36,14 +36,13 @@ const ProjectsCarousel = () => {
               slug
             }
             featured_media {
-              source_url
-              # localFile {
-              #   childImageSharp {
-              #     fluid(maxWidth: 600, quality: 90) {
-              #       ...GatsbyImageSharpFluid
-              #     }
-              #   }
-              # }
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 600, quality: 90) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
             }
           }
         }
@@ -69,11 +68,11 @@ const ProjectsCarousel = () => {
         <StyledCarousel autoPlay infiniteLoop transitionTime={600} interval={4000} showStatus={false} centerMode={isCenterMode} centerSlidePercentage={70} emulateTouch showThumbs={false}
           renderArrowPrev={(onClickHandler) =>
             <button className="prevBtn" type="button" onClick={onClickHandler}>
-              <img src={chevron} alt="Précédent" />
+              <img src={chevron} alt="" />
             </button>}
           renderArrowNext={(onClickHandler) =>
             <button className="nextBtn" type="button" onClick={onClickHandler}>
-              <img src={chevron} alt="Suivant" />
+              <img src={chevron} alt="" />
             </button>}
         >
           {carouselItems}

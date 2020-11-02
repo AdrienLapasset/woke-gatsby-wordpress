@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, graphql, StaticQuery } from "gatsby"
 import styled from 'styled-components'
-// import Img from "gatsby-image"
+import Img from "gatsby-image"
 import breakpoint from 'styled-components-breakpoint';
 
 import Heading from 'src/components/global/Heading'
@@ -16,8 +16,7 @@ const News = ({ data }) => {
   //   return lang === 'fr'
   // })
 
-  // const imgFluid = projects[0].node.featured_media.localFile.childImageSharp.fluid
-  const imgFluid = projects[0].node.featured_media.source_url
+  const imgFluid = projects[0].node.featured_media.localFile.childImageSharp.fluid
 
   const truncate = (string) => {
     return string.substring(3, 170) + "..."
@@ -30,7 +29,7 @@ const News = ({ data }) => {
         <FlexElement>
           <Link to={`/blog/${projects[0].node.slug}`}>
             <Heading>{projects[0].node.title}</Heading>
-            <StyledImgMobile src={imgFluid} />
+            <StyledImgMobile fluid={imgFluid} />
             {truncate(projects[0].node.excerpt)}
             <StyledReadBtn>Lire la suite</StyledReadBtn>
           </Link>
@@ -40,7 +39,7 @@ const News = ({ data }) => {
         </FlexElement>
         <FlexElement>
           <Link to={`/blog/${projects[0].node.slug}`}>
-            <StyledImg src={imgFluid} />
+            <StyledImg fluid={imgFluid} />
           </Link>
         </FlexElement>
       </FlexContainer>
@@ -82,16 +81,15 @@ const FlexElement = styled.div`
   `}
   }
 `
-const StyledImg = styled.img`
+const StyledImg = styled(Img)`
   width: 100%;
   height: 300px;
   display: none;
-  object-fit: cover;
   ${breakpoint('lg')`
     display: block;
   `}
 `
-const StyledImgMobile = styled.img`
+const StyledImgMobile = styled(Img)`
   width: 100%;
   margin-bottom: 30px;
   ${breakpoint('lg')`
@@ -121,14 +119,13 @@ export default props => (
                 slug
               }
               featured_media {
-                source_url
-                # localFile {
-                #   childImageSharp {
-                #     fluid(maxWidth: 900, quality: 90) {
-                #       ...GatsbyImageSharpFluid_withWebp
-                #   }
-                #   }
-                # }
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 900, quality: 90) {
+                      ...GatsbyImageSharpFluid_withWebp
+                  }
+                  }
+                }
               }
             }
           }

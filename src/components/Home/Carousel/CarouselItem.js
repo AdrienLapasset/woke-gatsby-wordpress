@@ -1,5 +1,5 @@
 import React from 'react';
-// import Img from "gatsby-image"
+import Img from "gatsby-image"
 import styled from 'styled-components'
 import Moment from 'react-moment';
 import 'moment/locale/fr';
@@ -9,13 +9,12 @@ const NewCarouselItem = ({ project }) => {
 
   let imgFluid = null
   if (project !== undefined) {
-    // imgFluid = project.featured_media.localFile.childImageSharp.fluid
-    imgFluid = project.featured_media.source_url
+    imgFluid = project.featured_media.localFile.childImageSharp.fluid
   }
 
   return (
     <StyledLink to={'/projects/' + project.slug}>
-      <img src={imgFluid} style={{ height: '100%' }} alt={project.title} />
+      <Img fluid={imgFluid} style={{ height: '100%' }} />
       <StyledInfoContainer className="carousel-link">
         <StyledTitle className="carousel-link__title">{project.title}</StyledTitle>
         <StyledDate className="carousel-link__date" interval={0} format="DD MMMM YYYY" >{project.date}</StyledDate>
@@ -27,9 +26,6 @@ const NewCarouselItem = ({ project }) => {
 const StyledLink = styled(Link)`
   height: 100%;
   width: 100%;
-  img {
-    object-fit: cover;
-  }
 `
 const StyledInfoContainer = styled.div`
   background-color: ${props => props.theme.colors.background};

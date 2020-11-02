@@ -42,14 +42,13 @@ export const query = graphql`
               slug
             }
             featured_media {
-              source_url
-              # localFile {
-              #   childImageSharp {
-              #     fluid(maxWidth: 600, quality: 90) {
-              #       ...GatsbyImageSharpFluid
-              #     }
-              #   }
-              # }
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 600, quality: 90) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
             }
           }
         }

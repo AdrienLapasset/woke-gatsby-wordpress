@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "gatsby"
-// import Img from "gatsby-image"
+import Img from "gatsby-image"
 import styled from 'styled-components'
 import Heading from 'src/components/global/Heading'
 import Flex from 'src/components/global/Flex'
@@ -10,8 +10,7 @@ const ArticleListItem = ({ edge }) => {
 
   const article = edge.node
 
-  // const imgFluid = article.featured_media.localFile?.childImageSharp.fluid
-  const imgFluid = article.featured_media.source_url
+  const imgFluid = article.featured_media.localFile?.childImageSharp.fluid
 
   const truncate = (string) => {
     return string.substring(3, 300) + "... <u>Lire la suite</u>"
@@ -25,9 +24,7 @@ const ArticleListItem = ({ edge }) => {
         <Heading>{article.title}</Heading>
         <p dangerouslySetInnerHTML={{ __html: truncateExcerpt }} />
       </StyledFlex>
-      <div>
-        <img src={imgFluid} alt={article.title} />
-      </div>
+      <Img fluid={imgFluid} />
     </StyledLink>
   )
 }
@@ -62,11 +59,8 @@ const StyledLink = styled(Link)`
    margin-bottom: 30px;
    ${breakpoint('md')`
     margin-bottom: 0px;
-  `} 
+  `}  
  }
- img {
-    width: 100%;
-  } 
 `
 
 export default ArticleListItem;

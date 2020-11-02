@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from "gatsby"
+import Img from "gatsby-image"
 import styled from 'styled-components'
 
 const ProjectsListItem = ({ edge, index }) => {
 
   const project = edge.node
 
-  // const imgFluid = project.featured_media.localFile?.childImageSharp.fluid
-  const imgFluid = project.featured_media.source_url
+  const imgFluid = project.featured_media.localFile?.childImageSharp.fluid
+
   const truncate = (string) => {
     return string.substring(3, 100) + "..."
   }
@@ -16,7 +17,7 @@ const ProjectsListItem = ({ edge, index }) => {
     <StyledLi>
       <Link to={`/projects/${project.slug}`}>
         <StyledNumber>{index}</StyledNumber>
-        <img src={imgFluid} alt={project.title} />
+        <Img fluid={imgFluid} />
         <StyledTitle>{project.title}</StyledTitle>
         <div>{truncate(project.excerpt)}</div>
       </Link>
@@ -40,9 +41,6 @@ const StyledLi = styled.li`
     ${StyledNumber} {
       text-align: right;
     }
-  }
-  img {
-    width: 100%;
   }
 `
 const StyledTitle = styled.h1`
