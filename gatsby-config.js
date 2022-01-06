@@ -50,18 +50,6 @@ module.exports = {
         timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
       },
     },
-    {
-      resolve: `gatsby-plugin-gdpr-cookies`,
-      options: {
-        googleAnalytics: {
-          trackingId: 'G-W7HKJSHN02',
-          // Setting this parameter is optional
-          anonymize: true
-        },
-        // Defines the environments where the tracking should be available  - default is ["production"]
-        environments: ['production', 'development']
-      },
-    },
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     'gatsby-plugin-root-import',
